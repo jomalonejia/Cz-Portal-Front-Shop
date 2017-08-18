@@ -1,0 +1,101 @@
+@value fontColor from './theme.css';
+
+.head {
+    background-color: #000000;
+    color: #FFFFFF;
+    width: calc(100%);
+    height: 100px;
+}
+
+.logo{
+    margin-top: calc(10px);
+    margin-left:  calc(50px);
+    float: left;
+    cursor: pointer;
+}
+
+.icon{
+    color:fontColor;
+    float: right;
+    margin-right: 200px;
+}
+
+.icon a{
+    color: inherit;
+    margin-right:25px;
+}
+
+.icon span{
+    background: #999;
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 45px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    float:right;
+    margin-top: 6px;
+    margin-left: -18px;
+}
+
+.menu {
+
+    margin-left: 200px;
+    padding-top: 40px;
+}
+
+.menu ul li {
+    float: left;
+    margin-left: 50px;
+    list-style-type: none;
+    color: #FFFFFF;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: fontColor;
+    font-size: 0.8em;
+}
+
+.menu ul li a:hover {
+    color: #FFFFFF;
+}
+
+/*
+.user {
+    float: right;
+    margin-top: 40px;
+    margin-left: 80px;
+}
+.user a {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 20px;
+    height: 20px;
+    background-size: 240px 107px;
+}
+.user a.signin {
+    background: url('/src/images/bg_sprite.png') -5px 0;
+    margin-right: 25px;
+}
+.user a:last-child {
+    background: url('/src/images/bg_sprite.png') 0px -22px;
+    background-color: transparent;
+    padding-left: 35px;
+    text-decoration: none;
+}
+.user a:last-child span {
+    background: #999;
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 45px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;;
+}*/
