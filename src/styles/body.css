@@ -1,9 +1,19 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    font-family: 'Microsoft Yahei';
 }
 
-body {
-    background-color: #EAEAEA;
-    min-width: 1300px;
+.body {
+    width:1200px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+li{
+    list-style: none;
 }

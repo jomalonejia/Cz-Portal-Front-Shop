@@ -6,7 +6,7 @@ class Nav extends Component{
     return (
         <div className={navStyle.nav}>
           <ul>
-            <li><a href="#">首页</a></li>
+            <li><a href="#" className={navStyle.active}>首页</a></li>
             <li><a href="#">手机</a></li>
             <li><a href="#">"足迹系列"手感膜</a></li>
             <li><a href="#">官方配件</a></li>
