@@ -1,0 +1,88 @@
+/*footer*/
+
+.footer {
+    width: 100%;
+    height: 370px;
+    margin-top: 50px;
+    background-color: #FFFFFF;
+    position:relative;
+    bottom:0px;
+}
+
+/**/
+
+.footer_menu {
+    padding-top: 80px;
+}
+
+.footer_menu ul {
+    float: left;
+    margin-left: 80px;
+    font-size: 0.8em;
+    line-height: 26px;
+}
+
+.footer_menu h5 {
+    line-height: 40px;
+    color: #7C7979;
+}
+
+.footer_menu ul li a {
+    color: #827D7D;
+    line-height: 20px;
+}
+
+.footer_menu ul li a:hover {
+    color: #1023FF;
+}
+
+.footerright {
+    float: right;
+}
+
+.footerright input {
+    width: 90px;
+    height: 40px;
+    margin: 0px 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #C9C9C9;
+    color: #2D08BF;
+    padding: 0 15 0 19;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+.footer2 {
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+    border-top: 1px solid #969292;
+    padding-top: 30px;
+}
+
+.footer2 span {
+    font-size: 0.7em;
+    color: #827D7D;
+    padding-left: 100px;
+}
+
+.footer2 input {
+    background-color: #FFFFFF;
+    color: #5C60BA;
+    border: 1px solid #FFFFFF;
+    border-left: 1px solid #969292;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.footer2 input:hover {
+    color: #0E2287;
+}
+
+.footer2 select {
+    appearance: none;
+    padding: 10px 30px;
+    float: right;
+    margin: -20px 50px;
+    border-radius: 20%;
+}
