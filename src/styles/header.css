@@ -5,6 +5,7 @@
     color: #FFFFFF;
     width: calc(100%);
     height: 100px;
+    min-width:1220px;
 }
 
 .head .logo{
