@@ -55,6 +55,7 @@ class HomePage extends Component {
       ],
       hotItems = [
         {
+          itemId:0,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -64,6 +65,7 @@ class HomePage extends Component {
           ]
         },
         {
+          itemId:1,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -72,6 +74,7 @@ class HomePage extends Component {
           ]
         },
         {
+          itemId:2,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -80,6 +83,7 @@ class HomePage extends Component {
           ]
         },
         {
+          itemId:3,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -190,7 +194,7 @@ class HomePage extends Component {
                         {
                           item.images.map((image, index) => (
                             <div key={index}>
-                              <Link to='/item/123'>
+                              <Link to={`/item/${item.itemId}`}>
                                 <img src={image}/>
                               </Link>
                             </div>

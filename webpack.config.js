@@ -1,7 +1,7 @@
 const webpack = require('webpack');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: `${__dirname}/src/index.html`,
@@ -62,6 +62,14 @@ module.exports = {
             'sass-loader'
           ]
         }),
+      },
+      {
+        test: /\.less$/,
+        include: [
+          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "node_modules/antd")
+        ],
+        loader: 'style-loader!css-loader!postcss-loader!less-loader',
       },
     ],
   },

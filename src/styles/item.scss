@@ -1,5 +1,4 @@
-
-$param-border-active:inset 0 0 0 2px #B2B2B2;
+$param-border-active: inset 0 0 0 2px #B2B2B2;
 
 .main {
   width: 1220px;
@@ -9,7 +8,7 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
   /*--商品头部div--*/
   .grayBox {
     width: 1220px;
-    height: 560px;
+    min-height: 600px;
     background-color: #fff;
     border-top: 1px solid;
     border-left: 1px solid;
@@ -112,30 +111,47 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
       height: 440px;
       float: left;
       background-color: #fff;
-      img {
-        padding: 10px;
-        /*border: 3px solid #ccc;*/
-        border: 1px solid rgba(0, 0, 0, .06);
-        width: 54px;
-        height: 54px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
+      ul{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        img {
+          padding: 10px;
+          /*border: 3px solid #ccc;*/
+          border: 1px solid rgba(0, 0, 0, .06);
+          width: 54px;
+          height: 54px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+        img:hover{
+          box-shadow: inset 0 0 0 2px #B2B2B2;
+        }
+        .imageShow{
+          box-shadow: inset 0 0 0 2px #B2B2B2;
+        }
       }
+
     }
 
     /*<!--右侧图片区-->*/
     .thumb {
       float: left;
-      width: 460px;
-      height: 440px;
+      width: 400px;
+      height: 400px;
       background-color: #fff;
       overflow: hidden;
       li {
+        display: none;
         img {
           width: 440px;
           height: 440px;
         }
+      }
+      .thumbShow{
+        display: block;
       }
     }
   }
@@ -216,8 +232,8 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
 }
 
 .param {
-  padding: 29px 0 0px 10px;
-  height: 120px;
+  padding: 20px;
+  min-height: 120px;
   overflow: hidden;
   border-bottom: 1px solid;
   border-color: #E0E0E0;
@@ -251,7 +267,7 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
         .paramValue {
           display: block;
           color: #757575;
-          font-size:13px;
+          font-size: 13px;
           width: 60px;
           height: 36px;
           margin-top: 10px;
@@ -263,15 +279,15 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
           text-decoration: none;
           cursor: pointer;
         }
-        .paramCircle{
+        .paramCircle {
           border-color: #B2B2B2;
           box-shadow: inset 0 0 0 1px #B2B2B2;
-          width:36px;
-          height:36px;
+          width: 36px;
+          height: 36px;
           border-radius: 50%;
           position: relative;
-          .paramColor{
-            background-color: red;
+          .paramColor {
+            background: url("/src/images/color/gray.jpg");
             position: absolute;
             border-radius: 50%;
             border-radius: 50%;
@@ -279,35 +295,47 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
             right: 5px;
             height: 26px;
             width: 26px;
-            box-shadow: inset 0 0 1px 0 rgba(0,0,0,.3), inset 0 0 8px 0 rgba(0,0,0,.03);
+            box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, .3), inset 0 0 8px 0 rgba(0, 0, 0, .03);
           }
         }
-        .paramValue:hover{
-            box-shadow: inset 0 0 0 2px #dbdbdb;
+        .paramValue:hover {
+          box-shadow: inset 0 0 0 2px #dbdbdb;
         }
-        .paramActive{
+        .paramActive {
           box-shadow: $param-border-active;
         }
-        .paramActive:hover{
+        .paramActive:hover {
           box-shadow: $param-border-active;
         }
       }
     }
+  }
+}
 
-    .number {
-      float: left;
-      height: 36px;
+.countArea {
+  float: left;
+  height: 36px;
+  display: inline;
 
-      a .numberIcon {
-        float: left;
-        margin-left: 20px;
-      }
-
-      inputArea {
-        display: inline-block;
-        margin-top: 10px;
-      }
+  span.countIconArea {
+    float: left;
+    margin-left: 35px;
+    cursor: pointer;
+    .countIcon {
+      color: #bdbdbd;
+      font-size: 23px;
     }
+    .countIcon:hover{
+      background-color: rgb(246, 246, 246);
+    }
+  }
+
+
+  span.countAmount {
+    display: inline-block;
+    margin-left: 13px;
+    margin-top: -2px;
+    position: absolute;
   }
 }
 
@@ -325,7 +353,6 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
   .buttonBar {
     width: 450px;
     height: 129px;
-
     .blueBtn {
       float: left;
       display: inline-block;
@@ -334,12 +361,15 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
       line-height: 48px;
       text-align: center;
       border-radius: 7px;
-      border: 1px solid #5c81e3;
       background-color: #5c85e5;
       background-image: -webkit-linear-gradient(#779ae9, #5078df);
       background-image: linear-gradient(#779ae9, #5078df);
       color: #fff;
       cursor: pointer;
+    }
+    .blueBtn:hover {
+      transition: all .15s ease-out;
+      box-shadow: inset 0 1px 1px #7696DE, inset 0 0 2px #627DCA, inset 0 -2px 3px #5A77C7, inset 0 0 100px rgba(48, 77, 147, .4);
     }
 
     .grayBtn {
@@ -348,12 +378,17 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
       height: 48px;
       line-height: 48px;
       text-align: center;
-      background: linear-gradient(#fff, #fafafa);
+      background-color: #fff;
       border: 1px solid #e0e0e0;
       border-radius: 7px;
       color: #8c8c8c;
       cursor: pointer;
       margin-left: 20px;
+    }
+
+    .grayBtn:hover {
+      transition: all 0.15s ease-out;
+      background: linear-gradient(rgb(246, 246, 246), rgb(237, 237, 237));
     }
 
     .warning p {
@@ -365,7 +400,7 @@ $param-border-active:inset 0 0 0 2px #B2B2B2;
   }
 }
 
-.linkStyle{
+.linkStyle {
   text-decoration: none;
 }
 
