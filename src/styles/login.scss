@@ -1,0 +1,57 @@
+.background{
+  background-image: url("/src/images/img/bg_9b9dcb65ff.png");
+}
+
+.dialog{
+  width: 452px;
+  height: 552px;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  display: block;
+  background-color: #fff;
+  box-shadow: 0 9px 30px -6px rgba(0,0,0,.2), 0 18px 20px -10px rgba(0,0,0,.04), 0 18px 20px -10px rgba(0,0,0,.04), 0 10px 20px -10px rgba(0,0,0,.04);
+  .title{
+    position: relative;
+    background-size: 160px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 92px;
+    margin: 23px 0 50px;
+    padding: 75px 0 0;
+    box-shadow: none;
+    img{
+      position: absolute;
+      left:50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    h4{
+      width: 100%;
+      text-align: center;
+      margin-top: 70px;
+      padding: 0;
+      border-bottom: 0;
+      box-shadow: none;
+      line-height: 1em;
+      height: auto;
+      color: #333;
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+}
+
+
+.loginForm {
+  width:370px;
+  margin:0 auto;
+  .loginFormForgot {
+  }
+
+  .loginFormButton {
+  }
+}
+

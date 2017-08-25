@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TiUserAdd from 'react-icons/lib/ti/user'
 import TiShoppingCart from 'react-icons/lib/ti/shopping-cart'
+import Header from '../header'
+import Nav from '../nav'
+import Footer from '../footer'
 import style from '../../styles/homePage.css'
 
 class HomePage extends Component {
@@ -55,7 +58,7 @@ class HomePage extends Component {
       ],
       hotItems = [
         {
-          itemId:0,
+          itemId: 0,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -65,7 +68,7 @@ class HomePage extends Component {
           ]
         },
         {
-          itemId:1,
+          itemId: 1,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -74,7 +77,7 @@ class HomePage extends Component {
           ]
         },
         {
-          itemId:2,
+          itemId: 2,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -83,7 +86,7 @@ class HomePage extends Component {
           ]
         },
         {
-          itemId:3,
+          itemId: 3,
           name: 'FIIL Diva 智能蓝牙无线降噪耳机',
           describe: '手势触控、智能启停',
           price: 999,
@@ -147,6 +150,8 @@ class HomePage extends Component {
       ]
     return (
       <div>
+        <Header/>
+        <Nav/>
         <div className={style.body}>
           <div className={style.carousel}>
             <ul className={style.carouselToggle}>
@@ -272,8 +277,8 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
-
     )
   }
 }

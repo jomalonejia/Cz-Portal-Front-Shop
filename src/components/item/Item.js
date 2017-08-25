@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link, NavLink } from 'react-router-dom'
 import { Icon } from 'antd'
+import Header from '../header'
+import Nav from '../nav'
+import Footer from '../footer'
 import style from '../../styles/item.scss'
 import '../../styles/theme.less'
 
@@ -10,7 +13,7 @@ class Item extends Component {
     super(props)
     this.state = {
       count: 1,
-      selectedImageIndex:0
+      selectedImageIndex: 0
     }
   }
 
@@ -19,14 +22,14 @@ class Item extends Component {
     this.setState({count: newCount})
   }
 
-  changeImage (index){
-    this.setState({selectedImageIndex:index})
+  changeImage (index) {
+    this.setState({selectedImageIndex: index})
   }
 
   render () {
-    const {match} = this.props;
+    const {match} = this.props
 
-    let itemId = match.params.id;
+    let itemId = match.params.id
 
     const items = [
       {
@@ -113,6 +116,8 @@ class Item extends Component {
 
     return (
       <div>
+        <Header/>
+        <Nav/>
         <div className={style.main}>
           <div id="graybox" className={style.grayBox}>
             <div className={style.wrapper}>
@@ -121,8 +126,9 @@ class Item extends Component {
                   <ul>
                     {
                       items[itemId].images.map((imageUrl, index) => (
-                        <li onClick={this.changeImage.bind(this,index)} key={index}>
-                          <img src={imageUrl} className={index === this.state.selectedImageIndex ? style.imageShow : null}/>
+                        <li onClick={this.changeImage.bind(this, index)} key={index}>
+                          <img src={imageUrl}
+                               className={index === this.state.selectedImageIndex ? style.imageShow : null}/>
                         </li>
                       ))
                     }
@@ -247,6 +253,7 @@ class Item extends Component {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     )
   }
