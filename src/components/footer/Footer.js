@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import style from '../../styles/footer.css';
+import '../../styles/footer.css';
 
 class Footer extends Component{
   render(){
     return (
-      <div className={style.footer}>
-        <div className={style.footer_menu}>
+      <div className='footer'>
+        <div className='footer_menu'>
           <ul>
             <h5>订单服务</h5>
             <li><a href="#">购买指南</a></li>
@@ -42,13 +42,13 @@ class Footer extends Component{
             <li><a href="#">官方微信</a></li>
             <li><a href="#">官方贴吧</a></li>
           </ul>
-          <div className={style.footerright}>
+          <div className='footerright'>
             <h2>400-619-0909</h2>
             <h5>周一至周日 9:00-18:00（仅收市话费）</h5>
             <input type="button" value="?在线帮助"/>
           </div>
         </div>
-        <div className={style.footer2}>
+        <div className='footer2'>
           <span>Copyright © 2017, Smartisan Digital Co., Ltd. All Rights Reserved.北京锤子数码科技有限公司</span>
           <input type="button" value="法律声明"/>
           <input type="button" value="隐私条款"/>

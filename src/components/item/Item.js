@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link, NavLink } from 'react-router-dom'
-import { Icon } from 'antd'
-import Header from '../header'
-import Nav from '../nav'
-import Footer from '../footer'
 import style from '../../styles/item.scss'
-import '../../styles/theme.less'
+import 'semantic-ui-css/semantic.min.css';
 
 class Item extends Component {
   constructor (props) {
@@ -116,8 +112,6 @@ class Item extends Component {
 
     return (
       <div>
-        <Header/>
-        <Nav/>
         <div className={style.main}>
           <div id="graybox" className={style.grayBox}>
             <div className={style.wrapper}>
@@ -177,7 +171,7 @@ class Item extends Component {
                                 {
                                   !param.color ? param.values.map((value, paramIndex) => (
                                     <li key={paramIndex}>
-                                      <NavLink activeClassName={style.linkStyle} to="/">
+                                      <NavLink  to="/">
                                       <span
                                         className={[style.paramValue, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
                                        {value}
@@ -186,7 +180,7 @@ class Item extends Component {
                                     </li>
                                   )) : (param.values ? param.values.map((value, paramIndex) => (
                                     <li key={paramIndex}>
-                                      <NavLink activeClassName={style.linkStyle} to="/">
+                                      <NavLink  to="/">
                                       <span
                                         className={[style.paramValue, style.paramCircle, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
                                           <img className={style.paramColor} src={value}/>
@@ -209,13 +203,13 @@ class Item extends Component {
                   <div className={style.countArea}>
                     <span onClick={this.state.count > 1 ? this.changeCount.bind(this, -1) : null}
                           className={style.countIconArea}>
-                      <Icon type="minus-circle-o" className={style.countIcon}/>
+                      {/*<Icon type="minus-circle-o" className={style.countIcon}/>*/}
                     </span>
                     <span className={style.countAmount}>
                       {this.state.count}
                     </span>
                     <span className={style.countIconArea}>
-                      <Icon type="plus-circle-o" onClick={this.changeCount.bind(this, 1)} className={style.countIcon}/>
+                      {/*<Icon type="plus-circle-o" onClick={this.changeCount.bind(this, 1)} className={style.countIcon}/>*/}
                     </span>
                   </div>
                 </div>
@@ -253,7 +247,6 @@ class Item extends Component {
             </div>
           </div>
         </div>
-        <Footer/>
       </div>
     )
   }

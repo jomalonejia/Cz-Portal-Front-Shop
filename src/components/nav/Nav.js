@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from '../../styles/nav.css';
+import '../../styles/nav.css';
 
 class Nav extends Component{
   render(){
@@ -14,12 +14,12 @@ class Nav extends Component{
         {name: '服务', href: '/'}
       ];
     return(
-      <div className={style.nav}>
+      <div className='nav'>
         <ul>
           {
             navs.map((menu, index) => (
               <li key={index}>
-                <a className={index === 0 ? style.active : ''} href={menu.href}>{menu.name}</a>
+                <a className={index === 0 ? 'active' : ''} href={menu.href}>{menu.name}</a>
               </li>
             ))
           }

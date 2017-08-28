@@ -3,7 +3,6 @@
   margin: 0px;
   padding: 0px;
   font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
-  /*color: rgb(102, 102, 102);*/
   font-size: 14px;
 }
 
@@ -19,3 +18,6 @@ li{
 }
 
 
+a{
+  text-decoration: none;
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TiUserAdd from 'react-icons/lib/ti/user'
 import TiShoppingCart from 'react-icons/lib/ti/shopping-cart'
-import style from '../../styles/header.css'
+import  '../../styles/header.css'
 
 class Header extends Component {
 
@@ -19,11 +19,11 @@ class Header extends Component {
     ]
 
     return (
-      <div className={style.head}>
-        <div className={style.logo}>
-          <img alt="" src="src/images/logo.png"/>
+      <div className='head'>
+        <div className='logo'>
+          <img alt="" src="/src/images/logo.png"/>
         </div>
-        <div className={style.menu}>
+        <div className='menu'>
           <ul>
             {
               menus.map((menu, index) => (
@@ -32,8 +32,8 @@ class Header extends Component {
             }
           </ul>
         </div>
-        <div id="test" className={style.icon}>
-          <Link to='/login'><TiUserAdd size={30}/></Link>
+        <div id="test" className='icon'>
+          <Link to='/account'><TiUserAdd size={30}/></Link>
           <a href="/"><TiShoppingCart size={30}/></a>
           <span>0</span>
         </div>

@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import TiUserAdd from 'react-icons/lib/ti/user'
-import TiShoppingCart from 'react-icons/lib/ti/shopping-cart'
-import Header from '../header'
-import Nav from '../nav'
-import Footer from '../footer'
-import style from '../../styles/homePage.css'
+import style from '../../styles/homePage.scss'
 
 class HomePage extends Component {
 
@@ -150,8 +145,6 @@ class HomePage extends Component {
       ]
     return (
       <div>
-        <Header/>
-        <Nav/>
         <div className={style.body}>
           <div className={style.carousel}>
             <ul className={style.carouselToggle}>
@@ -277,7 +270,6 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-        <Footer/>
       </div>
     )
   }

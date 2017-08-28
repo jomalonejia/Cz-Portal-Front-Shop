@@ -32,13 +32,7 @@ module.exports = {
           },
           {
             loader:'css-loader',
-            options:{
-              modules:true
-            }
-          },
-          {
-            loader:'postcss-loader'
-          },
+          }
         ]
       },
       {
@@ -71,6 +65,9 @@ module.exports = {
         ],
         loader: 'style-loader!css-loader!postcss-loader!less-loader',
       },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000' }
     ],
   },
   devServer: {
