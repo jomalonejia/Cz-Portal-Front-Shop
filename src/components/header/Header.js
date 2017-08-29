@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TiUserAdd from 'react-icons/lib/ti/user'
 import TiShoppingCart from 'react-icons/lib/ti/shopping-cart'
-import  '../../styles/header.css'
+import  './header.css'
 
 class Header extends Component {
 

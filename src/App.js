@@ -10,8 +10,8 @@ import Footer from './components/footer'
 import Account from './components/account'
 import Login from './components/login'
 
-import createBrowserHistory from 'history/createBrowserHistory'
-const history = createBrowserHistory()
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory()
 
 class App extends Component {
 

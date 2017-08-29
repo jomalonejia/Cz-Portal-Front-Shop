@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link, NavLink } from 'react-router-dom'
-import style from '../../styles/item.scss'
-import 'semantic-ui-css/semantic.min.css';
+import { Icon } from 'semantic-ui-react'
+import 'semantic-ui-css/components/icon.css'
+import style from './item.scss'
 
 class Item extends Component {
   constructor (props) {
@@ -171,7 +172,7 @@ class Item extends Component {
                                 {
                                   !param.color ? param.values.map((value, paramIndex) => (
                                     <li key={paramIndex}>
-                                      <NavLink  to="/">
+                                      <NavLink to="/">
                                       <span
                                         className={[style.paramValue, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
                                        {value}
@@ -180,7 +181,7 @@ class Item extends Component {
                                     </li>
                                   )) : (param.values ? param.values.map((value, paramIndex) => (
                                     <li key={paramIndex}>
-                                      <NavLink  to="/">
+                                      <NavLink to="/">
                                       <span
                                         className={[style.paramValue, style.paramCircle, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
                                           <img className={style.paramColor} src={value}/>
@@ -202,14 +203,15 @@ class Item extends Component {
                   <span className={style.paramName}>数量</span>
                   <div className={style.countArea}>
                     <span onClick={this.state.count > 1 ? this.changeCount.bind(this, -1) : null}
-                          className={style.countIconArea}>
-                      {/*<Icon type="minus-circle-o" className={style.countIcon}/>*/}
+                          className={style.countMinus}>
+                      <Icon name='minus circle'  className={style.countIcon}/>
                     </span>
                     <span className={style.countAmount}>
                       {this.state.count}
                     </span>
-                    <span className={style.countIconArea}>
-                      {/*<Icon type="plus-circle-o" onClick={this.changeCount.bind(this, 1)} className={style.countIcon}/>*/}
+                    <span onClick={this.changeCount.bind(this,1)}
+                          className={style.countPlus}>
+                      <Icon name='add circle'  className={style.countIcon}/>
                     </span>
                   </div>
                 </div>

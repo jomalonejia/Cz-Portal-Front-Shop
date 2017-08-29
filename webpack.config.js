@@ -11,6 +11,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: [
+    'babel-polyfill',
     './src/index.js',
   ],
   output: {
@@ -73,6 +74,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     inline: true,
+    hot:true,
     port: 3000,
   },
   plugins: [new ExtractTextPlugin("style.css"),HTMLWebpackPluginConfig,new webpack.HotModuleReplacementPlugin()],

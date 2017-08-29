@@ -1,16 +1,28 @@
 import React,{Component} from 'react'
 import {NavLink} from 'react-router-dom'
+import { connect } from 'react-redux';
+import {accountActions} from '../../actions/account'
 
-import style from '../../styles/account/account.scss'
+import style from './account.scss'
 
 class Account extends Component{
+
+  constructor (props){
+    super(props);
+  }
+
+  componentWillMount() {
+    this.props.testSaga('aluba');
+  }
+
+
   render(){
 
     const menus = [
-      {name:'我的订单',url:'/'},
-      {name:'售后服务',url:'/'},
-      {name:'账户资料',url:'/'},
-      {name:'收货地址',url:'/'},
+      {name:'order',describe:'我的订单',url:'/'},
+      {name:'support',describe:'售后服务',url:'/'},
+      {name:'info',describe:'账户资料',url:'/'},
+      {name:'address',describe:'收货地址',url:'/'},
     ]
 
     return(
@@ -26,9 +38,9 @@ class Account extends Component{
                   {
                     menus.map((menu,index) => (
                     <li key={index}>
-                      <NavLink to={menu.url}>
+                     {/* <NavLink to={menu.url}>*/}
                         {menu.name}
-                      </NavLink>
+                      {/*</NavLink>*/}
                     </li>
                     ))
                   }
@@ -45,4 +57,12 @@ class Account extends Component{
   }
 }
 
-export default Account
+const mapDispatchToProps = {
+  changeMenu: accountActions.changeAccountMenu,
+  testSaga:accountActions.testSaga
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Account);

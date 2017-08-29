@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 
-import style from '../../../../styles/account/order.scss'
 
 class OrderList extends Component{
   render(){
