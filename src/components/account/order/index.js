@@ -1,1 +1,1 @@
-export {default} from './orderList/OrderList'
+export {default} from './Order'

@@ -44,7 +44,9 @@
       border-top: 1px solid #EBEBEB;
       line-height: 48px;
       cursor: pointer;
-
+      a{
+        color:#666;
+      }
     }
     li.active,li:hover{
       position: relative;
@@ -55,6 +57,9 @@
       line-height: 50px;
       color: #FFF;
       padding: 0 30px;
+      a{
+        color:#fff;
+      }
     }
   }
 }
