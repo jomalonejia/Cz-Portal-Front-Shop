@@ -1,30 +1,24 @@
-import React,{Component} from 'react'
-import {NavLink} from 'react-router-dom'
-import { connect } from 'react-redux'
-import { createSelector } from 'reselect';
-import {accountActions} from '../../actions/account'
-import {getCurrentAccountMenu} from '../../selectors/account'
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 
-import style from './account.scss'
+import style from './menu.scss'
 
 class Menu extends Component {
 
   constructor (props) {
     super(props);
-  }
 
-  componentWillMount () {
-    this.props.testSaga('aluba');
   }
 
   render () {
-    const {currentAccountMenu} = this.props;
+
+
 
     const menus = [
-      {name: 'order', describe: '我的订单', url: '/'},
-      {name: 'support', describe: '售后服务', url: '/'},
-      {name: 'info', describe: '账户资料', url: '/'},
-      {name: 'address', describe: '收货地址', url: '/'},
+      {name: 'order', describe: '我的订单', url: '/account/order'},
+      {name: 'support', describe: '售后服务', url: '/account/support'},
+      {name: 'info', describe: '账户资料', url: '/account/info'},
+      {name: 'address', describe: '收货地址', url: '/account/address'},
     ]
 
     return (
@@ -39,11 +33,11 @@ class Menu extends Component {
                 <ul>
                   {
                     menus.map((menu, index) => (
-                      <li key={index}>
-                        {/* <NavLink to={menu.url}>*/}
-                        {/*{menu.name}*/}
-                        {currentAccountMenu}
-                        {/*</NavLink>*/}
+                      <li key={index}
+                          /*className={menu.name === currentAccountMenu ? style.active : null}*/>
+                        <NavLink to={menu.url}>
+                          {menu.describe}
+                        </NavLink>
                       </li>
                     ))
                   }
@@ -60,4 +54,4 @@ class Menu extends Component {
   }
 }
 
-export default Account
+export default Menu

@@ -7,10 +7,11 @@ export const AccountState = new Record({
 
  export function accountReducers(state = new AccountState(),action){
   switch (action.type){
-    case accountActions.CHANGE_ACCOUNT_MENU:
+    case accountActions.CHANGE_ACCOUNT_MENU_SUCCESS:
       return state.merge({
         currentAccountMenu:action.payload
       });
+     return state;
     default :
       return state;
   }

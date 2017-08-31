@@ -21,3 +21,7 @@ li{
 a{
   text-decoration: none;
 }
+
+.body{
+  min-height:600px;
+}

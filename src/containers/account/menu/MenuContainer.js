@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect';
 
-import Account from '../../components/account'
-import {getCurrentAccountMenu} from '../../selectors/account'
-import {accountActions} from '../../actions/account'
+import Menu from '../../../components/account/menu'
+import {getCurrentAccountMenu} from '../../../selectors/menu'
+import {accountActions} from '../../../actions/account'
 
-class AccountContainer extends Component {
+class MenuContainer extends Component {
 
   constructor (props) {
     super(props);
@@ -18,7 +18,7 @@ class AccountContainer extends Component {
 
   render () {
     return (
-      <Account currentAccountMenu={this.props}/>
+      <Menu {...this.props}/>
     )
   }
 }
@@ -36,4 +36,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AccountContainer);
+)(MenuContainer);

@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import style from './order.scss'
+import React,{Component} from 'react'
+import {Link } from 'react-router-dom'
+import style from './info.scss'
 
-class Order extends Component {
+class Info extends Component{
   render () {
     return (
       <div className={style.main}>
         <div className={style.wrapper}>
           <div className={style.title}>
-            <h2>我的订单</h2>
+            <h2>info</h2>
           </div>
           <div className={style.inner}>
             <div className={style.orderEmpty}>
@@ -27,4 +27,4 @@ class Order extends Component {
   }
 }
 
-export default Order
+export default Info
