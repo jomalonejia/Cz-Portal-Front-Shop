@@ -34,7 +34,7 @@ class Header extends Component {
         </div>
         <div id="test" className='icon'>
           <Link to='/account/order'><TiUserAdd size={30}/></Link>
-          <a href="/"><TiShoppingCart size={30}/></a>
+          <Link to='/cart'><TiShoppingCart size={30}/></Link>
           <span>0</span>
         </div>
       </div>

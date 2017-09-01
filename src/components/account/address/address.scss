@@ -1,3 +1,4 @@
+
 .main {
   width: 990px;
   float: left;
@@ -5,7 +6,6 @@
 
   .wrapper {
     margin-top: 0;
-    min-height: 550px;
     margin-bottom: 20px;
     overflow: hidden;
     border: 1px solid #D1D1D1;
@@ -26,13 +26,212 @@
   box-shadow: 0 1px 7px rgba(0, 0, 0, .06);
   line-height: 60px;
   color: #646464;
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #626262;
+    float: left;
+  }
 }
 
-.inner {
-  .formArea{
-    margin:100px auto;
-    width:380px;
+.emptyInner {
+  .orderEmpty {
+    background: url('/src/images/order-empty.png') top center no-repeat;
+    background-size: 92px auto;
+    padding: 145px 0 45px;
+    margin-top: 105px;
+    text-align: center;
+    font-size: 18px;
+    h2 {
+      line-height: 1em;
+      font-size: 22px;
+      color: #999;
+    }
+    .emptyBtn {
+      margin-top: 20px;
+      width: 80px;
+      display: inline-block;
+      background: #F2F2F2;
+      background: linear-gradient(#fff, #ececec);
+      border: 1px solid #dbdde2;
+      border-radius: 6px;
+      height: 38px;
+      line-height: 38px;
+      cursor: pointer;
+      overflow: hidden;
+      text-align: center;
+      a {
+        color: #333;
+      }
+    }
+    .emptyBtn:hover {
+      background: linear-gradient(#f2f2f2, #e1e1e1);
+      box-shadow: none;
+    }
   }
+}
 
+.addAddress {
+  overflow: hidden;
+  float: right;
+  width: 120px;
+  margin-top: 11px;
+}
+
+.modalHeader {
+  height: 60px;
+  padding: 0 15px;
+  line-height: 60px;
+  background: linear-gradient(#FFF, #F5F5F5);
+  border-bottom: 1px solid #DCDCDC;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, .1);
+  h4 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: #666;
+  }
+}
+
+.modalInner {
+  .modalFormArea {
+    margin: 50px auto;
+    width: 380px;
+  }
+}
+
+.closeIcon {
+  float: right;
+  cursor: pointer;
+}
+
+.addAddressContent {
+  color: grey;
+}
+
+.addressInner {
+  box-sizing: inherit;
+  .addressTitle {
+    border-top: none;
+    height: 38px;
+    padding: 0 24px;
+    background: #EEE;
+    border-top: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+    line-height: 38px;
+    font-size: 12px;
+    color: #666;
+    .nameTitle {
+      width: 156px;
+      text-align: left;
+      display: inline-block;
+      float: left;
+      height: 38px;
+    }
+    .detailTitle {
+      text-align: left;
+      display: inline-block;
+      float: left;
+      height: 38px;
+    }
+    .phoneTitle {
+      float: right;
+      width: 160px;
+      margin-right: 210px;
+    }
+  }
+}
+
+.addressItem {
+  height: 100px;
+  padding: 20px 0;
+  border-bottom: 1px solid #CFCFCF;
+  line-height: 24px;
+  .nameItem {
+    display: table;
+    width: 106px;
+    height: 100%;
+    padding: 0 20px 0 24px;
+    float: left;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      line-height: 24px;
+    }
+  }
+  .detailItem {
+    display: table;
+    width: 440px;
+    height: 100%;
+    text-align: left;
+    float: left;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      line-height: 24px;
+    }
+  }
+  .phoneItem {
+    display: table;
+    width: 106px;
+    height: 100%;
+    padding: 0 20px 0 24px;
+    float: left;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      line-height: 24px;
+    }
+  }
+  .defaultItem {
+    display: table;
+    width: 130px;
+    height: 100%;
+    padding: 0 20px 0 24px;
+    float: left;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      line-height: 24px;
+    }
+  }
+  .control {
+    width: 135px;
+    float: right;
+    display: table;
+    height: 100%;
+    padding: 0 20px 0 24px;
+    .controlPanel {
+      min-height: 40px;
+      span {
+        float: left;
+        height: 41px;
+        width: 41px;
+        position: relative;
+      }
+      .editIcon {
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+      }
+      .editIcon:hover {
+        font-size: 35px;
+      }
+      .deleteIcon {
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        color: #F67171;
+      }
+      .deleteIcon:hover {
+        font-size: 35px;
+      }
+    }
+
+  }
+  .control:hover {
+    cursor: pointer;
+  }
 }
 

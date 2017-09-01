@@ -6,13 +6,11 @@ import style from './menu.scss'
 class Menu extends Component {
 
   constructor (props) {
-    super(props);
+    super(props)
 
   }
 
   render () {
-
-
 
     const menus = [
       {name: 'order', describe: '我的订单', url: '/account/order'},
@@ -33,12 +31,14 @@ class Menu extends Component {
                 <ul>
                   {
                     menus.map((menu, index) => (
-                      <li key={index}
-                          /*className={menu.name === currentAccountMenu ? style.active : null}*/>
+                      <div key={index}>
                         <NavLink to={menu.url}>
-                          {menu.describe}
+                          <li
+                            className={menu.name === this.props.currentAccountMenu ? style.active : null}>
+                            {menu.describe}
+                          </li>
                         </NavLink>
-                      </li>
+                      </div>
                     ))
                   }
                 </ul>

@@ -14,9 +14,11 @@ import MenuContainer from './containers/account/menu'
 import ItemContainer from './containers/item'
 
 import Order from './components/account/order'
-import Support from './components/account/support'
-import Info from './components/account/info'
-import Address from './components/account/address'
+import SupportContainer from './containers/account/support'
+import InfoContainer from './containers/account/info'
+import AddressContainer from './containers/account/address'
+
+import CartContainer from './containers/cart'
 
 class App extends Component {
 
@@ -41,9 +43,10 @@ class App extends Component {
                     <Route location={location} path="/item/:id" component={ItemContainer}/>
                     <Route location={location} path="/account" component={MenuContainer}/>
                     <Route location={location} path="/account/order" component={Order}/>
-                    <Route location={location} path="/account/support" component={Support}/>
-                    <Route location={location} path="/account/info" component={Info}/>
-                    <Route location={location} path="/account/address" component={Address}/>
+                    <Route location={location} path="/account/support" component={SupportContainer}/>
+                    <Route location={location} path="/account/info" component={InfoContainer}/>
+                    <Route location={location} path="/account/address" component={AddressContainer}/>
+                    <Route location={location} path="/cart" component={CartContainer}/>
                   {/*</Switch>*/}
                 </div>
               </ReactCSSTransitionGroup>
