@@ -13,7 +13,7 @@ import HomePageContainer from './containers/homepage'
 import MenuContainer from './containers/account/menu'
 import ItemContainer from './containers/item'
 
-import Order from './components/account/order'
+import OrderContainer from './containers/account/order'
 import SupportContainer from './containers/account/support'
 import InfoContainer from './containers/account/info'
 import AddressContainer from './containers/account/address'
@@ -42,7 +42,7 @@ class App extends Component {
                     <Route location={location} exact path="/" component={HomePageContainer}/>
                     <Route location={location} path="/item/:id" component={ItemContainer}/>
                     <Route location={location} path="/account" component={MenuContainer}/>
-                    <Route location={location} path="/account/order" component={Order}/>
+                    <Route location={location} path="/account/order" component={OrderContainer}/>
                     <Route location={location} path="/account/support" component={SupportContainer}/>
                     <Route location={location} path="/account/info" component={InfoContainer}/>
                     <Route location={location} path="/account/address" component={AddressContainer}/>

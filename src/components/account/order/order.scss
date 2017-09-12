@@ -5,11 +5,8 @@
 
   .wrapper {
     margin-top: 0;
-    min-height: 550px;
     margin-bottom: 20px;
     overflow: hidden;
-    border: 1px solid #D1D1D1;
-    border-color: rgba(0, 0, 0, .14);
     border-radius: 8px;
     box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .1);
     background: #FFF;
@@ -28,7 +25,7 @@
   color: #646464;
 }
 
-.inner {
+.innerEmpty {
   .orderEmpty {
     background: url('/src/images/order-empty.png') top center no-repeat;
     background-size: 92px auto;
@@ -63,5 +60,59 @@
       box-shadow: none;
     }
   }
+}
+
+.innerOrder{
+  color: rgb(102, 102, 102);
+}
+
+.orderTitleTable {
+  td{
+    text-align: center;
+    line-height: 40px;
+    background: #ededed;
+  }
+}
+
+.orderDetailTable{
+  tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    tr {
+      display: table-row;
+      vertical-align: inherit;
+      border-color: inherit;
+      td {
+        text-align: center;
+       /* line-height: 56px;*/
+        height: 112px;
+        background: white;
+        border-bottom: 1px solid #ededed;
+      }
+    }
+  }
+}
+
+.orderTd1{
+  width: 146px;
+}
+.orderTd2{
+  width: 296px;
+}
+.orderTd3{
+  width: 190px;
+}
+.orderTd4{
+  width: 90px;
+}
+.orderTd5{
+  width: 122px;
+}
+.orderTd6{
+  width: 136px;
+}
+.orderTd7{
+  width: 136px;
 }
 
