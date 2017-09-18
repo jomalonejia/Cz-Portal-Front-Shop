@@ -20,7 +20,16 @@ import AddressContainer from './containers/account/address'
 
 import CartContainer from './containers/cart'
 
+import axios from 'axios'
+
 class App extends Component {
+
+  componentDidMount() {
+    axios.get(
+      '/api/order/test'
+      )
+      .then(res => console.log(res));
+  }
 
   render () {
     return (
