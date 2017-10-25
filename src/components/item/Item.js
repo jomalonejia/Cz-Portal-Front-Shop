@@ -1,31 +1,36 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Link, NavLink } from 'react-router-dom'
-import { Icon } from 'semantic-ui-react'
-import 'semantic-ui-css/components/icon.css'
-import style from './item.scss'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link, NavLink } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react';
+import 'semantic-ui-css/components/icon.css';
+import style from './item.scss';
 
 class Item extends Component {
   constructor (props) {
     super(props)
     this.state = {
       count: 1,
-      selectedImageIndex: 0
+      selectedImageIndex: 0,
+      imageUrl:'',
     }
   }
 
-  changeCount (i) {
-    let newCount = this.state.count + i
-    this.setState({count: newCount})
+  componentWillMount(){
+
   }
 
-  changeImage (index) {
-    this.setState({selectedImageIndex: index})
+  changeCount (i) {
+    let newCount = this.state.count + i;
+    this.setState({count: newCount});
+  }
+
+  changeImage (index, imageUrl) {
+    this.setState({selectedImageIndex: index,imageUrl:imageUrl});
   }
 
   render () {
 
-    const item = this.props.item;
+    const {item = {}} = this.props;
 
     return (
       <div>
@@ -34,27 +39,22 @@ class Item extends Component {
             <div className={style.wrapper}>
               <div className={style.gallery}>
                 <div className={style.thumbNail}>
+
                   <ul>
                     {
-                      item.images.map((imageUrl, index) => (
-                        <li onClick={this.changeImage.bind(this, index)} key={index}>
-                          <img src={imageUrl}
-                               className={index === this.state.selectedImageIndex ? style.imageShow : null}/>
-                        </li>
-                      ))
+                      item.shownImages ? item.shownImages.map((imageUrl, index) => (
+                       <li onClick={this.changeImage.bind(this, index, imageUrl)} key={index}>
+                         {
+                           imageUrl != null && imageUrl != "" ? <img src={imageUrl} className={index === this.state.selectedImageIndex ? style.imageShow : null}/> : null
+                         }
+
+                       </li>
+                      )) : null
                     }
                   </ul>
                 </div>
                 <div className={style.thumb}>
-                  <ul>
-                    {
-                      item.images.map((imageUrl, index) => (
-                        <li key={index} className={index === this.state.selectedImageIndex ? style.thumbShow : null}>
-                          <img src={imageUrl}/>
-                        </li>
-                      ))
-                    }
-                  </ul>
+                   <img src={this.state.imageUrl != '' ? this.state.imageUrl : item.image}/>
                 </div>
               </div>
             </div>
@@ -74,66 +74,58 @@ class Item extends Component {
                 </div>
               </div>
 
-
               <div className={style.param}>
-                {
-                  item.params.map((param, index) => {
-                    return (
-                      <div key={index} className={style.paramArea}>
-                        <span className={style.paramName}>{param.name}</span>
-                        <ul className={style.paramValues}>
+                <div key={1} className={style.paramArea}>
+                  {/*<span className={style.paramName}>{param.name}</span>
+                  <ul className={style.paramValues}>
+                    {
+                      <li key={index}>
+                        <ul>
                           {
-                            <li key={index}>
-                              <ul>
-                                {
-                                  !param.color ? param.values.map((value, paramIndex) => (
-                                    <li key={paramIndex}>
-                                      <NavLink to="/">
+                            !param.color ? param.values.map((value, paramIndex) => (
+                              <li key={paramIndex}>
+                                <NavLink to="/">
                                       <span
                                         className={[style.paramValue, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
                                        {value}
                                       </span>
-                                      </NavLink>
-                                    </li>
-                                  )) : (param.values ? param.values.map((value, paramIndex) => (
-                                    <li key={paramIndex}>
-                                      <NavLink to="/">
+                                </NavLink>
+                              </li>
+                            )) : (param.values ? param.values.map((value, paramIndex) => (
+                              <li key={paramIndex}>
+                                <NavLink to="/">
                                       <span
                                         className={[style.paramValue, style.paramCircle, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
                                           <img className={style.paramColor} src={value}/>
                                       </span>
-                                      </NavLink>
-                                    </li>
-                                  )) : null)
-                                }
-                              </ul>
-                            </li>
+                                </NavLink>
+                              </li>
+                            )) : null)
                           }
                         </ul>
-                      </div>
-                    )
-                  })
-                }
-
-                <div className={style.paramArea}>
-                  <span className={style.paramName}>数量</span>
-                  <div className={style.countArea}>
-                    <span onClick={this.state.count > 1 ? this.changeCount.bind(this, -1) : null}
-                          className={style.countMinus}>
-                      <Icon name='minus circle'  className={style.countIcon}/>
-                    </span>
-                    <span className={style.countAmount}>
-                      {this.state.count}
-                    </span>
-                    <span onClick={this.changeCount.bind(this,1)}
-                          className={style.countPlus}>
-                      <Icon name='add circle'  className={style.countIcon}/>
-                    </span>
-                  </div>
+                      </li>
+                    }
+                  </ul>*/}
                 </div>
               </div>
 
 
+              <div className={style.paramArea} hidden>
+                <span className={style.paramName}>数量</span>
+                <div className={style.countArea}>
+                    <span onClick={this.state.count > 1 ? this.changeCount.bind(this, -1) : null}
+                          className={style.countMinus}>
+                      <Icon name='minus circle' className={style.countIcon}/>
+                    </span>
+                  <span className={style.countAmount}>
+                      {this.state.count}
+                    </span>
+                  <span onClick={this.changeCount.bind(this, 1)}
+                        className={style.countPlus}>
+                      <Icon name='add circle' className={style.countIcon}/>
+                    </span>
+                </div>
+              </div>
               <div className={style.buyNow}>
                 <div className={style.buttonText}>
                   <div className={style.buttonBar}>
@@ -150,24 +142,28 @@ class Item extends Component {
               </div>
             </div>
           </div>
-
-
-          <div id="pm" className={style.pm}>
-            <div className={style.pmTitle}>
-              <h2>产品信息</h2>
-            </div>
-            <div className={style.allPic}>
-              {
-                item.detailImages.map((imageUrl, index) => (
-                  <img key={index} src={imageUrl}/>
-                ))
-              }
-            </div>
-          </div>
         </div>
+
+
+        {/* <div id="pm" className={style.pm}>
+         <div className={style.pmTitle}>
+         <h2>产品信息</h2>
+         </div>
+         <div className={style.allPic}>
+         {
+         item.detailImages.map((imageUrl, index) => (
+         <img key={index} src={imageUrl}/>
+         ))
+         }
+         </div>
+         </div>*/}
       </div>
     )
   }
 }
 
 export default Item
+
+Item.propTypes = {
+  item: PropTypes.object.isRequired,
+}

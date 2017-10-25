@@ -143,12 +143,9 @@ $param-border-active: inset 0 0 0 2px #B2B2B2;
       height: 400px;
       background-color: #fff;
       overflow: hidden;
-      li {
-        display: none;
-        img {
-          width: 440px;
-          height: 440px;
-        }
+      img {
+        width: 440px;
+        height: 440px;
       }
       .thumbShow {
         display: block;
@@ -329,15 +326,15 @@ $param-border-active: inset 0 0 0 2px #B2B2B2;
     }
     .countIcon:hover {
       background-color: rgb(246, 246, 246);
-      font-size:35px;
+      font-size: 35px;
     }
   }
 
-  .countPlus{
-    left:90px
+  .countPlus {
+    left: 90px
   }
   .countAmount {
-    left:60px;
+    left: 60px;
     /*display: inline-block;
     margin-left: 13px;
     margin-top: -2px;*/

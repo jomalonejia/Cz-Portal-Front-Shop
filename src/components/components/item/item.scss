@@ -1,0 +1,134 @@
+.items {
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  height: 429px;
+  text-align: center;
+  background-color: #fff;
+  border: 0.5px solid rgba(0, 0, 0, .14);
+  &:last-child {
+    border-right: 0;
+  }
+  &:hover {
+    .price {
+      display: none;
+    }
+    .operation {
+      display: flex;
+    }
+    a.itemLink {
+      box-shadow: 0 0 38px rgba(0, 0, 0, .08) inset;
+    }
+  }
+
+  a.itemLink {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    transition: all .15s ease-out;
+  }
+
+  .imgCover {
+    position: relative;
+    z-index: 1;
+    width: 206px;
+    height: 206px;
+    display: inline-block;
+    margin-top: 50px;
+    img {
+      position: absolute;
+      z-index: 1;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      img:first-child {
+        z-index: 2;
+      }
+    }
+  }
+
+  .infos {
+    color: #B2B2B2;
+    font-size: 14px;
+    h6 {
+      font-size: 16px;
+      line-height: 1.2;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #424242;
+    }
+    p{
+      overflow: hidden;
+      padding-top: 7px;
+      font-size: 12px;
+      line-height: 1.2;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #b2b2b2;
+    }
+  }
+
+  .dotList {
+    position: absolute;
+    bottom: 79px;
+    z-index: 20;
+    width: 100%;
+    height: 18px;
+  }
+
+  .price {
+    display: inline-block;
+    position: absolute;
+    top: 376px;
+    left: 0;
+    width: 100%;
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: center;
+    color: #de4037;
+  }
+  .operation {
+    display: none;
+    position: absolute;
+    bottom: 29px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    a {
+      border: 1px solid #e1e1e1;
+      border-radius: 4px;
+      font-size: 12px;
+      height: 30px;
+      width: 30%;
+      color: #646464;
+      background-color: #f9f9f9;
+      background-image: linear-gradient(180deg, #fff, #f9f9f9);
+      cursor: pointer;
+      margin: 5px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      &:last-child {
+        border: 1px solid #5c81e3;
+        background: #678ee7;
+        background-image: linear-gradient(to bottom, #678ee7, #5078df);
+        color: #fff;
+
+      }
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import style from './homePage.scss'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import style from './homePage.scss';
+import Item from '../../components/components/item';
 
 class HomePage extends Component {
 
@@ -39,6 +41,8 @@ class HomePage extends Component {
 
   render () {
 
+    const {hotItems=[]} = this.props;
+
     const carousels = [
         {src: 'src/images/banner1.png'},
         {src: 'src/images/banner2.png'},
@@ -50,47 +54,6 @@ class HomePage extends Component {
         {src: 'src/images/panelad02.jpg', href: ''},
         {src: 'src/images/panelad03.jpg', href: ''},
         {src: 'src/images/panelad04.jpg', href: ''},
-      ],
-      hotItems = [
-        {
-          itemId: 0,
-          name: 'FIIL Diva 智能蓝牙无线降噪耳机',
-          describe: '手势触控、智能启停',
-          price: 999,
-          images: [
-            'src/images/shangpin_a1.jpg',
-            'src/images/shangpin_a2.jpg'
-          ]
-        },
-        {
-          itemId: 1,
-          name: 'FIIL Diva 智能蓝牙无线降噪耳机',
-          describe: '手势触控、智能启停',
-          price: 999,
-          images: [
-            'src/images/shangpin_b1.jpg',
-          ]
-        },
-        {
-          itemId: 2,
-          name: 'FIIL Diva 智能蓝牙无线降噪耳机',
-          describe: '手势触控、智能启停',
-          price: 999,
-          images: [
-            'src/images/shangpin_c1.jpg',
-          ]
-        },
-        {
-          itemId: 3,
-          name: 'FIIL Diva 智能蓝牙无线降噪耳机',
-          describe: '手势触控、智能启停',
-          price: 999,
-          images: [
-            'src/images/shangpin_d1.jpg',
-            'src/images/shangpin_d2.jpg',
-            'src/images/shangpin_d3.jpg'
-          ]
-        }
       ],
       recommendItems = [
         {
@@ -184,38 +147,10 @@ class HomePage extends Component {
             <h2 className={style.title}>热门商品</h2>
             <ul className={style.cont}>
               {
-                hotItems.map((item, index) => (
-                  <div key={index}>
-
-                    <li className={style.items}>
-                      <div className={style.imgCover}>
-                        {
-                          item.images.map((image, index) => (
-                            <div key={index}>
-                              <Link to={`/item/${item.itemId}`}>
-                                <img src={image}/>
-                              </Link>
-                            </div>
-                          ))
-                        }
-                      </div>
-                      <div className={style.infos}>
-                        <h6>{item.name}</h6>
-                        <p>{item.describe}</p>
-                      </div>
-                      <ul className={style.dot}>
-                        <li className={style.active}>
-                          <div><span></span></div>
-                        </li>
-                      </ul>
-                      <p className={style.price}>￥ {item.price}</p>
-                      <div className={style.operation}>
-                        <Link to='/item/123'>查看详情</Link>
-                        <Link to='/item/123'>加入购物车</Link>
-                      </div>
-                    </li>
-
-                  </div>
+                hotItems.map((item,index) => (
+                  <li key={item.id}>
+                   <Item item={item}/>
+                  </li>
                 ))
               }
             </ul>
@@ -274,4 +209,8 @@ class HomePage extends Component {
     )
   }
 }
-export default HomePage
+export default HomePage;
+
+HomePage.propTypes = {
+  hotItems:PropTypes.array.isRequired,
+}
