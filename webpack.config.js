@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var proxy = require('http-proxy-middleware')
+let proxy = require('http-proxy-middleware');
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: `${__dirname}/src/index.html`,
@@ -81,13 +81,13 @@ module.exports = {
       '/api/order': {
         target: 'http://localhost:8765/cz-portal-service-order',
         pathRewrite: {
-          '/api/order' : ''
+          '/api/order' : '/order'
         }
       },
-      '/api/user': {
-        target: 'http://localhost:8765/cz-portal-service-order',
+      '/api/item': {
+        target: 'http://localhost:8765/cz-portal-service-item',
         pathRewrite: {
-          '/api/user' : ''
+          '/api/item' : '/item'
         }
       },
     }

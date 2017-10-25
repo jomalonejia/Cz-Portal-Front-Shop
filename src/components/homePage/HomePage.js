@@ -224,7 +224,7 @@ class HomePage extends Component {
             <h2 className={style.title}>官方精选</h2>
             <ul className={style.cont}>
               <li className={[style.items, style.firstItem].join(' ')}>
-                <Link to='/item/123'><img src="src/images/phone.jpg"/></Link>
+                <Link to="/item/123"><img src="src/images/phone.jpg"/></Link>
               </li>
               {
                 recommendItems.map((item, index) => (
@@ -233,7 +233,7 @@ class HomePage extends Component {
                       {
                         item.images.map((image, index) => (
                           <div key={index}>
-                            <Link to='/item/123'><img key={index} src={image}/></Link>
+                            <Link to="/item/123"><img key={index} src={image}/></Link>
                           </div>
                         ))
                       }
@@ -249,8 +249,8 @@ class HomePage extends Component {
                     </ul>
                     <p className={style.price}>￥ {item.price}</p>
                     <div className={style.operation}>
-                      <Link to='/item/123'>查看详情</Link>
-                      <Link to='/item/123'>加入购物车</Link>
+                      <Link to="/item/123">查看详情</Link>
+                      <Link to="/item/123">加入购物车</Link>
                     </div>
                   </li>
                 ))

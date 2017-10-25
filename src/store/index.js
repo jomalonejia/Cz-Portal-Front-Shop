@@ -6,10 +6,10 @@ import reducers from '../reducers'
 import sagas from '../sagas'
 
 const history = createHistory();
-const historymiddleware = routerMiddleware(history)
+const historyMiddleware = routerMiddleware(history)
 const sagaMiddleware = createSagaMiddleware();
 
-const middlewares = [historymiddleware,sagaMiddleware]
+const middlewares = [historyMiddleware,sagaMiddleware]
 
 export default function configureStore() {
 

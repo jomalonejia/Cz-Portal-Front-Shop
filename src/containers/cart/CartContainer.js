@@ -1,5 +1,5 @@
-import React,{Component} from 'react'
-import { connect } from 'react-redux'
+import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import Cart from '../../components/cart'

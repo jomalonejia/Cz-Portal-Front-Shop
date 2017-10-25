@@ -19,11 +19,11 @@ class Header extends Component {
     ]
 
     return (
-      <div className='head'>
-        <div className='logo'>
+      <div className="head">
+        <div className="logo">
           <img alt="" src="/src/images/logo.png"/>
         </div>
-        <div className='menu'>
+        <div className="menu">
           <ul>
             {
               menus.map((menu, index) => (
@@ -32,9 +32,9 @@ class Header extends Component {
             }
           </ul>
         </div>
-        <div id="test" className='icon'>
-          <Link to='/account/order'><TiUserAdd size={30}/></Link>
-          <Link to='/cart'><TiShoppingCart size={30}/></Link>
+        <div id="test" className="icon">
+          <Link to="/account"><TiUserAdd size={30}/></Link>
+          <Link to="/cart"><TiShoppingCart size={30}/></Link>
           <span>0</span>
         </div>
       </div>
