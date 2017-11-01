@@ -14,6 +14,7 @@ import HomePageContainer from './containers/homepage';
 import ItemContainer from './containers/item';
 import AccountContainer from './containers/account';
 import CartContainer from './containers/cart';
+import CheckoutContainer from './containers/checkout';
 import TestContainer from './containers/test';
 
 @connect(
@@ -41,6 +42,7 @@ class App extends Component {
                   <Route location={location} path="/item/:id" component={ItemContainer}/>
                   <Route location={location} path="/account" component={AccountContainer}/>
                   <Route location={location} path="/cart" component={CartContainer}/>
+                  <Route location={location} path="/checkout" component={CheckoutContainer}/>
                   <Route location={location} path="/test" component={TestContainer}/>
                 </div>
               </ReactCSSTransitionGroup>
@@ -54,4 +56,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default App;

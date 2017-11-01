@@ -12,7 +12,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: [
-    'babel-polyfill',
+    'react-hot-loader/patch',
     './src/index.js',
   ],
   output: {
@@ -24,7 +24,7 @@ module.exports = {
       {
         test:/\.js$/,
         exclude:/node_modules/,
-        loader:'babel-loader'
+        loaders:['react-hot-loader/webpack','babel-loader']
       },
       {
         test:/\.css$/,
@@ -72,11 +72,12 @@ module.exports = {
         loader: 'url-loader?limit=100000' }
     ],
   },
+  devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
     inline: true,
     hot:true,
-    port: 3000,
+    port: 4201,
     proxy: {
       '/api/order': {
         target: 'http://localhost:8765/cz-portal-service-order',
@@ -92,5 +93,13 @@ module.exports = {
       },
     }
   },
-  plugins: [new ExtractTextPlugin("style.css"),HTMLWebpackPluginConfig,new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new ExtractTextPlugin("style.css"),
+    HTMLWebpackPluginConfig,
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      DEBUG: false
+    })
+  ],
 };

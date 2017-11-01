@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import Item from '../../components/components/item';
+import Item from '../../components/components/itemCard';
 
 class TestContainer extends Component{
 

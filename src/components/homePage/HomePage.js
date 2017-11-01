@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import style from './homePage.scss';
-import Item from '../../components/components/item';
+import ItemCard from '../components/itemCard';
 
 class HomePage extends Component {
 
@@ -149,7 +149,7 @@ class HomePage extends Component {
               {
                 hotItems.map((item,index) => (
                   <li key={item.id}>
-                   <Item item={item}/>
+                   <ItemCard item={item}/>
                   </li>
                 ))
               }

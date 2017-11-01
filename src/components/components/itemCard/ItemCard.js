@@ -1,9 +1,9 @@
-import React from 'react'
-import style from './item.scss'
-import { Link } from 'react-router-dom'
-import { Checkbox } from 'semantic-ui-react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Checkbox } from 'semantic-ui-react';
+import style from './itemCard.scss';
 
-const Item = ({item = []}) => (
+const ItemCard = ({item = []}) => (
   <div className={style.items}>
     <div className={style.imgCover}>
       <Link to={`/item/${item.id}`}>
@@ -25,7 +25,7 @@ const Item = ({item = []}) => (
   </div>
 )
 
-export default Item
+export default ItemCard;
 
 
 

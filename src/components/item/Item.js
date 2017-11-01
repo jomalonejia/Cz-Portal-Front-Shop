@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
-import { Icon } from 'semantic-ui-react';
-import 'semantic-ui-css/components/icon.css';
 import style from './item.scss';
 
 class Item extends Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
-      count: 1,
+      count:1,
+      item:{},
       selectedImageIndex: 0,
-      imageUrl:'',
-    }
+      imageUrl: '',
+    };
   }
 
-  componentWillMount(){
+  componentWillMount () {
 
+  }
+
+  changeParam(paramId,paramValue){
+    this.setState({[paramId]:paramValue});
   }
 
   changeCount (i) {
     let newCount = this.state.count + i;
-    this.setState({count: newCount});
+    this.setState({count:newCount});
   }
 
   changeImage (index, imageUrl) {
-    this.setState({selectedImageIndex: index,imageUrl:imageUrl});
+    this.setState({selectedImageIndex: index, imageUrl: imageUrl});
+  }
+
+  addToCart(){
+    console.log('add to cart')
+  }
+
+  checkout(){
+    console.log('buy now')
   }
 
   render () {
@@ -42,19 +52,27 @@ class Item extends Component {
 
                   <ul>
                     {
-                      item.shownImages ? item.shownImages.map((imageUrl, index) => (
-                       <li onClick={this.changeImage.bind(this, index, imageUrl)} key={index}>
-                         {
-                           imageUrl != null && imageUrl != "" ? <img src={imageUrl} className={index === this.state.selectedImageIndex ? style.imageShow : null}/> : null
-                         }
+                      item.shownImages
+                        ?
+                        item.shownImages.map((imageUrl, index) =>
+                          <li onClick={this.changeImage.bind(this, index, imageUrl)} key={index}>
+                            {
+                              imageUrl != null && imageUrl != ''
+                                ?
+                                <img src={imageUrl} className={index === this.state.selectedImageIndex ? style.imageShow : null}/>
+                                :
+                                null
+                            }
 
-                       </li>
-                      )) : null
+                          </li>
+                      )
+                        :
+                        null
                     }
                   </ul>
                 </div>
                 <div className={style.thumb}>
-                   <img src={this.state.imageUrl != '' ? this.state.imageUrl : item.image}/>
+                  <img src={this.state.imageUrl != '' ? this.state.imageUrl : item.image}/>
                 </div>
               </div>
             </div>
@@ -63,7 +81,7 @@ class Item extends Component {
               <div className={style.titleText}>
                 <div className={style.price}>
                  <span className={style.priceSpan}>
-                 <em>￥</em>{item.price}
+                 <em>￥</em>&nbsp;{item.price}
                  </span>
                 </div>
                 <div className={style.itemsInfo}>
@@ -75,62 +93,50 @@ class Item extends Component {
               </div>
 
               <div className={style.param}>
-                <div key={1} className={style.paramArea}>
-                  {/*<span className={style.paramName}>{param.name}</span>
-                  <ul className={style.paramValues}>
-                    {
-                      <li key={index}>
-                        <ul>
-                          {
-                            !param.color ? param.values.map((value, paramIndex) => (
-                              <li key={paramIndex}>
-                                <NavLink to="/">
-                                      <span
-                                        className={[style.paramValue, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
-                                       {value}
-                                      </span>
-                                </NavLink>
+                {
+                  item.params && item.params.map((param, index) =>
+                    <div className={style.paramArea} key={param.id}>
+                      <span className={style.paramName}>{param.paramDescribe}</span>
+                      <ul className={style.paramValues}>
+                        {
+                          param.paramDetails.map((detail, index) =>
+                            param.paramName == 'color'
+                              ?
+                              <li key={detail.paramValue}
+                                  className={`${style.paramColor} ${this.state[param.id] == detail.paramValue ? style.paramColorActivate : null}`}
+                                  onClick={this.changeParam.bind(this,param.id,detail.paramValue)}>
+                                <span style={{backgroundColor:detail.paramValue}}></span>
                               </li>
-                            )) : (param.values ? param.values.map((value, paramIndex) => (
-                              <li key={paramIndex}>
-                                <NavLink to="/">
-                                      <span
-                                        className={[style.paramValue, style.paramCircle, paramIndex === 0 ? style.paramActive : ''].join(' ')}>
-                                          <img className={style.paramColor} src={value}/>
-                                      </span>
-                                </NavLink>
-                              </li>
-                            )) : null)
-                          }
-                        </ul>
-                      </li>
-                    }
-                  </ul>*/}
-                </div>
-              </div>
-
-
-              <div className={style.paramArea} hidden>
-                <span className={style.paramName}>数量</span>
-                <div className={style.countArea}>
+                              :
+                            <li key={detail.paramValue}
+                                className={`${style.paramValue} ${this.state[param.id] == detail.paramValue ? style.paramActivate : null}`}
+                                onClick={this.changeParam.bind(this,param.id,detail.paramValue)}>
+                              {detail.paramValue}
+                            </li>
+                          )
+                        }
+                      </ul>
+                    </div>
+                  )
+                }
+                <div className={style.paramArea}>
+                  <span className={style.paramName}>数量</span>
+                  <div className={style.paramNumberLine}>
                     <span onClick={this.state.count > 1 ? this.changeCount.bind(this, -1) : null}
-                          className={style.countMinus}>
-                      <Icon name='minus circle' className={style.countIcon}/>
+                          className={`${style.paramNumber} ${style.paramNumberMinus}
+                          ${this.state.count == 1 ? style.paramNumberMinusDisabled : ''}`}>
                     </span>
-                  <span className={style.countAmount}>
-                      {this.state.count}
-                    </span>
-                  <span onClick={this.changeCount.bind(this, 1)}
-                        className={style.countPlus}>
-                      <Icon name='add circle' className={style.countIcon}/>
-                    </span>
+                    <span className={style.paramNumberCount}> {this.state.count}</span>
+                    <span onClick={this.changeCount.bind(this, 1)}
+                          className={`${style.paramNumber} ${style.paramNumberAdd}`}></span>
+                  </div>
                 </div>
               </div>
               <div className={style.buyNow}>
                 <div className={style.buttonText}>
                   <div className={style.buttonBar}>
-                    <span className={style.blueBtn}>加入购物车</span>
-                    <span className={style.grayBtn}>现在购买</span>
+                    <span className={style.blueBtn} onClick={this.addToCart.bind(this)}>加入购物车</span>
+                    <span className={style.grayBtn} onClick={this.checkout.bind(this)}>现在购买</span>
 
                     <div className={style.warning}>
                       <p>* 非质量问题退货，需保证塑封且完好，不影响二次销售。已经拆封或有人为损坏影响二次销售的图书不支持 7 天无理由退货。</p>
@@ -158,12 +164,12 @@ class Item extends Component {
          </div>
          </div>*/}
       </div>
-    )
+    );
   }
 }
 
-export default Item
+export default Item;
 
 Item.propTypes = {
   item: PropTypes.object.isRequired,
-}
+};
