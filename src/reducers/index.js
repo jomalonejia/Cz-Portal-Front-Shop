@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
-
-import {accountReducers} from './account'
+import { combineReducers } from 'redux'
+import { accountReducers } from './account'
+import { itemReducers } from './item'
 
 export default combineReducers({
-  account:accountReducers
+  account: accountReducers,
+  item: itemReducers
 })

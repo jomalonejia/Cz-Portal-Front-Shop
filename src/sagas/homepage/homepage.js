@@ -8,6 +8,6 @@ export function * getHotItems(){
 
 }
 
-export const accountSagas = [
+export const homepageSagas = [
   fork(getHotItems)
 ]

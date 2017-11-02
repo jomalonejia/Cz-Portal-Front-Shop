@@ -31,12 +31,10 @@ class App extends Component {
           <Nav/>
           <ScrollToTop>
             <Route render={({location}) => (
-
               <ReactCSSTransitionGroup
                 transitionName="fade"
                 transitionEnterTimeout={300}
-                transitionLeaveTimeout={300}
-              >
+                transitionLeaveTimeout={300}>
                 <div key={location.pathname} className="body">
                   <Route location={location} exact path="/" component={HomePageContainer}/>
                   <Route location={location} path="/item/:id" component={ItemContainer}/>
@@ -45,9 +43,7 @@ class App extends Component {
                   <Route location={location} path="/checkout" component={CheckoutContainer}/>
                   <Route location={location} path="/test" component={TestContainer}/>
                 </div>
-              </ReactCSSTransitionGroup>
-            )
-            }/>
+              </ReactCSSTransitionGroup>)}/>
           </ScrollToTop>
           <Footer/>
         </div>

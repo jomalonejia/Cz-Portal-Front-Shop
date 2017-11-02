@@ -4,10 +4,16 @@ import { createSelector } from 'reselect';
 
 import Cart from '../../components/cart'
 
+@connect(
+  null,
+  null
+)
 class CartContainer extends Component{
   render(){
     return (
-      <Cart/>
+      <h1>
+        hehe
+      </h1>
     )
   }
 }
