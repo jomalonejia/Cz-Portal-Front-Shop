@@ -5,4 +5,3 @@ export const addToCart = cart => ({
   payload: cart
 });
 
-

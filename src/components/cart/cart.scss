@@ -1,3 +1,4 @@
+
 .main {
   padding-top: 40px;
   clear: both;
@@ -12,22 +13,6 @@
     border: 1px solid #dcdcdc;
     border-color: rgba(0, 0, 0, .14);
     box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .1);
-    .title {
-      padding-left: 30px;
-      position: relative;
-      z-index: 10;
-      height: 60px;
-      padding: 0 10px 0 24px;
-      border-bottom: 1px solid #d4d4d4;
-      border-radius: 8px 8px 0 0;
-      box-shadow: rgba(0, 0, 0, .06) 0 1px 7px;
-      background: #f3f3f3;
-      background: -webkit-linear-gradient(#fbfbfb, #ececec);
-      background: linear-gradient(#fbfbfb, #ececec);
-      line-height: 60px;
-      font-size: 18px;
-      color: #333;
-    }
   }
 }
 
@@ -131,33 +116,140 @@
 }
 
 .bottom {
-  width: 100%;
   height: 90px;
-  border-radius: 0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  min-width: 768px;
-  max-width: 1218px;
-  margin: 0 auto;
+  width: 100%;
+  bottom: 0;
   z-index: 1;
   background-position: center;
   background: linear-gradient(#fdfdfd, #f9f9f9);
   border-top: 1px solid #e9e9e9;
   box-shadow: 0 -3px 8px rgba(0, 0, 0, .04);
+  border-radius: 0 0 8px 8px;
 }
 
-h4 {
+.cartOperation {
+  float: left;
+  padding: 35px 26px;
+  font-size: 12px;
+  .checkAll {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    position: relative;
+  }
+  .deleteAll {
+    position: relative;
+    margin-left: 21px;
+    color: #bbb;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+}
+
+.checkoutOperationBlock {
+  display: inline-block;
+  float: right;
+  padding: 20px 30px;
+  .checkoutMessage {
+    display: inline-block;
+    padding-top: 1px;
+    margin-right: 10px;
+    .checkoutNumber {
+      text-align: right;
+      display: inline-block;
+      padding: 0 20px;
+      h4 {
+        color: #323232;
+        i {
+          color: #d44d44;
+          width: 28px;
+          display: inline-block;
+          text-align: center;
+          font-size: 18px;
+          font-weight: 700;
+          font-style: normal;
+        }
+      }
+      h5 {
+        color: #959595;
+        i {
+          width: 28px;
+          display: inline-block;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 700;
+          font-style: normal;
+        }
+      }
+    }
+    .checkoutPrice {
+      padding-right: 0;
+      display: inline-block;
+      border-left: 1px solid #e1e1e1;
+      padding: 0 20px;
+      h4 {
+        color: #323232;
+      }
+      h5 {
+        color: #959595;
+      }
+    }
+  }
+  .checkoutOperation {
+    float: right;
+  }
+}
+
+.cartTableTitle {
+  position: relative;
+  z-index: 1;
+  line-height: 38px;
+  height: 38px;
+  padding: 0 0 0 30px;
+  font-size: 12px;
+  background: #eee;
+  border-bottom: 1px solid #dbdbdb;
+  border-bottom-color: rgba(0, 0, 0, .08);
   color: #323232;
   i {
     color: #d44d44;
-    width: 28px;
     display: inline-block;
     text-align: center;
     font-size: 18px;
     font-weight: 700;
     font-style: normal;
+  }
+  .cartTableName {
+    float: left;
+    text-align: left;
+    color: #838383;
+  }
+  .cartTableOperation {
+    width: 137px;
+    float: right;
+    text-align: center;
+    color: #838383;
+  }
+  .cartTableSubtotal {
+    text-align: right;
+    width: 137px;
+    float: right;
+    color: #838383;
+  }
+  .cartTableNumber {
+    width: 137px;
+    float: right;
+    text-align: center;
+    color: #838383;
+  }
+  .cartTablePrice {
+    width: 137px;
+    float: right;
+    text-align: center;
+    color: #838383;
   }
 }
 

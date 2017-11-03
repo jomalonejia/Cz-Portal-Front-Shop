@@ -1,32 +1,50 @@
-
 * {
-  margin: 0px;
-  padding: 0px;
-  font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
-  font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif;
+    font-size: 14px;
 }
 
 body {
-  background-color: #EAEAEA;
+    background-color: #EAEAEA;
 }
+
 ul {
-  list-style: none;
+    list-style: none;
 }
 
-li{
-  list-style: none;
+li {
+    list-style: none;
 }
 
-
-a{
-  text-decoration: none;
+a {
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-  font-weight: 400;
+    font-size: 100%;
+    font-weight: 400;
 }
 
-.body{
-  min-height:600px;
+.body {
+    min-height: 600px;
+}
+
+.title {
+    position: relative;
+    z-index: 2;
+    height: 60px;
+    padding: 0 10px 0 28px;
+    background: linear-gradient(#FFF, #F5F5F5);
+    border-bottom: 1px solid #DCDCDC;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, .06);
+    line-height: 60px;
+    color: #646464;
+}
+
+.title h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #626262;
 }

@@ -11,9 +11,7 @@ import Cart from '../../components/cart'
 class CartContainer extends Component{
   render(){
     return (
-      <h1>
-        hehe
-      </h1>
+      <Cart/>
     )
   }
 }

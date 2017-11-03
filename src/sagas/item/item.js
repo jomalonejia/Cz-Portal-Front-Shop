@@ -1,5 +1,6 @@
 import { call, fork, select,put, take, takeLatest } from 'redux-saga/effects';
 import createHistory from 'history/createBrowserHistory';
+import {push} from 'react-router-redux';
 import * as itemActions from '../../actions/item';
 
 
@@ -17,7 +18,8 @@ export function * addToCart(){
   while (true){
     let addToCartAction = yield take(itemActions.addToCart);
     console.log(addToCartAction.payload);
-    yield call(history.push, '/cart')
+    //yield call(history.push, '/cart')
+    //history.replace('/');
   }
 }
 

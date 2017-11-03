@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { ConnectedRouter} from 'react-router-redux'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import ScrollToTop from './middleware/scrollToTop';
 import Header from './components/header';
@@ -25,7 +26,7 @@ class App extends Component {
 
   render () {
     return (
-      <Router history={history}>
+      <ConnectedRouter history={history}>
         <div>
           <Header/>
           <Nav/>
@@ -47,7 +48,7 @@ class App extends Component {
           </ScrollToTop>
           <Footer/>
         </div>
-      </Router>
+      </ConnectedRouter>
     )
   }
 }
