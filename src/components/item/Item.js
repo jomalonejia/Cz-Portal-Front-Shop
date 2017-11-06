@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import update from 'immutability-helper';
+import ItemCount from '../components/itemCount';
 import style from './item.scss';
 
 class Item extends Component {
@@ -43,12 +44,15 @@ class Item extends Component {
      params[index] = {paramId:paramId,paramValue:paramValue};
    }
    this.setState({params:params});
-
-   console.log(this.state.params);
   }
 
 
-  changeCount (i) {
+  /*changeCount (i) {
+    let newCount = this.state.count + i;
+    this.setState({count:newCount});
+  }*/
+
+  changeCount = (i) => {
     let newCount = this.state.count + i;
     this.setState({count:newCount});
   }
@@ -56,7 +60,6 @@ class Item extends Component {
   changeImage (index, imageUrl) {
     this.setState({selectedImageIndex: index, imageUrl: imageUrl});
   }
-
 
   checkout(){
     console.log('checkout')
@@ -149,15 +152,7 @@ class Item extends Component {
                 }
                 <div className={style.paramArea}>
                   <span className={style.paramName}>数量</span>
-                  <div className={style.paramNumberLine}>
-                    <span onClick={this.state.count > 1 ? this.changeCount.bind(this, -1) : null}
-                          className={`${style.paramNumber} ${style.paramNumberMinus}
-                          ${this.state.count == 1 ? style.paramNumberMinusDisabled : ''}`}>
-                    </span>
-                    <span className={style.paramNumberCount}> {this.state.count}</span>
-                    <span onClick={this.changeCount.bind(this, 1)}
-                          className={`${style.paramNumber} ${style.paramNumberAdd}`}></span>
-                  </div>
+                  <ItemCount count={this.state.count} changeCount={this.changeCount}/>
                 </div>
               </div>
               <div className={style.buyNow}>

@@ -5,4 +5,4 @@ import { itemReducers } from './item'
 export default combineReducers({
   account: accountReducers,
   item: itemReducers
-})
+});

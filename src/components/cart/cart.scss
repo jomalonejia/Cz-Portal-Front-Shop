@@ -1,19 +1,12 @@
+@import "../../styles/common";
 
-.main {
-  padding-top: 40px;
-  clear: both;
-  width: 1220px;
-  min-height: 600px;
-  padding: 0 0 25px;
-  margin: 0 auto;
-  .wrapper {
-    overflow: hidden;
-    background: #fff;
-    border-radius: 8px;
-    border: 1px solid #dcdcdc;
-    border-color: rgba(0, 0, 0, .14);
-    box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .1);
-  }
+.wrapper {
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, .14);
+  box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .1);
 }
 
 .empty {
@@ -250,6 +243,88 @@
     float: right;
     text-align: center;
     color: #838383;
+  }
+}
+
+.cartTable {
+  .cartItems {
+    position: relative;
+    height: 140px;
+    display: flex;
+    .itemCheck {
+      width: 74px;
+      height: 20px;
+      padding: 60px 0 0 31px;
+      font-size: 12px;
+      color: #999;
+    }
+    .itemThumb {
+      margin-top: 30px;
+      width: 80px;
+    }
+    .itemName {
+      width: 510px;
+      .itemNameTable {
+        display: table-cell;
+        vertical-align: middle;
+        height: 140px;
+        a {
+          color: #333;
+          font-size: 16px;
+        }
+        ul {
+          color: #999;
+          font-size: 12px;
+          padding-top: 4px;
+          line-height: 17px;
+          li {
+            float: left;
+            padding: 0 10px;
+            position: relative;
+          }
+        }
+      }
+    }
+    .itemPrice {
+      width: 137px;
+      text-align: center;
+      color: #666;
+      line-height: 140px;
+    }
+    .itemNumber {
+      width: 137px;
+      .itemNumberWrapper {
+        margin-top: 50px;
+      }
+    }
+    .itemSubtotal {
+      font-weight: 700;
+      text-align: right;
+      width: 137px;
+      color: #666;
+      line-height: 140px;
+    }
+    .itemOperation {
+      width: 137px;
+      text-align: center;
+      color: #666;
+        span{
+          position: relative;
+          display: inline-block;
+          width: 36px;
+          height: 36px;
+          margin-top: 55px;
+          height: 36px;
+          margin-left: 20px;
+          line-height: 40px;
+          text-indent: -9999em;
+          cursor: pointer;
+          background: url(../../assests/images/delete-btn-icon.png) no-repeat;
+          &:hover{
+            background-position-y: -36px;;
+          }
+      }
+    }
   }
 }
 

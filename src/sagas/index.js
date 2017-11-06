@@ -1,4 +1,4 @@
-import { all } from 'redux-saga/effects'
+import { all } from 'redux-saga/effects';
 
 import {accountSagas} from './account';
 import {homepageSagas} from './homepage';

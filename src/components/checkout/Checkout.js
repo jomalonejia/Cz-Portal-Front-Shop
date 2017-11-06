@@ -6,9 +6,7 @@ class Checkout extends Component {
   render () {
 
     return (
-      <div>
         <div className={style.main}>
-          <div className={style.content}>
             <div className={style.checkoutAddress}>
               <div className="title">
                 <h2>收获信息</h2>
@@ -154,9 +152,7 @@ class Checkout extends Component {
                 </div>
               </div>
             </div>
-          </div>
         </div>
-      </div>
     )
   }
 }

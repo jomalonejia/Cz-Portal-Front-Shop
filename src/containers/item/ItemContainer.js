@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import axios from 'axios'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import axios from 'axios';
 
-import Item from '../../components/item'
-import * as itemActions from '../../actions/item'
+import history from '../../history';
+
+import Item from '../../components/item';
+import * as itemActions from '../../actions/item';
 
 @connect(
   null,
@@ -34,15 +36,9 @@ class ItemContainer extends Component {
       })
   }
 
-  change(){
-    console.log('....')
-    this.props.history.push('/cart')
-  }
-
   render () {
     return (
       <div>
-        <button onClick={this.change.bind(this)}>click</button>
         <Item item={this.state.item} {...this.props}/>
       </div>
     )

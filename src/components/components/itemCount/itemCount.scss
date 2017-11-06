@@ -1,0 +1,50 @@
+.paramNumberLine {
+  line-height: 36px;
+  width: 128px;
+  display: flex;
+  .paramNumber {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 40px;
+    text-indent: -9999em;
+    cursor: pointer;
+    background: url(../../../assests/images/cart-updown.png) no-repeat;
+    -ms-background-position-x: -3px;
+    background-position-x: -3px;
+  }
+  .paramNumberMinus {
+    background-position-y: -60px;
+    &:hover {
+      background-position-y: -180px;
+    }
+  }
+  .paramNumberMinusDisabled {
+    background-position-y: -300px;
+    &:hover {
+      background-position-y: -300px;
+    }
+  }
+  .paramNumberAdd {
+    &:hover {
+      background-position-y: -120px;
+    }
+  }
+  .paramNumberAddDisabled {
+    background-position-y: -240px;
+  }
+  .paramNumberCount {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 56px;
+    height: 18px;
+    margin: 7px 0 0;
+    border: none;
+    border-radius: 3px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 14px;
+  }
+}

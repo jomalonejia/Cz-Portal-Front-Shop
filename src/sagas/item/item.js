@@ -1,28 +1,29 @@
 import { call, fork, select,put, take, takeLatest } from 'redux-saga/effects';
-import createHistory from 'history/createBrowserHistory';
 import {push} from 'react-router-redux';
-import * as itemActions from '../../actions/item';
+import axios from 'axios';
+import {ADD_TO_CART} from '../../actions/item';
+
+import history from '../../history';
 
 
-const history = createHistory();
 
 
-export function * addToCart(){
-  /* while (true){
-   let menuAction = yield take(menuActions.changeAccountMenu);
-   console.log(menuAction.payload);
-   yield put(menuActions.changeAccountMenuSuccess(menuAction.payload));
-   yield history.push('/account/'+menuAction.payload);
-   }*/
+export function * addToCart(action){
+  yield console.log(action.payload);
+  axios.post(`/api/item/addToCart`,action)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  //yield history.push('/cart');
+}
 
-  while (true){
-    let addToCartAction = yield take(itemActions.addToCart);
-    console.log(addToCartAction.payload);
-    //yield call(history.push, '/cart')
-    //history.replace('/');
-  }
+function * getAddToCart() {
+  yield takeLatest(ADD_TO_CART,addToCart);
 }
 
 export const itemSagas = [
-  fork(addToCart)
+  fork(getAddToCart)
 ]
