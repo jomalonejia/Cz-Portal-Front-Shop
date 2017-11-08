@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Checkbox } from 'semantic-ui-react';
-import style from './itemCard.scss';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Checkbox } from 'semantic-ui-react'
+import style from './itemCard.scss'
 
 const ItemCard = ({item = []}) => (
   <div className={style.items}>
@@ -25,7 +25,7 @@ const ItemCard = ({item = []}) => (
   </div>
 )
 
-export default ItemCard;
+export default ItemCard
 
 
 

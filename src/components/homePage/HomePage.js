@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import style from './homePage.scss';
-import ItemCard from '../components/itemCard';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import style from './homePage.scss'
+import ItemCard from '../components/itemCard'
 
 class HomePage extends Component {
 
@@ -41,7 +41,7 @@ class HomePage extends Component {
 
   render () {
 
-    const {hotItems=[]} = this.props;
+    const {hotItems = []} = this.props
 
     const carousels = [
         {src: 'src/images/banner1.png'},
@@ -147,9 +147,9 @@ class HomePage extends Component {
             <h2 className={style.title}>热门商品</h2>
             <ul className={style.cont}>
               {
-                hotItems.map((item,index) => (
+                hotItems.map((item, index) => (
                   <li key={item.id}>
-                   <ItemCard item={item}/>
+                    <ItemCard item={item}/>
                   </li>
                 ))
               }
@@ -209,8 +209,8 @@ class HomePage extends Component {
     )
   }
 }
-export default HomePage;
+export default HomePage
 
 HomePage.propTypes = {
-  hotItems:PropTypes.array.isRequired,
+  hotItems: PropTypes.array.isRequired,
 }

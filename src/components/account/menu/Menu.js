@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 
-import style from './menu.scss';
+import style from './menu.scss'
 
 class Menu extends Component {
 
@@ -12,7 +12,7 @@ class Menu extends Component {
 
   render () {
 
-    const {changeAccountMenu,currentAccountMenu } = this.props;
+    const {changeAccountMenu, currentAccountMenu} = this.props
 
     const menus = [
       {name: 'order', describe: '我的订单', url: '/account/order'},
@@ -35,11 +35,11 @@ class Menu extends Component {
                     menus.map((menu, index) => (
                       <div key={index}>
                         {/*<NavLink to={menu.url}>*/}
-                          <li onClick={() => changeAccountMenu(menu.name)}
+                        <li onClick={() => changeAccountMenu(menu.name)}
                             className={menu.name === currentAccountMenu ? style.active : null}>
-                            {menu.describe}
-                          </li>
-                       {/* </NavLink>*/}
+                          {menu.describe}
+                        </li>
+                        {/* </NavLink>*/}
                       </div>
                     ))
                   }

@@ -1,18 +1,17 @@
-import React,{Component} from 'react';
-import { connect } from 'react-redux';
-import Login from '../../components/login';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Login from '../../components/login'
 
-@connect(null,null)
-class LoginContainer extends Component{
+@connect(null, null)
+class LoginContainer extends Component {
 
+  render () {
 
-  render(){
-
-    return(
+    return (
       <Login/>
     )
   }
 }
 
-export default LoginContainer;
+export default LoginContainer
 

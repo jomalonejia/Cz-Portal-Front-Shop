@@ -1,9 +1,7 @@
-
-
-export const MENU_ORDER_NAME = 'order';
-export const MENU_SUPPORT_NAME = 'support';
-export const MENU_INFO_NAME = 'info';
-export const MENU_ADDRESS_NAME = 'address';
+export const MENU_ORDER_NAME = 'order'
+export const MENU_SUPPORT_NAME = 'support'
+export const MENU_INFO_NAME = 'info'
+export const MENU_ADDRESS_NAME = 'address'
 
 export const menus = [
   {name: MENU_ORDER_NAME, describe: '我的订单'},

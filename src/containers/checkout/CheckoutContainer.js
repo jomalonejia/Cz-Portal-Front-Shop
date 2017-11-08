@@ -1,17 +1,17 @@
-import React,{Component} from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import Checkout from '../../components/checkout';
+import Checkout from '../../components/checkout'
 
 @connect(
   null,
   null)
-class CartContainer extends Component{
-  render(){
+class CartContainer extends Component {
+  render () {
     return (
       <Checkout/>
     )
   }
 }
 
-export default CartContainer;
+export default CartContainer

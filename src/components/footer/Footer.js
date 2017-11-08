@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './footer.css';
+import React, { Component } from 'react'
+import './footer.css'
 
-class Footer extends Component{
-  render(){
+class Footer extends Component {
+  render () {
     return (
       <div className='footer'>
         <div className='footer_menu'>
@@ -61,4 +61,4 @@ class Footer extends Component{
   }
 }
 
-export default Footer;
+export default Footer

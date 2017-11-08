@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Checkbox } from 'semantic-ui-react'
-import BlueBtn from '../components/blueBtn';
-import ItemCount from '../components/itemCount';
+import BlueBtn from '../components/blueBtn'
+import ItemCount from '../components/itemCount'
 
 import style from './cart.scss'
 
@@ -44,9 +44,9 @@ class Cart extends Component {
                     </div>
                     <div className={style.itemName}>
                       <div className={style.itemNameTable}>
-                        <a  href="#/item/100022302"
-                            title="Smartisan M1/M1L 软胶保护套"
-                            target="_blank">Smartisan M1/M1L 软胶保护套</a>
+                        <a href="#/item/100022302"
+                           title="Smartisan M1/M1L 软胶保护套"
+                           target="_blank">Smartisan M1/M1L 软胶保护套</a>
                         <ul>
                           <li>红色</li>
                           <li>适用于 Smartisan M1L</li>
@@ -66,7 +66,7 @@ class Cart extends Component {
                       ￥&nbsp;249.00
                     </div>
                     <div className={style.itemOperation}>
-                        <span></span>
+                      <span></span>
                     </div>
                   </div>
                 </div>

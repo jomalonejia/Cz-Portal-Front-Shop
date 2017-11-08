@@ -1,13 +1,15 @@
-import { all } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects'
 
-import {accountSagas} from './account';
-import {homepageSagas} from './homepage';
-import {itemSagas} from './item';
+import { accountSagas } from './account'
+import { homepageSagas } from './homepage'
+import { itemSagas } from './item'
+import { userSagas } from './user'
 
-export default function* sagas(){
+export default function* sagas () {
   yield all([
     ...accountSagas,
     ...homepageSagas,
-    ...itemSagas
+    ...itemSagas,
+    ...userSagas
   ])
 }

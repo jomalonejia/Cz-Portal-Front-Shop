@@ -1,73 +1,70 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import update from 'immutability-helper';
-import ItemCount from '../components/itemCount';
-import style from './item.scss';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import update from 'immutability-helper'
+import ItemCount from '../components/itemCount'
+import style from './item.scss'
 
 class Item extends Component {
 
-
-
   constructor (props) {
-    super(props);
+    super(props)
     this.state = {
       selectedImageIndex: 0,
       imageUrl: '',
-      count:1,
-      params:[]
-    };
+      count: 1,
+      params: []
+    }
   }
 
-  cart = {count:1};
+  cart = {count: 1}
 
   componentWillMount () {
 
   }
 
-  componentDidMount(){
+  componentDidMount () {
 
   }
 
-  changeParam(paramId,paramValue,index){
-   /* const newParams = update(this.state.cart, {
-      params:{
-        [index]:{
-          paramId:{$set:paramIdd},
-          paramValue:{$set:paramValue}
-        }
-      }
-    })*/
-   const params = {...this.state.params}
-   if(params[index]){
-      params[index].paramValue = paramValue;
-   }else{
-     params[index] = {paramId:paramId,paramValue:paramValue};
-   }
-   this.setState({params:params});
+  changeParam (paramId, paramValue, index) {
+    /* const newParams = update(this.state.cart, {
+     params:{
+     [index]:{
+     paramId:{$set:paramIdd},
+     paramValue:{$set:paramValue}
+     }
+     }
+     })*/
+    const params = {...this.state.params}
+    if (params[index]) {
+      params[index].paramValue = paramValue
+    } else {
+      params[index] = {paramId: paramId, paramValue: paramValue}
+    }
+    this.setState({params: params})
   }
-
 
   /*changeCount (i) {
-    let newCount = this.state.count + i;
-    this.setState({count:newCount});
-  }*/
+   let newCount = this.state.count + i;
+   this.setState({count:newCount});
+   }*/
 
   changeCount = (i) => {
-    let newCount = this.state.count + i;
-    this.setState({count:newCount});
+    let newCount = this.state.count + i
+    this.setState({count: newCount})
   }
 
   changeImage (index, imageUrl) {
-    this.setState({selectedImageIndex: index, imageUrl: imageUrl});
+    this.setState({selectedImageIndex: index, imageUrl: imageUrl})
   }
 
-  checkout(){
+  checkout () {
     console.log('checkout')
   }
 
   render () {
 
-    const {item = {},addToCart} = this.props;
+    const {item = {}, addToCart} = this.props
 
     return (
       <div>
@@ -80,21 +77,18 @@ class Item extends Component {
                   <ul>
                     {
                       item.shownImages
-                        ?
-                        item.shownImages.map((imageUrl, index) =>
-                          <li onClick={this.changeImage.bind(this, index, imageUrl)} key={index}>
-                            {
-                              imageUrl != null && imageUrl != ''
-                                ?
-                                <img src={imageUrl} className={index === this.state.selectedImageIndex ? style.imageShow : null}/>
-                                :
-                                null
-                            }
+                        ? item.shownImages.map((imageUrl, index) =>
+                        <li onClick={this.changeImage.bind(this, index, imageUrl)} key={index}>
+                          {
+                            imageUrl != null && imageUrl != ''
+                              ? <img src={imageUrl}
+                                     className={index === this.state.selectedImageIndex ? style.imageShow : null}/>
+                              : null
+                          }
 
-                          </li>
+                        </li>
                       )
-                        :
-                        null
+                        : null
                     }
                   </ul>
                 </div>
@@ -126,22 +120,20 @@ class Item extends Component {
                       <span className={style.paramName}>{param.paramDescribe}</span>
                       <ul className={style.paramValues}>
                         {
-                          param.paramDetails.map((detail,detail_index) =>
+                          param.paramDetails.map((detail, detail_index) =>
                             param.paramName == 'color'
-                              ?
-                              <li key={detail.paramValue}
-                                  className={`${style.paramColor}
+                              ? <li key={detail.paramValue}
+                                    className={`${style.paramColor}
                                   ${(this.state.params[index] && this.state.params[index].paramValue) == detail.paramValue ? style.paramColorActivate : null}
                                   `}
-                                  onClick={this.changeParam.bind(this,param.id,detail.paramValue,index)}>
-                                <span style={{backgroundColor:detail.paramValue}}></span>
-                              </li>
-                              :
-                            <li key={detail.paramValue}
-                                className={`${style.paramValue}
-                                ${(this.state.params[index] && this.state.params[index].paramValue) == detail.paramValue ? style.paramActivate :null}
+                                    onClick={this.changeParam.bind(this, param.id, detail.paramValue, index)}>
+                              <span style={{backgroundColor: detail.paramValue}}></span>
+                            </li>
+                              : <li key={detail.paramValue}
+                                    className={`${style.paramValue}
+                                ${(this.state.params[index] && this.state.params[index].paramValue) == detail.paramValue ? style.paramActivate : null}
                                 `}
-                                onClick={this.changeParam.bind(this,param.id,detail.paramValue,index)}>
+                                    onClick={this.changeParam.bind(this, param.id, detail.paramValue, index)}>
                               {detail.paramValue}
                             </li>
                           )
@@ -159,11 +151,15 @@ class Item extends Component {
                 <div className={style.buttonText}>
                   <div className={style.buttonBar}>
                     <span className={style.blueBtn}
-                          onClick={() => addToCart(Object.assign({},{params:this.state.params,count:this.state.count,itemId:item.id}))}>
+                          onClick={() => addToCart(Object.assign({}, {
+                            params: this.state.params,
+                            count: this.state.count,
+                            itemId: item.id
+                          }))}>
                       加入购物车
                     </span>
                     <span className={style.grayBtn}
-                          onClick={this.checkout.bind(this,item)}>
+                          onClick={this.checkout.bind(this, item)}>
                       现在购买
                     </span>
                     <div className={style.warning}>
@@ -192,12 +188,12 @@ class Item extends Component {
          </div>
          </div>*/}
       </div>
-    );
+    )
   }
 }
 
-export default Item;
+export default Item
 
 Item.propTypes = {
   item: PropTypes.object.isRequired,
-};
+}

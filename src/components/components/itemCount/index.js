@@ -1,1 +1,1 @@
-export {default} from './ItemCount';
+export { default } from './ItemCount'

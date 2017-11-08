@@ -1,13 +1,13 @@
-import React from 'react';
-import style from './blueBtn.scss';
+import React from 'react'
+import style from './blueBtn.scss'
 
 const BlueBtn = ({text}) => (
- <div className={style.blueBtn}>
-   <span>{text}</span>
- </div>
+  <div className={style.blueBtn}>
+    <span>{text}</span>
+  </div>
 )
 
-export default BlueBtn;
+export default BlueBtn
 
 
 

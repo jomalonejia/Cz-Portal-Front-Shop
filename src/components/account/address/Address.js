@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { Dropdown, Button, Form, Icon, Modal } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { Dropdown, Button, Form, Icon, Modal } from 'semantic-ui-react'
 //import 'semantic-ui-css/semantic.css';
 import 'semantic-ui-css/components/icon.css'
 import 'semantic-ui-css/components/dropdown.css'

@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Menu from '../../components/account/menu';
-import Address from '../../components/account/address';
-import Info from '../../components/account/info';
-import Order from '../../components/account/order';
-import Support from '../../components/account/support';
-import { getMenuSelector } from '../../selectors/account/menu';
-import * as accountActions from '../../actions/account';
-import * as accountMenuConstants from '../../constants/menu.constants';
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import Menu from '../../components/account/menu'
+import Address from '../../components/account/address'
+import Info from '../../components/account/info'
+import Order from '../../components/account/order'
+import Support from '../../components/account/support'
+import { getMenuSelector } from '../../selectors/account/menu'
+import * as accountActions from '../../actions/account'
+import * as accountMenuConstants from '../../constants/menu.constants'
 
 @connect(
   state => getMenuSelector,
   dispatch => bindActionCreators({...accountActions}, dispatch))
 export default class AccountContainer extends Component {
   constructor (props) {
-    super(props);
+    super(props)
     this.state = {
-      addresses : [
+      addresses: [
         {
           fullName: 'michael',
           address: '北京市 市辖区 东城区',
@@ -33,7 +33,7 @@ export default class AccountContainer extends Component {
           default: false
         },
       ],
-      orders : [
+      orders: [
         {
           orderNumber: '1704127569257178',
           date: '2017-04-12',
@@ -66,19 +66,19 @@ export default class AccountContainer extends Component {
         }
       ]
 
-    };
+    }
   }
 
-  getDynamicComponent (currentMenu,props) {
+  getDynamicComponent (currentMenu, props) {
     switch (currentMenu) {
       case 'order':
-        return <Order orders={this.state.orders}/>;
+        return <Order orders={this.state.orders}/>
       case 'support':
-        return <Support/>;
+        return <Support/>
       case 'info':
-        return <Info/>;
+        return <Info/>
       case 'address':
-        return <Address addresses={this.state.addresses}/>;
+        return <Address addresses={this.state.addresses}/>
       default:
         return null
     }
@@ -86,7 +86,7 @@ export default class AccountContainer extends Component {
 
   render () {
 
-    const {currentAccountMenu} = this.props;
+    const {currentAccountMenu} = this.props
 
     return (
       <div>

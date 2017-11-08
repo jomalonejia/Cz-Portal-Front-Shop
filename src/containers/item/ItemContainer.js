@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import axios from 'axios';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import axios from 'axios'
 
-import history from '../../history';
+import history from '../../history'
 
-import Item from '../../components/item';
-import * as itemActions from '../../actions/item';
+import Item from '../../components/item'
+import * as itemActions from '../../actions/item'
 
 @connect(
   null,

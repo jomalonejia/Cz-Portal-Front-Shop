@@ -1,13 +1,12 @@
-import React,{Component} from 'react';
-import { connect } from 'react-redux';
-import Item from '../../components/components/itemCard';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Item from '../../components/components/itemCard'
 
-class TestContainer extends Component{
+class TestContainer extends Component {
 
+  render () {
 
-  render(){
-
-  const item = {
+    const item = {
       itemId: 0,
       name: 'FIIL Diva 智能蓝牙无线降噪耳机',
       describe: '手势触控、智能启停',
@@ -16,11 +15,11 @@ class TestContainer extends Component{
 
     }
 
-    return(
+    return (
       <Item item={item}/>
     )
   }
 }
 
-export default TestContainer;
+export default TestContainer
 
