@@ -2,12 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
-import configureStore from './store'
+import store from './store'
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-
-const store = configureStore()
 
 /*
  ReactDOM.render(

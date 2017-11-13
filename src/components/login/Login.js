@@ -2,11 +2,35 @@ import React, { Component } from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import Ionicon  from 'react-ionicons'
+import ErrorMessage from '../components/errorMessage'
 import style from './login.scss'
 
 class Login extends React.Component {
 
+  constructor (props) {
+    super(props)
+    this.state = {
+      form: {
+        username: '',
+        password: ''
+      },
+      error: false
+    }
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange (event) {
+    const target = event.target
+    const value = target.value
+    const name = target.name
+    const form = this.state.form
+    form[name] = value
+    this.setState({form: form})
+  }
+
   render () {
+
+    const {login, loginError} = this.props
 
     return (
       <div className={style.background}>
@@ -14,26 +38,32 @@ class Login extends React.Component {
           <div className={style.title}>
             <img src="src/images/img/profile.jpg"/>
             <h4>
-              使用Smartisan ID 登录在线商城
+              Sign in right now!
             </h4>
           </div>
           <div>
             <Form onSubmit={this.handleSubmit} className={style.loginForm}>
               <Form.Field>
-                <label>First Name</label>
-                <input placeholder="First Name"/>
+                <ErrorMessage isError={loginError}
+                              message="username or password is not correctly!"/>
               </Form.Field>
               <Form.Field>
-                <label>Last Name</label>
-                <input placeholder="Last Name"/>
+                <label>Username</label>
+                <input placeholder="username" name="username" onChange={this.handleInputChange}/>
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input placeholder="password" name="password" onChange={this.handleInputChange}/>
               </Form.Field>
               <Form.Field>
                 <Checkbox label="remember me"/>
                 <span className={style.signUp}>
-                New User? <Link to="/">Sign up now »</Link>
+                New User? <Link to="/register">Sign up now »</Link>
               </span>
               </Form.Field>
-              <Button className={style.submitButton} size="big" type="submit">Submit</Button>
+              <Button className={style.submitButton}
+                      size="big"
+                      type="button" onClick={() => login(this.state.form)}>Submit</Button>
               {/*<label>
                Name:
                <input type="text" name="name" />

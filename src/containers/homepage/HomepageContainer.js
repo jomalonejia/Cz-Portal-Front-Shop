@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import axios from 'axios'
 
+
+
+import {userSelector} from '../../selectors/user'
+
 import HomePage from '../../components/homePage'
 
 class HomePageContainer extends Component {

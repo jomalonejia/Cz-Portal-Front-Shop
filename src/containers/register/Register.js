@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import { bindActionCreators } from 'redux'
 import Register from '../../components/register'
-import * as registerActions from '../../actions/register'
+import * as userActions from '../../actions/user'
 
 @connect(
   null,
-  dispatch => bindActionCreators({...registerActions}, dispatch))
+  dispatch => bindActionCreators({...userActions}, dispatch))
 class RegisterContainer extends Component {
 
   constructor (props){

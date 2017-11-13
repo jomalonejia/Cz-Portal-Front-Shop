@@ -79,6 +79,12 @@ module.exports = {
     hot:true,
     port: 4201,
     proxy: {
+      '/api/security': {
+        target: 'http://localhost:8765/cz-portal-security',
+        pathRewrite: {
+          '/api/security' : ''
+        }
+      },
       '/api/order': {
         target: 'http://localhost:8765/cz-portal-service-order',
         pathRewrite: {

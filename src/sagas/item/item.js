@@ -1,6 +1,6 @@
 import { call, fork, select, put, take, takeLatest } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
-import axios from 'axios'
+import {post} from '../../services/authHttp'
 import { ADD_TO_CART } from '../../actions/item'
 
 import history from '../../history'
@@ -8,7 +8,8 @@ import history from '../../history'
 export function * addToCart (action) {
   yield console.log(action.payload)
   try {
-    yield axios.post(`/api/item/addToCart`, action.payload)
+    yield post(`/api/item/addToCart`,action.payload)
+    //yield axios.post(`/api/item/addToCart`, action.payload)
     //yield put(registerActions.registerSuccess())
     //yield history.push('/cart');
   } catch (err) {

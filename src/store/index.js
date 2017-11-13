@@ -11,22 +11,20 @@ const sagaMiddleware = createSagaMiddleware()
 
 const middlewares = [historyMiddleware, sagaMiddleware]
 
-export default function configureStore () {
+let middleware = applyMiddleware(...middlewares)
 
-  let middleware = applyMiddleware(...middlewares)
+const devToolsExtension = window.devToolsExtension
 
-  const devToolsExtension = window.devToolsExtension
+middleware = compose(middleware, devToolsExtension())
 
-  middleware = compose(middleware, devToolsExtension())
+const store = createStore(reducers, middleware)
 
-  const store = createStore(reducers, middleware)
-  sagaMiddleware.run(sagas)
+sagaMiddleware.run(sagas)
 
-  /*if (module.hot) {
-   module.hot.accept('./reducers', () => {
-   store.replaceReducer(require('./reducers').default);
-   });
-   }*/
+/*if (module.hot) {
+ module.hot.accept('./reducers', () => {
+ store.replaceReducer(require('./reducers').default);
+ });
+ }*/
 
-  return store
-}
+export default store
