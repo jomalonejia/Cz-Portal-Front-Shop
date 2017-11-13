@@ -4,7 +4,7 @@
 
 This project is the front page for Cz-Portal's shop
 
-##stack
+## stack
 * reactjs
 * react-router4
 * redux
@@ -12,6 +12,7 @@ This project is the front page for Cz-Portal's shop
 * react-router-redux
 * redux-saga
 * semantic-ui
+* ...
 
 ## Install
 
@@ -32,7 +33,7 @@ This project is the front page for Cz-Portal's shop
 
 ## Authors
 
-* **Jomalone Jia** - *Initial work* - [jomalone](https://github.com/jomalonejia)
+* **[Jomalone Jia](https://github.com/jomalonejia)** 
 
 ## License
 
