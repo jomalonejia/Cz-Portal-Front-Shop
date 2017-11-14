@@ -2,14 +2,14 @@ import { Record } from 'immutable'
 import * as itemActions from '../../actions/item'
 
 export const ItemState = new Record({
-  test: 1
+  item:{}
 })
 
 export function itemReducers (state = new ItemState(), action) {
   switch (action.type) {
-    /*case itemActions.ADD_TO_CART:
+    case itemActions.GET_ITEM_BY_ID_SUCCESS:
      console.log(action.payload);
-     return state.merge({});*/
+     return Object.assign({},state,{item:action.payload})
     default :
       return state
   }

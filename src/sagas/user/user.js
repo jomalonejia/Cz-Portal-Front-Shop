@@ -20,7 +20,14 @@ export function * loginFlow (action) {
   try {
     const response = yield call(login,action.payload.username, action.payload.password)
     yield put(userActions.loginSuccess(Object.assign({},response,{username:action.payload.username})))
-    yield history.push('/')
+    const redirectUrl = new URLSearchParams(window.location.search).get('redirectUrl')
+    if(redirectUrl){
+      const re = /https?:\/\/.*?:\d+(.*?)/g
+      const router = redirectUrl.replace(re,'')
+      yield history.push(router)
+    }else{
+      yield history.push('/')
+    }
   } catch (error) {
     yield put(userActions.loginFailed())
   }

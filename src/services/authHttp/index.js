@@ -12,7 +12,7 @@ authAxios.interceptors.request.use(function (request) {
   // Do something before request is sent
   const accessToken = getAccessToken(store.getState());
   if(accessToken == '' || accessToken == null || accessToken == undefined){
-    history.push('/login')
+    history.push(`/login?redirectUrl=${window.location.href}`)
     return
   }else{
     request.headers.Authorization = `Bearer ${accessToken}`
@@ -26,6 +26,3 @@ authAxios.interceptors.request.use(function (request) {
 
 export const get = (url,obj) => authAxios.get(url,obj)
 export const post = (url,obj) => authAxios.post(url,obj)
-
-export const authGet = (url,obj,token) => authAxios.get(url,obj,{headers:{Authorization:`Bearer ${token}`}})
-export const authPost = (url,obj,token) => authAxios.get(url,obj,{headers:{Authorization:`Bearer ${token}`}})

@@ -16,17 +16,11 @@ class Item extends Component {
     }
   }
 
-  cart = {count: 1}
-
-  componentWillMount () {
-
-  }
-
   componentDidMount () {
 
   }
 
-  changeParam (paramId, paramValue, index) {
+  changeParam (paramId, paramValue) {
     /* const newParams = update(this.state.cart, {
      params:{
      [index]:{
@@ -35,13 +29,17 @@ class Item extends Component {
      }
      }
      })*/
-    const params = {...this.state.params}
-    if (params[index]) {
-      params[index].paramValue = paramValue
+    const params = [...this.state.params]
+    const findParam = params.find(param => param.paramId == paramId)
+    if (findParam) {
+      const findParamIndex = params.findIndex(param => param.paramId == paramId)
+      findParam.paramValue = paramValue
+      params[findParamIndex] = findParam
     } else {
-      params[index] = {paramId: paramId, paramValue: paramValue}
+      params.push({paramId: paramId, paramValue: paramValue})
     }
-    this.setState({params: params})
+    this.setState({params: [...params]})
+
   }
 
   /*changeCount (i) {
@@ -59,16 +57,17 @@ class Item extends Component {
   }
 
   checkout () {
-    console.log('checkout')
+    console.log(this.props.match.params)
   }
 
   render () {
 
-    const {item = {}, addToCart} = this.props
-
+    const {item = {}, addToCart, username} = this.props
+    console.log(item)
+    console.log(username)
     return (
       <div>
-        <div className={style.main}>
+        {/*<div className={style.main}>
           <div id="graybox" className={style.grayBox}>
             <div className={style.wrapper}>
               <div className={style.gallery}>
@@ -151,10 +150,12 @@ class Item extends Component {
                 <div className={style.buttonText}>
                   <div className={style.buttonBar}>
                     <span className={style.blueBtn}
+                          disabled={this.state.params.length <= 0}
                           onClick={() => addToCart(Object.assign({}, {
                             params: this.state.params,
                             count: this.state.count,
-                            itemId: item.id
+                            itemId: item.id,
+                            username: username
                           }))}>
                       加入购物车
                     </span>
@@ -172,7 +173,7 @@ class Item extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
 
         {/* <div id="pm" className={style.pm}>
@@ -194,6 +195,6 @@ class Item extends Component {
 
 export default Item
 
-Item.propTypes = {
+/*Item.propTypes = {
   item: PropTypes.object.isRequired,
-}
+}*/

@@ -28,6 +28,10 @@ class Login extends React.Component {
     this.setState({form: form})
   }
 
+  test = () => {
+
+  }
+
   render () {
 
     const {login, loginError} = this.props

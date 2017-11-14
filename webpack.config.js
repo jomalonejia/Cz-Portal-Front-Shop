@@ -97,6 +97,12 @@ module.exports = {
           '/api/item' : '/item'
         }
       },
+      '/api/cart': {
+        target: 'http://localhost:8765/cz-portal-service-item',
+        pathRewrite: {
+          '/api/cart' : '/cart'
+        }
+      },
       '/api/user': {
         target: 'http://localhost:8765/cz-portal-service-user',
         pathRewrite: {
