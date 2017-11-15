@@ -16,19 +16,19 @@ class Item extends Component {
     }
   }
 
-  componentDidMount () {
-
+  componentWillReceiveProps(nextProps) {
+    if(this.state.params.length <= 0){
+      if(nextProps.item.params){
+        const params = []
+        nextProps.item.params.map(param => {
+          params.push({paramId: param.id, paramValue: param.paramDetails[0].paramValue})
+        })
+        this.setState({params: [...params]})
+      }
+    }
   }
 
   changeParam (paramId, paramValue) {
-    /* const newParams = update(this.state.cart, {
-     params:{
-     [index]:{
-     paramId:{$set:paramIdd},
-     paramValue:{$set:paramValue}
-     }
-     }
-     })*/
     const params = [...this.state.params]
     const findParam = params.find(param => param.paramId == paramId)
     if (findParam) {
@@ -42,11 +42,6 @@ class Item extends Component {
 
   }
 
-  /*changeCount (i) {
-   let newCount = this.state.count + i;
-   this.setState({count:newCount});
-   }*/
-
   changeCount = (i) => {
     let newCount = this.state.count + i
     this.setState({count: newCount})
@@ -57,17 +52,16 @@ class Item extends Component {
   }
 
   checkout () {
-    console.log(this.props.match.params)
+    this.props.history.push('/checkout')
   }
 
   render () {
 
     const {item = {}, addToCart, username} = this.props
-    console.log(item)
-    console.log(username)
+
     return (
       <div>
-        {/*<div className={style.main}>
+        <div className={style.main}>
           <div id="graybox" className={style.grayBox}>
             <div className={style.wrapper}>
               <div className={style.gallery}>
@@ -101,7 +95,7 @@ class Item extends Component {
               <div className={style.titleText}>
                 <div className={style.price}>
                  <span className={style.priceSpan}>
-                 <em>￥</em>&nbsp;{item.price}
+                 <em>￥</em>&nbsp;{item.price}{username}
                  </span>
                 </div>
                 <div className={style.itemsInfo}>
@@ -173,7 +167,7 @@ class Item extends Component {
               </div>
             </div>
           </div>
-        </div>*/}
+        </div>
 
 
         {/* <div id="pm" className={style.pm}>
@@ -195,6 +189,6 @@ class Item extends Component {
 
 export default Item
 
-/*Item.propTypes = {
+Item.propTypes = {
   item: PropTypes.object.isRequired,
-}*/
+}

@@ -57,7 +57,7 @@ class Login extends React.Component {
               </Form.Field>
               <Form.Field>
                 <label>Password</label>
-                <input placeholder="password" name="password" onChange={this.handleInputChange}/>
+                <input placeholder="password" name="password" type="password" onChange={this.handleInputChange}/>
               </Form.Field>
               <Form.Field>
                 <Checkbox label="remember me"/>

@@ -6,6 +6,7 @@ import * as itemActions from '../../actions/item'
 import history from '../../history'
 
 
+/*
 export function * getItemById() {
   while (true){
     const action = yield take(itemActions.GET_ITEM_BY_ID)
@@ -21,16 +22,15 @@ export function * getItemById() {
     }
   }
 }
+*/
 
 export function * addToCart (action) {
   yield console.log(action.payload)
   try {
     yield post(`/api/cart/addToCart`,action.payload)
-    //yield axios.post(`/api/item/addToCart`, action.payload)
-    //yield history.push('/cart');
+    yield history.push('/cart');
   } catch (err) {
     console.log(err);
-    //yield put(registerActions.registerFailed())
   }
 }
 
@@ -41,6 +41,5 @@ function * getAddToCart () {
 }
 
 export const itemSagas = [
-  fork(getItemById),
   fork(getAddToCart)
 ]

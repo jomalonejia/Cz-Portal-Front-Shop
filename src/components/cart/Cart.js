@@ -8,13 +8,17 @@ import style from './cart.scss'
 
 class Cart extends Component {
 
+  constructor (props) {
+    super(props)
+  }
+
   change = i => console.log(i)
 
   render () {
 
-    const carts = [
-      0
-    ]
+    const {carts = []} = this.props
+
+    console.log(carts)
 
     return (
       <div className={style.main}>
@@ -33,42 +37,48 @@ class Cart extends Component {
                   <span className={style.cartTableNumber}>数量</span>
                   <span className={style.cartTablePrice}>单价</span>
                 </div>
-                <div className={style.cartTable}>
-                  <div className={style.cartItems}>
-                    <div className={style.itemCheck}>
-                      <Checkbox label="选择"/>
-                    </div>
-                    <div className={style.itemThumb}>
-                      <img alt="Smartisan M1/M1L 软胶保护套"
-                           src="http://image.smartisanos.cn/resource/ff6e3d787c07983fa4c2c281c48e03c9.png?x-oss-process=image/resize,w_80/quality,Q_100/format,webp"/>
-                    </div>
-                    <div className={style.itemName}>
-                      <div className={style.itemNameTable}>
-                        <a href="#/item/100022302"
-                           title="Smartisan M1/M1L 软胶保护套"
-                           target="_blank">Smartisan M1/M1L 软胶保护套</a>
-                        <ul>
-                          <li>红色</li>
-                          <li>适用于 Smartisan M1L</li>
-                        </ul>
+                <div  className={style.cartTable}>
+                  {
+                    carts.map((cart, index) =>
+                      <div key={cart.id} className={style.cartItems}>
+                        <div className={style.itemCheck}>
+                          <Checkbox label="选择"/>
+                        </div>
+                        <div className={style.itemThumb}>
+                          <img alt={cart.itemName}
+                               src="http://image.smartisanos.cn/resource/ff6e3d787c07983fa4c2c281c48e03c9.png?x-oss-process=image/resize,w_80/quality,Q_100/format,webp"/>
+                        </div>
+                        <div className={style.itemName}>
+                          <div className={style.itemNameTable}>
+                            {/*<a href="#/item/100022302"
+                               title={cart.itemName}
+                               target="_blank">{cart.itemName}
+                            </a>*/}
+                            <Link to={`/item/${cart.itemId}`}>{cart.itemName}</Link>
+                            <ul>
+                              <li>红色</li>
+                              <li>{cart.itemDescribe}</li>
+                            </ul>
 
+                          </div>
+                        </div>
+                        <div className={style.itemPrice}>
+                          ￥&nbsp;{cart.price}
+                        </div>
+                        <div className={style.itemNumber}>
+                          <div className={style.itemNumberWrapper}>
+                            <ItemCount count={cart.count} changeCount={this.change}/>
+                          </div>
+                        </div>
+                        <div className={style.itemSubtotal}>
+                          ￥&nbsp;{cart.price * cart.discount}
+                        </div>
+                        <div className={style.itemOperation}>
+                          <span></span>
+                        </div>
                       </div>
-                    </div>
-                    <div className={style.itemPrice}>
-                      ￥&nbsp;49.00
-                    </div>
-                    <div className={style.itemNumber}>
-                      <div className={style.itemNumberWrapper}>
-                        <ItemCount changeCount={this.change}/>
-                      </div>
-                    </div>
-                    <div className={style.itemSubtotal}>
-                      ￥&nbsp;249.00
-                    </div>
-                    <div className={style.itemOperation}>
-                      <span></span>
-                    </div>
-                  </div>
+                    )
+                  }
                 </div>
               </div>
               <div className={style.bottom}>

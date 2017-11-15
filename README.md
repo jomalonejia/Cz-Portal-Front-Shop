@@ -2,7 +2,10 @@
 
 ## Introduction
 
-This project is the front page for Cz-Portal's shop
+This project is the front page for Cz-Portal's shop , need the backend service [Cz-Portal-Server](https://github.com/jomalonejia/Cz-Portal-Server)
+
+
+
 
 ## stack
 * reactjs
@@ -29,6 +32,11 @@ This project is the front page for Cz-Portal's shop
 
     $ npm run build
 
+![image](https://github.com/Cz-Portal-Front-Shop/screenshots/1.PNG)
+![image](https://github.com/Cz-Portal-Front-Shop/screenshots/2.PNG)
+![image](https://github.com/Cz-Portal-Front-Shop/screenshots/3PNG)
+![image](https://github.com/Cz-Portal-Front-Shop/screenshots/4.PNG)
+![image](https://github.com/Cz-Portal-Front-Shop/screenshots/login.PNG)
 
 
 ## Authors

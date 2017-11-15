@@ -12,7 +12,6 @@ export const userState = new Record({
 export function userReducers (state = new userState(), action) {
   switch (action.type) {
     case userActions.LOGIN_SUCCESS:
-      console.log(action.payload)
       return Object.assign({},state,
         {
           loginState:true,

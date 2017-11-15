@@ -13,11 +13,11 @@ authAxios.interceptors.request.use(function (request) {
   const accessToken = getAccessToken(store.getState());
   if(accessToken == '' || accessToken == null || accessToken == undefined){
     history.push(`/login?redirectUrl=${window.location.href}`)
-    return
+    return Promise.reject();
   }else{
     request.headers.Authorization = `Bearer ${accessToken}`
+    return request;
   }
-  return request;
 }, function (error) {
   // Do something with request error
   return Promise.reject(error);

@@ -9,7 +9,7 @@ export const userLoginErrorSelector = createSelector(
 )
 
 export const usernameSelector = createSelector(
-  state => state.user.username,
+  usernameState,
   (username) => ({username})
 )
 
