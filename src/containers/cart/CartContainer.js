@@ -17,6 +17,9 @@ class CartContainer extends Component {
   constructor (props) {
     super(props)
   }
+  changeCount = (count, index) => {
+    store.dispatch(cartActions.changeCartCount({count:count,index:index}))
+  }
 
   componentWillMount () {
     store.dispatch(cartActions.getCart())
@@ -24,7 +27,7 @@ class CartContainer extends Component {
 
   render () {
     return (
-      <Cart {...this.props}/>
+      <Cart changeCount={this.changeCount}  {...this.props}/>
     )
   }
 }

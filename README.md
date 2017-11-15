@@ -2,8 +2,8 @@
 
 ## Introduction
 
-This project is the front page for Cz-Portal's shop , need the backend service [Cz-Portal-Server](https://github.com/jomalonejia/Cz-Portal-Server)
-
+- This project is the front page for Cz-Portal's shop , need the backend service [Cz-Portal-Server](https://github.com/jomalonejia/Cz-Portal-Server)
+- The mock page of [SMARTISAN](http://www.smartisan.com)
 
 
 
@@ -32,11 +32,11 @@ This project is the front page for Cz-Portal's shop , need the backend service [
 
     $ npm run build
 
-![image](https://github.com/Cz-Portal-Front-Shop/screenshots/1.PNG)
-![image](https://github.com/Cz-Portal-Front-Shop/screenshots/2.PNG)
-![image](https://github.com/Cz-Portal-Front-Shop/screenshots/3PNG)
-![image](https://github.com/Cz-Portal-Front-Shop/screenshots/4.PNG)
-![image](https://github.com/Cz-Portal-Front-Shop/screenshots/login.PNG)
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/1.PNG)
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/2.PNG)
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/3.PNG)
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/4.PNG)
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/login.PNG)
 
 
 ## Authors

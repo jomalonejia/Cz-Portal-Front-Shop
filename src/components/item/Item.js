@@ -16,9 +16,9 @@ class Item extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(this.state.params.length <= 0){
-      if(nextProps.item.params){
+  componentWillReceiveProps (nextProps) {
+    if (this.state.params.length <= 0) {
+      if (nextProps.item.params) {
         const params = []
         nextProps.item.params.map(param => {
           params.push({paramId: param.id, paramValue: param.paramDetails[0].paramValue})

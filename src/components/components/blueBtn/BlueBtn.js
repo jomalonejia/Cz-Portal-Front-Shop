@@ -1,8 +1,8 @@
 import React from 'react'
 import style from './blueBtn.scss'
 
-const BlueBtn = ({text}) => (
-  <div className={style.blueBtn}>
+const BlueBtn = ({text,func}) => (
+  <div className={style.blueBtn} onClick={func}>
     <span>{text}</span>
   </div>
 )

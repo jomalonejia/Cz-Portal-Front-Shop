@@ -1,11 +1,7 @@
 import { call, fork, select, put, take, takeLatest } from 'redux-saga/effects'
-import { push } from 'react-router-redux'
-import axios from 'axios'
 import {get} from '../../services/authHttp'
 import * as cartActions from '../../actions/cart'
-import { login } from '../../services/authFetch'
 
-import history from '../../history'
 
 export function * getCart() {
   while (true) {

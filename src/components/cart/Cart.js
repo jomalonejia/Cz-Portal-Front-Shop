@@ -12,13 +12,12 @@ class Cart extends Component {
     super(props)
   }
 
-  change = i => console.log(i)
+  goToCheckout = () => this.props.history.push('/checkout')
 
   render () {
 
-    const {carts = []} = this.props
+    const {carts = [],changeCartCount,changeCount} = this.props
 
-    console.log(carts)
 
     return (
       <div className={style.main}>
@@ -67,7 +66,9 @@ class Cart extends Component {
                         </div>
                         <div className={style.itemNumber}>
                           <div className={style.itemNumberWrapper}>
-                            <ItemCount count={cart.count} changeCount={this.change}/>
+                            <ItemCount count={cart.count}
+                                       changeCount={changeCount}
+                                       output={index}/>
                           </div>
                         </div>
                         <div className={style.itemSubtotal}>
@@ -93,16 +94,16 @@ class Cart extends Component {
                 <div className={style.checkoutOperationBlock}>
                   <div className={style.checkoutMessage}>
                     <div className={style.checkoutNumber}>
-                      <h4>已选择<i>3</i>件商品</h4>
-                      <h5>共计<i>3</i>件商品</h5>
+                      <h4>已选择<i>{carts.reduce((sum,cart)=>sum + cart.count,0)}</i>件商品</h4>
+                      <h5>共计<i>{carts.reduce((sum,cart)=>sum + cart.count,0)}</i>件商品</h5>
                     </div>
                     <div className={style.checkoutPrice}>
-                      <h4>应付总额：<span>￥</span><i>467.00</i></h4>
-                      <h5>总额节省：<span>￥</span><i>30.00</i></h5>
+                      <h4>应付总额：<span>￥</span><i>{carts.reduce((sum,cart)=>sum + cart.count*cart.price*cart.discount,0)}</i></h4>
+                      <h5>总额节省：<span>￥</span><i>{carts.reduce((sum,cart)=>sum + cart.count*cart.price*(1-cart.discount),0)}</i></h5>
                     </div>
                   </div>
                   <div className={style.checkoutOperation}>
-                    <BlueBtn text="现在结算"/>
+                    <BlueBtn text="现在结算" func={this.goToCheckout}/>
                   </div>
                 </div>
               </div>
