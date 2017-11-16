@@ -24,5 +24,8 @@ authAxios.interceptors.request.use(function (request) {
 });
 
 
-export const get = (url,obj) => authAxios.get(url,obj)
-export const post = (url,obj) => authAxios.post(url,obj)
+export const authGet = (url,obj) => authAxios.get(url,obj)
+export const authPost = (url,obj) => authAxios.post(url,obj)
+export const authDelete = (url,obj) => authAxios.delete(url,obj)
+export const authPut = (url,obj) => authAxios.put(url,obj)
+

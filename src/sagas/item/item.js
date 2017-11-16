@@ -1,9 +1,4 @@
 import { call, fork, select, put, take, takeLatest } from 'redux-saga/effects'
-import axios from 'axios'
-import {post} from '../../services/authHttp'
-import * as itemActions from '../../actions/item'
-
-import history from '../../history'
 
 
 /*
@@ -24,22 +19,8 @@ export function * getItemById() {
 }
 */
 
-export function * addToCart (action) {
-  yield console.log(action.payload)
-  try {
-    yield post(`/api/cart/addToCart`,action.payload)
-    yield history.push('/cart');
-  } catch (err) {
-    console.log(err);
-  }
-}
 
-
-
-function * getAddToCart () {
-  yield takeLatest(itemActions.ADD_TO_CART, addToCart)
-}
 
 export const itemSagas = [
-  fork(getAddToCart)
+
 ]

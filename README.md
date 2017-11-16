@@ -32,11 +32,14 @@
 
     $ npm run build
 
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/1.PNG)
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/2.PNG)
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/3.PNG)
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/4.PNG)
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/login.PNG)
+## Seceenshots
+
+
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/1.PNG)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/2.PNG)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/3.PNG)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/4.PNG)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/login.PNG)<br />
 
 
 ## Authors

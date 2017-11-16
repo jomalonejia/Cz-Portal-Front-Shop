@@ -5,10 +5,11 @@ import { bindActionCreators } from 'redux'
 import Item from '../../components/item'
 import {usernameSelector} from '../../selectors/user'
 import * as itemActions from '../../actions/item'
+import {addToCart} from '../../actions/cart'
 
 @connect(
   state => usernameSelector,
-  dispatch => bindActionCreators({...itemActions}, dispatch)
+  dispatch => bindActionCreators({...itemActions,addToCart}, dispatch)
 )
 class ItemContainer extends Component {
 

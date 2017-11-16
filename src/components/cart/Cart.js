@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Checkbox } from 'semantic-ui-react'
 import BlueBtn from '../components/blueBtn'
 import ItemCount from '../components/itemCount'
+import store from '../../store'
+import * as cartActions from '../../actions/cart'
 
 import style from './cart.scss'
 
@@ -14,10 +16,12 @@ class Cart extends Component {
 
   goToCheckout = () => this.props.history.push('/checkout')
 
+  chooseCart = (event, obj) => store.dispatch(cartActions.chooseCart(obj))
+  chooseCartAll = (event, obj) => store.dispatch(cartActions.chooseCartAll(obj))
+
   render () {
 
-    const {carts = [],changeCartCount,changeCount} = this.props
-
+    const {carts = [],changeCount, chooseCart,chooseCartAll,deleteCart} = this.props
 
     return (
       <div className={style.main}>
@@ -35,13 +39,18 @@ class Cart extends Component {
                   <span className={style.cartTableSubtotal}>小计</span>
                   <span className={style.cartTableNumber}>数量</span>
                   <span className={style.cartTablePrice}>单价</span>
+                  <span className={style.cartTableDiscount}>折扣</span>
                 </div>
-                <div  className={style.cartTable}>
+                <div className={style.cartTable}>
                   {
                     carts.map((cart, index) =>
                       <div key={cart.id} className={style.cartItems}>
                         <div className={style.itemCheck}>
-                          <Checkbox label="选择"/>
+                          <Checkbox label="选择"
+                                    value={index}
+                                    name={cart.id}
+                                    checked={cart.chosen}
+                                    onChange={this.chooseCart}/>
                         </div>
                         <div className={style.itemThumb}>
                           <img alt={cart.itemName}
@@ -50,9 +59,9 @@ class Cart extends Component {
                         <div className={style.itemName}>
                           <div className={style.itemNameTable}>
                             {/*<a href="#/item/100022302"
-                               title={cart.itemName}
-                               target="_blank">{cart.itemName}
-                            </a>*/}
+                             title={cart.itemName}
+                             target="_blank">{cart.itemName}
+                             </a>*/}
                             <Link to={`/item/${cart.itemId}`}>{cart.itemName}</Link>
                             <ul>
                               <li>红色</li>
@@ -60,6 +69,9 @@ class Cart extends Component {
                             </ul>
 
                           </div>
+                        </div>
+                        <div className={style.itemDiscount}>
+                          {cart.discount * 100}%
                         </div>
                         <div className={style.itemPrice}>
                           ￥&nbsp;{cart.price}
@@ -72,10 +84,10 @@ class Cart extends Component {
                           </div>
                         </div>
                         <div className={style.itemSubtotal}>
-                          ￥&nbsp;{cart.price * cart.discount}
+                          ￥&nbsp;{(cart.price * cart.discount).toFixed(2)}
                         </div>
                         <div className={style.itemOperation}>
-                          <span></span>
+                          <span onClick={() => deleteCart(cart.id)}></span>
                         </div>
                       </div>
                     )
@@ -85,7 +97,7 @@ class Cart extends Component {
               <div className={style.bottom}>
                 <div className={style.cartOperation}>
                   <div className={style.checkAll}>
-                    <Checkbox label="全选"/>
+                    <Checkbox label="全选" onChange={this.chooseCartAll}/>
                   </div>
                   <div className={style.deleteAll}>
                     删除选中商品
@@ -94,12 +106,16 @@ class Cart extends Component {
                 <div className={style.checkoutOperationBlock}>
                   <div className={style.checkoutMessage}>
                     <div className={style.checkoutNumber}>
-                      <h4>已选择<i>{carts.reduce((sum,cart)=>sum + cart.count,0)}</i>件商品</h4>
-                      <h5>共计<i>{carts.reduce((sum,cart)=>sum + cart.count,0)}</i>件商品</h5>
+                      <h4>已选择<i>{carts.filter(cart => cart.chosen).length}</i>件商品</h4>
+                      <h5>共计<i>{carts.filter(cart => cart.chosen).reduce((sum, cart) => sum + cart.count, 0)}</i>件商品</h5>
                     </div>
                     <div className={style.checkoutPrice}>
-                      <h4>应付总额：<span>￥</span><i>{carts.reduce((sum,cart)=>sum + cart.count*cart.price*cart.discount,0)}</i></h4>
-                      <h5>总额节省：<span>￥</span><i>{carts.reduce((sum,cart)=>sum + cart.count*cart.price*(1-cart.discount),0)}</i></h5>
+                      <h4>
+                        应付总额：<span>￥</span><i>{Number(carts.filter(cart => cart.chosen).reduce((sum, cart) => sum + cart.count * cart.price * cart.discount, 0)).toFixed(2)}</i>
+                      </h4>
+                      <h5>
+                        总额节省：<span>￥</span><i>{Number(carts.filter(cart => cart.chosen).reduce((sum, cart) => sum + cart.count * cart.price * (1 - cart.discount), 0)).toFixed(2)}</i>
+                      </h5>
                     </div>
                   </div>
                   <div className={style.checkoutOperation}>
