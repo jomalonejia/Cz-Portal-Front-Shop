@@ -267,6 +267,9 @@
     .itemThumb {
       margin-top: 30px;
       width: 80px;
+      img{
+        width: 80px;
+      }
     }
     .itemName {
       width: 510px;
@@ -320,21 +323,21 @@
       width: 137px;
       text-align: center;
       color: #666;
-        span{
-          position: relative;
-          display: inline-block;
-          width: 36px;
-          height: 36px;
-          margin-top: 55px;
-          height: 36px;
-          margin-left: 20px;
-          line-height: 40px;
-          text-indent: -9999em;
-          cursor: pointer;
-          background: url(../../assests/images/delete-btn-icon.png) no-repeat;
-          &:hover{
-            background-position-y: -36px;;
-          }
+      span {
+        position: relative;
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        margin-top: 55px;
+        height: 36px;
+        margin-left: 20px;
+        line-height: 40px;
+        text-indent: -9999em;
+        cursor: pointer;
+        background: url(../../assests/images/delete-btn-icon.png) no-repeat;
+        &:hover {
+          background-position-y: -36px;;
+        }
       }
     }
   }

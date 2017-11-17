@@ -8,6 +8,9 @@ export const DELETE_CART_SUCCESS = '[Cart] DeleteCartSuccess'
 export const DELETE_CART_FAILED = '[Cart] DeleteCartFailed'
 export const CHOOSE_CART = '[Cart] ChooseCart'
 export const CHOOSE_CART_ALL = '[Cart] ChooseCartAll'
+export const DELETE_CART_ALL = '[Cart] DeleteCartAll'
+export const DELETE_CART_ALL_SUCCESS = '[Cart] DeleteCartAllSuccess'
+export const DELETE_CART_ALL_FAILED = '[Cart] DeleteCartAllFailed'
 
 export const addToCart = cart => ({
   type: ADD_TO_CART,
@@ -57,6 +60,17 @@ export const chooseCartAll = obj => ({
   payload: obj
 })
 
+export const deleteCartAll = () => ({
+  type: DELETE_CART_ALL,
+})
+
+export const deleteCartAllSuccess = () => ({
+  type: DELETE_CART_ALL_SUCCESS,
+})
+
+export const deleteCartAllFailed = () => ({
+  type: DELETE_CART_ALL_FAILED,
+})
 
 
 

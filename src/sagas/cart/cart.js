@@ -30,6 +30,18 @@ export function * deleteCart() {
   }
 }
 
+export function * deleteCartAll() {
+    const action = yield take(cartActions.DELETE_CART_ALL)
+    try {
+      const carts = yield select(state => state.cart.carts)
+      const cartIds = carts.filter(cart => cart.chosen).map(cart => cart.id)
+      yield authDelete(`/api/cart/deleteAll/${cartIds}`)
+      yield put(cartActions.deleteCartAllSuccess())
+    } catch (err) {
+      yield put(cartActions.deleteCartAllFailed())
+    }
+}
+
 export function * addToCart (action) {
   try {
     yield authPost(`/api/cart/addToCart`,action.payload)
@@ -48,5 +60,6 @@ function * getAddToCart () {
 export const cartSagas = [
   fork(getAddToCart),
   fork(getCart),
-  fork(deleteCart)
+  fork(deleteCart),
+  fork(deleteCartAll)
 ]

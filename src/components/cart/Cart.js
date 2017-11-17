@@ -18,6 +18,7 @@ class Cart extends Component {
 
   chooseCart = (event, obj) => store.dispatch(cartActions.chooseCart(obj))
   chooseCartAll = (event, obj) => store.dispatch(cartActions.chooseCartAll(obj))
+  deleteALl = () => store.dispatch(cartActions.deleteCartAll())
 
   render () {
 
@@ -53,8 +54,8 @@ class Cart extends Component {
                                     onChange={this.chooseCart}/>
                         </div>
                         <div className={style.itemThumb}>
-                          <img alt={cart.itemName}
-                               src="http://image.smartisanos.cn/resource/ff6e3d787c07983fa4c2c281c48e03c9.png?x-oss-process=image/resize,w_80/quality,Q_100/format,webp"/>
+                          <img alt={cart.itemName} className={style.itemThumbImg}
+                               src={cart.image}/>
                         </div>
                         <div className={style.itemName}>
                           <div className={style.itemNameTable}>
@@ -99,7 +100,7 @@ class Cart extends Component {
                   <div className={style.checkAll}>
                     <Checkbox label="全选" onChange={this.chooseCartAll}/>
                   </div>
-                  <div className={style.deleteAll}>
+                  <div className={style.deleteAll} onClick={this.deleteALl}>
                     删除选中商品
                   </div>
                 </div>

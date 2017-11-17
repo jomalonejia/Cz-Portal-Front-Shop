@@ -70,6 +70,10 @@ export function cartReducers (state = CartState, action) {
           }
         })
       }
+    case cartActions.DELETE_CART_ALL_SUCCESS:
+      return {carts:[]}
+    case cartActions.DELETE_CART_ALL_FAILED:
+      return state
     default :
       return state
   }

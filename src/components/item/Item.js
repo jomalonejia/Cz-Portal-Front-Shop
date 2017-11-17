@@ -78,7 +78,6 @@ class Item extends Component {
                                      className={index === this.state.selectedImageIndex ? style.imageShow : null}/>
                               : null
                           }
-
                         </li>
                       )
                         : null
@@ -95,7 +94,7 @@ class Item extends Component {
               <div className={style.titleText}>
                 <div className={style.price}>
                  <span className={style.priceSpan}>
-                 <em>￥</em>&nbsp;{item.price}{username}
+                 <em>￥</em>&nbsp;{item.price}
                  </span>
                 </div>
                 <div className={style.itemsInfo}>
