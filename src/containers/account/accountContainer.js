@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Menu from '../../components/account/menu'
-import Address from '../../components/account/address'
+import AddressContainer from './addressContainer'
 import Info from '../../components/account/info'
 import Order from '../../components/account/order'
 import Support from '../../components/account/support'
 import { getMenuSelector } from '../../selectors/account/menu'
-import * as accountActions from '../../actions/account'
+import * as menuActions from '../../actions/account/menu'
 import * as accountMenuConstants from '../../constants/menu.constants'
 
 @connect(
   state => getMenuSelector,
-  dispatch => bindActionCreators({...accountActions}, dispatch))
+  dispatch => bindActionCreators({...menuActions}, dispatch))
 export default class AccountContainer extends Component {
   constructor (props) {
     super(props)
@@ -65,7 +65,6 @@ export default class AccountContainer extends Component {
           ]
         }
       ]
-
     }
   }
 
@@ -78,7 +77,7 @@ export default class AccountContainer extends Component {
       case 'info':
         return <Info/>
       case 'address':
-        return <Address addresses={this.state.addresses}/>
+        return <AddressContainer addresses={this.state.addresses}/>
       default:
         return null
     }

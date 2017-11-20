@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { Dropdown, Button, Form, Icon, Modal } from 'semantic-ui-react'
+import update from 'immutability-helper'
+import store from '../../../store'
+import * as addressActions from '../../../actions/account/address'
+import {authPost} from '../../../services/authHttp'
+import { Dropdown, Button, Form, Icon, Modal, Input } from 'semantic-ui-react'
 
 import 'semantic-ui-css/components/icon.css'
 import 'semantic-ui-css/components/dropdown.css'
@@ -19,7 +23,59 @@ class Address extends Component {
 
   constructor (props) {
     super(props)
+    this.state = {
+      modalOpen: false,
+      form: {
+        country: '',
+        fullName: '',
+        address: '',
+        city: '',
+        province: '',
+        zip: '',
+        phoneNumber: ''
+      },
+      addresses: []
+    }
   }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.state.addresses.length <= 0) {
+      if (nextProps.addresses) {
+        this.setState({addresses: [...nextProps.addresses]})
+      }
+    }
+  }
+
+  handleChange = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+    this.setState(() => update(this.state, {
+      form: {
+        [name]: {$set: value}
+      }
+    }))
+  }
+
+  handleUpdateChange = (event, index) => {
+    const name = event.target.name
+    const value = event.target.value
+    this.setState(() => update(this.state, {
+      addresses: {
+        [index]: {
+          [name]: {$set: value}
+        }
+      }
+    }))
+  }
+
+  updateAddress = (event,address,index) => {
+    console.log(address)
+    authPost(`/api/user/address/update`,address)
+      .then(response => {
+        store.dispatch(addressActions.updateAddressSuccess(address,index))
+      })
+  }
+
 
   render () {
     const test = [
@@ -27,13 +83,14 @@ class Address extends Component {
       {key: 'zw', value: 'zw', flag: 'zw', text: 'Zimbabwe'}
     ]
 
-    const {addresses} = this.props
+    const {addAddress} = this.props
+
 
     return (
       <div className={style.main}>
         <div className={style.wrapper}>
           <div className={style.title}>
-            <h2>收货信息</h2>
+            <h2>Your Address</h2>
             <span className={style.addAddress}>
               <Modal size='tiny'
                      style={{width: '450px', borderRadius: '15px'}}
@@ -47,62 +104,77 @@ class Address extends Component {
                          <Icon name='add square' color='grey' size='large'/>
                        </Button.Content>
                      </Button>}>
-              {/*<Modal.Header>Select a Photo</Modal.Header>*/}
-                <div className={style.modalHeader}>
+                <Modal.Header >
                     <h4>Add your address</h4>
-                </div>
+                </Modal.Header>
               <Modal.Content>
-                <div className={style.modalInner}>
-                  <div className={style.modalFormArea}>
-                    <Form>
-                      <Form.Field >
-                        <Form.Input placeholder='Full number'/>
-                      </Form.Field>
-                      <Form.Field >
-                        <Form.Input placeholder='Phone number'/>
-                      </Form.Field>
-                      <Form.Field >
-                        <Dropdown placeholder='Select Address' fluid selection options={test}/>
-                      </Form.Field>
-                      <Form.Field >
-                        <Form.Input placeholder='Detail address'/>
-                      </Form.Field>
-                      <Form.Field >
-                        <Form.Checkbox label='Set default'/>
-                      </Form.Field>
-                      <Form.Field >
-                        <Button fluid type="button">submit</Button>
-                      </Form.Field>
-                    </Form>
-                  </div>
-                </div>
+                 <Form>
+                  <Form.Field>
+                    <label>Country</label>
+                    <input placeholder="Country" name="country" onChange={ this.handleChange}
+                           value={this.state.form.country}/>
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Full name</label>
+                    <input placeholder="Full name" name="fullName" onChange={this.handleChange}
+                           value={this.state.form.fullName}/>
+                  </Form.Field>
+                   <Form.Field>
+                    <label>Address</label>
+                    <input placeholder="Address" name="address" onChange={this.handleChange}
+                           value={this.state.form.address}/>
+                  </Form.Field>
+                   <Form.Field>
+                    <label>City</label>
+                    <input placeholder="City" name="city" onChange={this.handleChange} value={this.state.form.city}/>
+                  </Form.Field>
+                   <Form.Field>
+                    <label>Province</label>
+                    <input placeholder="Province" name="province" onChange={this.handleChange}
+                           value={this.state.form.province}/>
+                  </Form.Field>
+                   <Form.Field>
+                    <label>Zip</label>
+                    <input placeholder="Zip" name="zip" onChange={this.handleChange} value={this.state.form.zip}/>
+                  </Form.Field>
+                   <Form.Field>
+                    <label>Phone number</label>
+                    <input placeholder="Phone number" name="phoneNumber" onChange={this.handleChange}
+                           value={this.state.form.phoneNumber}/>
+                  </Form.Field>
+                </Form>
               </Modal.Content>
+              <Modal.Actions>
+                <Button color='green' onClick={() => addAddress(this.state.form)} inverted>
+                  <Icon name='checkmark'/> Add address
+                </Button>
+              </Modal.Actions>
             </Modal>
             </span>
           </div>
           {
-            addresses.length > 0
+            this.state.addresses.length > 0
               ? <div className={style.addressInner}>
               <div className={style.addressTitle}>
-                <span className={style.nameTitle}>姓名</span>
-                <span className={style.detailTitle}>详细地址</span>
-                <span className={style.phoneTitle}>电话</span>
+                <span className={style.nameTitle}>Full Name</span>
+                <span className={style.detailTitle}>Detail Address</span>
+                <span className={style.phoneTitle}>Tel.</span>
               </div>
               {
-                addresses.map((address, index) => (
+                this.state.addresses.map((address, index) => (
                   <div key={index} className={style.addressItem}>
                     <div className={style.nameItem}>
                       <span>{address.fullName}</span>
                     </div>
                     <div className={style.detailItem}>
-                      <span>{address.address}&nbsp;{address.detailAddress}</span>
+                      <span>{address.country}&nbsp;{address.province}&nbsp;{address.city}&nbsp;{address.address}&nbsp;{address.zip}</span>
                     </div>
                     <div className={style.phoneItem}>
                       <span>{address.phoneNumber}</span>
                     </div>
                     {
-                      address.default ? <div className={style.defaultItem}>
-                        <span>（默认地址）</span>
+                      address.defaultAddress ? <div className={style.defaultItem}>
+                        <span>(Default)</span>
                       </div>
                         : null
                     }
@@ -123,24 +195,47 @@ class Address extends Component {
                             <Modal.Content>
                               <div className={style.modalInner}>
                                 <div className={style.modalFormArea}>
-                                  <Form>
-                                    <Form.Field >
-                                      <Form.Input placeholder='Full name' value={address.fullName}/>
+                                  <Form onSubmit={e => this.updateAddress(e,this.state.addresses[index],index)}>
+                                    <Form.Field>
+                                      <label>Country</label>
+                                      <input placeholder="Country" name="country"
+                                             onChange={e => this.handleUpdateChange(e, index)} value={address.country}/>
+                                    </Form.Field>
+                                    <Form.Field>
+                                      <label>Full name</label>
+                                      <input placeholder="Full name" name="fullName"
+                                             onChange={e => this.handleUpdateChange(e, index)}
+                                             value={address.fullName}/>
+                                    </Form.Field>
+                                     <Form.Field>
+                                      <label>Address</label>
+                                      <input placeholder="Address" name="address"
+                                             onChange={e => this.handleUpdateChange(e, index)} value={address.address}/>
+                                    </Form.Field>
+                                     <Form.Field>
+                                      <label>City</label>
+                                      <input placeholder="City" name="city"
+                                             onChange={e => this.handleUpdateChange(e, index)} value={address.city}/>
+                                    </Form.Field>
+                                     <Form.Field>
+                                      <label>Province</label>
+                                      <input placeholder="Province" name="province"
+                                             onChange={e => this.handleUpdateChange(e, index)}
+                                             value={address.province}/>
+                                    </Form.Field>
+                                     <Form.Field>
+                                      <label>Zip</label>
+                                      <input placeholder="Zip" name="zip"
+                                             onChange={e => this.handleUpdateChange(e, index)} value={address.zip}/>
+                                    </Form.Field>
+                                     <Form.Field>
+                                      <label>Phone number</label>
+                                      <input placeholder="Phone number" name="phoneNumber"
+                                             onChange={e => this.handleUpdateChange(e, index)}
+                                             value={address.phoneNumber}/>
                                     </Form.Field>
                                     <Form.Field >
-                                      <Form.Input placeholder='Phone number' value={address.phoneNumber}/>
-                                    </Form.Field>
-                                    <Form.Field >
-                                      <Dropdown placeholder='Select Address' fluid selection options={test}/>
-                                    </Form.Field>
-                                    <Form.Field >
-                                      <Form.Input placeholder='Detail address' value={address.detailAddress}/>
-                                    </Form.Field>
-                                    <Form.Field >
-                                      <Form.Checkbox label='Set default' checked={address.default}/>
-                                    </Form.Field>
-                                    <Form.Field >
-                                      <Button fluid type="button">submit</Button>
+                                      <Button fluid type="submit">submit</Button>
                                     </Form.Field>
                                   </Form>
                                 </div>
@@ -161,10 +256,10 @@ class Address extends Component {
             </div>
               : <div className={style.emptyInner}>
               <div className={style.orderEmpty}>
-                <h2>您目前还没有收货地址</h2>
+                <h2>You do not have any address</h2>
                 <div className={style.emptyBtn}>
                   <Link to="/">
-                    返回首页
+                    homepage
                   </Link>
                 </div>
               </div>

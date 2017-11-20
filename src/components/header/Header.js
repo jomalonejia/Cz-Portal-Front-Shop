@@ -33,7 +33,7 @@ class Header extends Component {
           </ul>
         </div>
         <div id="test" className="icon">
-          <Link to="/account"><TiUserAdd size={30}/></Link>
+          <Link to="/account/order"><TiUserAdd size={30}/></Link>
           <Link to="/cart"><TiShoppingCart size={30}/></Link>
           <span>0</span>
         </div>

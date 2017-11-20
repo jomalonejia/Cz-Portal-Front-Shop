@@ -12,10 +12,10 @@ class Support extends Component {
           </div>
           <div className={style.inner}>
             <div className={style.orderEmpty}>
-              <h2>您目前还没有此类服务</h2>
+              <h2>Your not have any support</h2>
               <div className={style.emptyBtn}>
                 <Link  to="/" >
-                  返回首页
+                  Homepage
                 </Link>
               </div>
             </div>

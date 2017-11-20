@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect'
 import {cartsState} from '../cart'
+import {addressesState} from '../account/address'
 
 
 const cartSelector = createSelector(
@@ -8,8 +9,8 @@ const cartSelector = createSelector(
 )
 
 export const checkoutSelector = createSelector(
-  [cartSelector],
-  (carts) => ({carts})
+  [cartSelector,addressesState],
+  (carts,addresses) => ({carts,addresses})
 )
 
 

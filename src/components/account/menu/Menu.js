@@ -15,10 +15,10 @@ class Menu extends Component {
     const {changeAccountMenu, currentAccountMenu} = this.props
 
     const menus = [
-      {name: 'order', describe: '我的订单', url: '/account/order'},
-      {name: 'support', describe: '售后服务', url: '/account/support'},
-      {name: 'info', describe: '账户资料', url: '/account/info'},
-      {name: 'address', describe: '收货地址', url: '/account/address'},
+      {name: 'order', describe: 'Order', url: '/account/order'},
+      {name: 'support', describe: 'Support', url: '/account/support'},
+      {name: 'info', describe: 'Info', url: '/account/info'},
+      {name: 'address', describe: 'Address', url: '/account/address'},
     ]
 
     return (

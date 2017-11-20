@@ -8,7 +8,7 @@ import history from '../../history'
 
 export function * registerFlow (action) {
   try {
-    yield axios.post(`/api/user/register`, action.payload)
+    yield axios.post(`/api/user/user/register`, action.payload)
     yield put(userActions.registerSuccess())
     yield history.push('/')
   } catch (err) {

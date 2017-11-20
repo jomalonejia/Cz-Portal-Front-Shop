@@ -68,10 +68,10 @@ class Order extends Component {
             </div>
               : <div className={style.innerEmpty}>
               <div className={style.orderEmpty}>
-                <h2>您目前还没有此类订单</h2>
+                <h2>You do not have any order</h2>
                 <div className={style.emptyBtn}>
                   <Link to="/">
-                    返回首页
+                    Homepage
                   </Link>
                 </div>
               </div>

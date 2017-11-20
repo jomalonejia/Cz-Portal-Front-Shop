@@ -106,7 +106,7 @@ module.exports = {
       '/api/user': {
         target: 'http://localhost:8765/cz-portal-service-user',
         pathRewrite: {
-          '/api/user' : '/user'
+          '/api/user' : ''
         }
       },
     }

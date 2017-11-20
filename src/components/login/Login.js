@@ -68,51 +68,6 @@ class Login extends React.Component {
               <Button className={style.submitButton}
                       size="big"
                       type="button" onClick={() => login(this.state.form)}>Submit</Button>
-              {/*<label>
-               Name:
-               <input type="text" name="name" />
-               </label>
-               <input type="submit" value="Submit" />
-               <label>
-               Name:
-               <input type="text" name="name" />
-               </label>
-               <input type="submit" value="Submit" />
-               <label>
-               Name:
-               <input type="text" name="name" />
-               </label>
-               <input type="submit" value="Submit" />
-               <FormItem>
-               {getFieldDecorator('userName', {
-               rules: [{required: true, message: 'Please input your username!'}],
-               })(
-               <Input size="large" prefix={<Icon type="user" style={{fontSize: 13}}/>} placeholder="Username"/>
-               )}
-               </FormItem>
-               <FormItem>
-               {getFieldDecorator('password', {
-               rules: [{required: true, message: 'Please input your Password!'}],
-               })(
-               <Input size="large" prefix={<Icon type="lock" style={{fontSize: 13}}/>} type="password"
-               placeholder="Password"/>
-               )}
-               </FormItem>
-               <FormItem>
-               <Button type="primary" size="large" htmlType="submit" className={style.loginFormButton}>
-               Log in
-               </Button>
-               {getFieldDecorator('remember', {
-               valuePropName: 'checked',
-               initialValue: true,
-               })(
-               <Checkbox className={style.rememberMe}>Remember me</Checkbox>
-               )}
-               <Link to="/"><span className={style.label}>Forgot password?</span></Link>
-               </FormItem>
-               <div >
-               New to Twitter? <Link to="/">Sign up now »</Link>
-               </div>*/}
             </Form>
           </div>
           <div className={style.footer}>
