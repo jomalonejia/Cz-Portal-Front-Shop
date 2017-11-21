@@ -120,7 +120,7 @@ class Cart extends Component {
                     </div>
                   </div>
                   <div className={style.checkoutOperation}>
-                    <BlueBtn text="现在结算" func={this.goToCheckout}/>
+                    <BlueBtn text="现在结算" callback={this.goToCheckout}/>
                   </div>
                 </div>
               </div>

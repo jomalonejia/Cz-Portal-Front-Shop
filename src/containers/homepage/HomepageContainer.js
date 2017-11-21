@@ -20,7 +20,7 @@ class HomePageContainer extends Component {
 
   componentWillMount () {
     axios.get(
-      '/api/item/listHotItems'
+      '/api/item/item/listHotItems'
     )
       .then(res => {
         this.setState({hotItems: res.data})

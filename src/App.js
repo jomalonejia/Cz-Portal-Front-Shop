@@ -17,6 +17,7 @@ import CartContainer from './containers/cart'
 import CheckoutContainer from './containers/checkout'
 import LoginContainer from './containers/login'
 import RegisterContainer from './containers/register'
+import PaymentContainer from './containers/payment'
 import TestContainer from './containers/test'
 
 @connect(
@@ -46,11 +47,12 @@ class App extends Component {
                 <div key={location.pathname} className="body">
                   <Route location={location} exact path="/" component={HomePageContainer}/>
                   <Route location={location} path="/item/:id" component={ItemContainer}/>
-                  <Route location={location} path="/account" component={AccountContainer}/>
+                  <Route location={location} path="/account/:menu" component={AccountContainer}/>
                   <Route location={location} path="/cart" component={CartContainer}/>
                   <Route location={location} path="/checkout" component={CheckoutContainer}/>
                   <Route location={location} path="/login" component={LoginContainer}/>
                   <Route location={location} path="/register" component={RegisterContainer}/>
+                  <Route location={location} path="/payment" component={PaymentContainer}/>
                   <Route location={location} path="/test" component={TestContainer}/>
                 </div>
               </ReactCSSTransitionGroup>)}/>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import style from './menu.scss'
 
@@ -10,9 +10,11 @@ class Menu extends Component {
 
   }
 
+  changeMenu = url => {}/*this.props.history.push(url)*/
+
   render () {
 
-    const {changeAccountMenu, currentAccountMenu} = this.props
+    const {currentMenu} = this.props
 
     const menus = [
       {name: 'order', describe: 'Order', url: '/account/order'},
@@ -34,12 +36,11 @@ class Menu extends Component {
                   {
                     menus.map((menu, index) => (
                       <div key={index}>
-                        {/*<NavLink to={menu.url}>*/}
-                        <li onClick={() => changeAccountMenu(menu.name)}
-                            className={menu.name === currentAccountMenu ? style.active : null}>
+                        <li className={menu.name === this.props.match.params.menu ? style.active : null}>
+                          <Link to={menu.url}>
                           {menu.describe}
+                          </Link>
                         </li>
-                        {/* </NavLink>*/}
                       </div>
                     ))
                   }

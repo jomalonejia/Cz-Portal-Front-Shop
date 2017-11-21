@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import {checkoutSelector} from '../../selectors/checkout'
 import store from '../../store'
 import * as addressActions from '../../actions/account/address'
-
-
+import * as checkoutActions from '../../actions/checkout'
+import {toggleAddress} from '../../actions/account/address'
 import Checkout from '../../components/checkout'
+import { bindActionCreators } from 'redux'
 
 @connect(
   state => checkoutSelector,
-  null
+  dispatch => bindActionCreators({...checkoutActions,toggleAddress}, dispatch)
 )
 class CartContainer extends Component {
 

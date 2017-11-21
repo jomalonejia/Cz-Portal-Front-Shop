@@ -4,7 +4,8 @@ import * as accountActions from '../../actions/account'
 
 export const accountState = ({
   currentAccountMenu: 'order',
-  addresses: []
+  addresses: [],
+  addressId:''
 })
 
 export function accountReducers (state = accountState, action) {
@@ -19,13 +20,18 @@ export function accountReducers (state = accountState, action) {
       })
     case accountActions.GET_ADDRESS_SUCCESS:
       return update(state,{
-        addresses:{$set:[...action.payload]}
+        addresses:{$set:[...action.payload]},
+        addressId:{$set:action.payload.filter(address => address.defaultAddress)[0].id}
       })
     case accountActions.UPDATE_ADDRESS_SUCCESS:
       return update(state,{
         addresses:{
           [action.payload.index]:{$set:action.payload.address}
         }
+      })
+    case accountActions.TOGGLE_ADDRESS:
+      return update(state,{
+        addressId:{$set: action.payload}
       })
     default :
       return state

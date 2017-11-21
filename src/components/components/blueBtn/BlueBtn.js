@@ -1,8 +1,8 @@
 import React from 'react'
 import style from './blueBtn.scss'
 
-const BlueBtn = ({text,func}) => (
-  <div className={style.blueBtn} onClick={func}>
+const BlueBtn = ({text,callback}) => (
+  <div className={style.blueBtn} onClick={callback}>
     <span>{text}</span>
   </div>
 )

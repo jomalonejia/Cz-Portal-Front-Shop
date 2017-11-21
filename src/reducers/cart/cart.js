@@ -4,7 +4,6 @@ import * as cartActions from '../../actions/cart'
 
 export const CartState = ({
   carts: [],
-  /*chosenCartIds:[]*/
 })
 
 export function cartReducers (state = CartState, action) {
@@ -28,7 +27,6 @@ export function cartReducers (state = CartState, action) {
     case cartActions.DELETE_CART_FAILED:
       return state
     case cartActions.CHOOSE_CART:
-      console.log(action.payload)
       if (action.payload.checked) {
         return update(state, {
           carts: {
@@ -66,14 +64,15 @@ export function cartReducers (state = CartState, action) {
                 update(cart, {
                   chosen: {$set: false}
                 })
-              )
-          }
+              )          }
         })
       }
     case cartActions.DELETE_CART_ALL_SUCCESS:
-      return {carts:[]}
+      return {carts: []}
     case cartActions.DELETE_CART_ALL_FAILED:
       return state
+    case cartActions.REMOVE_CARTS:
+      return {carts:state.carts.filter(cart => !action.payload.includes(cart.id))}
     default :
       return state
   }

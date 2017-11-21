@@ -24,7 +24,7 @@ class ItemContainer extends Component {
     const {match} = this.props
     let itemId = match.params.id
     axios.get(
-      `/api/item/get/${itemId}`
+      `/api/item/item/get/${itemId}`
     )
       .then(res => {
         this.setState({item: res.data})

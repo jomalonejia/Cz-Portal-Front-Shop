@@ -11,6 +11,7 @@ export const CHOOSE_CART_ALL = '[Cart] ChooseCartAll'
 export const DELETE_CART_ALL = '[Cart] DeleteCartAll'
 export const DELETE_CART_ALL_SUCCESS = '[Cart] DeleteCartAllSuccess'
 export const DELETE_CART_ALL_FAILED = '[Cart] DeleteCartAllFailed'
+export const REMOVE_CARTS = '[Cart] RemoveCarts'
 
 export const addToCart = cart => ({
   type: ADD_TO_CART,
@@ -71,6 +72,13 @@ export const deleteCartAllSuccess = () => ({
 export const deleteCartAllFailed = () => ({
   type: DELETE_CART_ALL_FAILED,
 })
+
+export const removeCarts = obj => ({
+  type: REMOVE_CARTS,
+  payload: obj
+})
+
+
 
 
 

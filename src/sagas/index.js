@@ -6,6 +6,7 @@ import { itemSagas } from './item'
 import { userSagas } from './user'
 import { cartSagas } from './cart'
 import { checkoutSagas } from './checkout'
+import {paymentSagas} from './payment'
 
 export default function* sagas () {
   yield all([
@@ -14,6 +15,7 @@ export default function* sagas () {
     ...itemSagas,
     ...userSagas,
     ...cartSagas,
-    ...checkoutSagas
+    ...checkoutSagas,
+    ...paymentSagas
   ])
 }

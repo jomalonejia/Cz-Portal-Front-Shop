@@ -85,22 +85,10 @@ module.exports = {
           '/api/security' : ''
         }
       },
-      '/api/order': {
-        target: 'http://localhost:8765/cz-portal-service-order',
-        pathRewrite: {
-          '/api/order' : '/order'
-        }
-      },
       '/api/item': {
         target: 'http://localhost:8765/cz-portal-service-item',
         pathRewrite: {
-          '/api/item' : '/item'
-        }
-      },
-      '/api/cart': {
-        target: 'http://localhost:8765/cz-portal-service-item',
-        pathRewrite: {
-          '/api/cart' : '/cart'
+          '/api/item' : '/'
         }
       },
       '/api/user': {

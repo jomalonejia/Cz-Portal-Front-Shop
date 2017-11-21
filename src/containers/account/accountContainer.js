@@ -11,28 +11,12 @@ import * as menuActions from '../../actions/account/menu'
 import * as accountMenuConstants from '../../constants/menu.constants'
 
 @connect(
-  state => getMenuSelector,
-  dispatch => bindActionCreators({...menuActions}, dispatch))
+  null,
+  null)
 export default class AccountContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      addresses: [
-        {
-          fullName: 'michael',
-          address: '北京市 市辖区 东城区',
-          detailAddress: '123幢403',
-          phoneNumber: '123456789',
-          default: true
-        },
-        {
-          fullName: 'michael2',
-          address: '北京市 市辖区 东城区2',
-          detailAddress: '123幢404',
-          phoneNumber: '123456789',
-          default: false
-        },
-      ],
       orders: [
         {
           orderNumber: '1704127569257178',
@@ -85,12 +69,14 @@ export default class AccountContainer extends Component {
 
   render () {
 
-    const {currentAccountMenu} = this.props
+    const {match} = this.props
+
+    let currentMenu = match.params.menu
 
     return (
       <div>
-        <Menu menus={accountMenuConstants.menus} {...this.props}/>
-        {this.getDynamicComponent(currentAccountMenu)}
+        <Menu {...this.props}/>
+        {this.getDynamicComponent(currentMenu)}
       </div>
     )
 

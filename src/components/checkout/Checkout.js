@@ -11,9 +11,8 @@ class Checkout extends Component {
 
   render () {
 
-    const {carts=[],addresses=[]} = this.props
+    const {carts=[],addresses=[],goToPay,toggleAddress} = this.props
 
-    console.log(addresses)
 
     return (
       <div className={style.main}>
@@ -26,21 +25,20 @@ class Checkout extends Component {
               {
                 addresses.map((address,index) =>
                   <li key={address.id} className={`${style.addressItem} ${address.defaultAddress ? style.activate : null}`}>
-                    <div className={style.addressInfo}>
+                    <div className={style.addressInfo} onClick={() => toggleAddress(address.id)}>
                       <span className={style.nameSection}>{address.fullName}{address.defaultAddress ? `(default)` : null}</span>
                       <span className={style.mobileSection}>{address.phoneNumber}</span>
                       <span className={style.detailSection}>{address.country}&nbsp;{address.province}&nbsp;{address.city}&nbsp;{address.address}&nbsp;{address.zip}</span>
                     </div>
                     <div className={style.operationSection}>
-                      <span>update</span>
-                      <span>delete</span>
+                      <span><Link to="/account/address">manage</Link></span>
                     </div>
                   </li>
                 )
               }
               <li className={`${style.addressItem} ${style.addressAdd}`}>
                 <div className={style.addressInfo}>
-                  <p>使用新地址</p>
+                  <p><Link to="/account/address">add new</Link></p>
                 </div>
               </li>
             </ul>
@@ -104,7 +102,7 @@ class Checkout extends Component {
           </div>
           <div>
             <div className={style.payment}>
-              <BlueBtn text="提交订单"/>
+              <BlueBtn text="提交订单" callback={() => goToPay(carts)}/>
               <div className={style.price}>
                 应付金额:
                 <em>￥&nbsp;{Number(carts.reduce((sum,cart) => sum + cart.price * cart.count * cart.discount,0)).toFixed(2)}</em>
