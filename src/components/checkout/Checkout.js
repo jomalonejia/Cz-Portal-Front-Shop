@@ -5,14 +5,13 @@ import BlueBtn from '../components/blueBtn'
 
 class Checkout extends Component {
 
-  constructor (props){
+  constructor (props) {
     super(props)
   }
 
   render () {
 
-    const {carts=[],addresses=[],goToPay,toggleAddress} = this.props
-
+    const {carts = [], addresses = [], goToPay, toggleAddress, addressId} = this.props
 
     return (
       <div className={style.main}>
@@ -23,12 +22,15 @@ class Checkout extends Component {
           <div className={style.addressPanel}>
             <ul className={style.addressItemList}>
               {
-                addresses.map((address,index) =>
-                  <li key={address.id} className={`${style.addressItem} ${address.defaultAddress ? style.activate : null}`}>
+                addresses.map((address, index) =>
+                  <li key={address.id}
+                      className={`${style.addressItem} ${address.id == addressId ? style.activate : null}`}>
                     <div className={style.addressInfo} onClick={() => toggleAddress(address.id)}>
-                      <span className={style.nameSection}>{address.fullName}{address.defaultAddress ? `(default)` : null}</span>
+                      <span
+                        className={style.nameSection}>{address.fullName}{address.defaultAddress ? `(default)` : null}</span>
                       <span className={style.mobileSection}>{address.phoneNumber}</span>
-                      <span className={style.detailSection}>{address.country}&nbsp;{address.province}&nbsp;{address.city}&nbsp;{address.address}&nbsp;{address.zip}</span>
+                      <span
+                        className={style.detailSection}>{address.country}&nbsp;{address.province}&nbsp;{address.city}&nbsp;{address.address}&nbsp;{address.zip}</span>
                     </div>
                     <div className={style.operationSection}>
                       <span><Link to="/account/address">manage</Link></span>
@@ -59,7 +61,7 @@ class Checkout extends Component {
             <div className={style.cartTable}>
               <div className={style.cartGroup}>
                 {
-                  carts.map((cart,index) =>
+                  carts.map((cart, index) =>
                     <div key={cart.id} className={style.cartItem}>
                       <div className={style.itemsThumb}>
                         <Link to={`/item/${cart.itemId}`}>
@@ -75,12 +77,12 @@ class Checkout extends Component {
                       </div>
                       <div className={style.subtotal}>
                         <div className={style.subtotalCell}>
-                          <strong>{Number(cart.price * cart.count*cart.discount).toFixed(2)}</strong>
+                          <strong>{Number(cart.price * cart.discount).toFixed(2)}</strong>
                         </div>
                       </div>
                       <div className={style.num}>{cart.count}</div>
                       <div className={style.price}>￥&nbsp;{cart.price}</div>
-                      <div className={style.discount}>{cart.discount*100}%</div>
+                      <div className={style.discount}>{cart.discount * 100}%</div>
                     </div>
                   )}
               </div>
@@ -89,15 +91,15 @@ class Checkout extends Component {
           <div className={style.orderDiscount}>
             <p>
               商品总计：
-              <span><strong>￥&nbsp;{carts.reduce((sum,cart) => sum + cart.price * cart.count,0)}</strong></span>
+              <span><strong>￥&nbsp;{carts.reduce((sum, cart) => sum + cart.price * cart.count, 0)}</strong></span>
             </p>
             <p>
               运费：
-              <span><strong>￥&nbsp;{carts.reduce((sum,cart) => sum + cart.postFee ,0)}</strong></span>
+              <span><strong>￥&nbsp;{carts.reduce((sum, cart) => sum + cart.postFee, 0)}</strong></span>
             </p>
             <p>
               优惠：
-              <span><strong>￥&nbsp;{Number(carts.reduce((sum,cart) => sum + cart.price * cart.count * (1 - cart.discount),0)).toFixed(2)}</strong></span>
+              <span><strong>￥&nbsp;{Number(carts.reduce((sum, cart) => sum + cart.price * cart.count * (1 - cart.discount), 0)).toFixed(2)}</strong></span>
             </p>
           </div>
           <div>
@@ -105,7 +107,7 @@ class Checkout extends Component {
               <BlueBtn text="提交订单" callback={() => goToPay(carts)}/>
               <div className={style.price}>
                 应付金额:
-                <em>￥&nbsp;{Number(carts.reduce((sum,cart) => sum + cart.price * cart.count * cart.discount,0)).toFixed(2)}</em>
+                <em>￥&nbsp;{Number(carts.reduce((sum, cart) => sum + cart.price * cart.count * cart.discount, 0)).toFixed(2)}</em>
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Menu from '../../components/account/menu'
 import AddressContainer from './addressContainer'
 import Info from '../../components/account/info'
-import Order from '../../components/account/order'
+import OrderContainer from './orderContainer'
 import Support from '../../components/account/support'
 import { getMenuSelector } from '../../selectors/account/menu'
 import * as menuActions from '../../actions/account/menu'
@@ -16,52 +16,18 @@ import * as accountMenuConstants from '../../constants/menu.constants'
 export default class AccountContainer extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      orders: [
-        {
-          orderNumber: '1704127569257178',
-          date: '2017-04-12',
-          detail: [
-            {
-              name: '充电器',
-              price: 29,
-              account: 1,
-              imgUrl: '/src/images/gerenzhongxin1.png'
-            },
-            {
-              name: 'USB',
-              price: 30,
-              account: 2,
-              imgUrl: '/src/images/gerenzhongxin2.png'
-            }
-          ]
-        },
-        {
-          orderNumber: '1704127569257179',
-          date: '2017-04-13',
-          detail: [
-            {
-              name: '手机',
-              price: 2499,
-              account: 1,
-              imgUrl: '/src/images/gerenzhongxin3.png'
-            }
-          ]
-        }
-      ]
-    }
   }
 
   getDynamicComponent (currentMenu, props) {
     switch (currentMenu) {
       case 'order':
-        return <Order orders={this.state.orders}/>
+        return <OrderContainer/>
       case 'support':
         return <Support/>
       case 'info':
         return <Info/>
       case 'address':
-        return <AddressContainer addresses={this.state.addresses}/>
+        return <AddressContainer/>
       default:
         return null
     }

@@ -21,7 +21,6 @@ export function * deleteCart() {
   while (true) {
     const action = yield take(cartActions.DELETE_CART)
     try {
-      console.log(action.payload)
       yield authDelete(`/api/item/cart/delete/${action.payload}`)
       yield put(cartActions.deleteCartSuccess(action.payload))
     } catch (err) {

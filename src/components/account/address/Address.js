@@ -7,16 +7,6 @@ import * as addressActions from '../../../actions/account/address'
 import {authPost} from '../../../services/authHttp'
 import { Dropdown, Button, Form, Icon, Modal, Input } from 'semantic-ui-react'
 
-import 'semantic-ui-css/components/icon.css'
-import 'semantic-ui-css/components/dropdown.css'
-import 'semantic-ui-css/components/checkbox.css'
-import 'semantic-ui-css/components/button.css'
-import 'semantic-ui-css/components/form.css'
-import 'semantic-ui-css/components/transition.css'
-import 'semantic-ui-css/components/reset.css'
-import 'semantic-ui-css/components/input.css'
-import 'semantic-ui-css/components/modal.css'
-
 import style from './address.scss'
 
 class Address extends Component {
@@ -69,7 +59,6 @@ class Address extends Component {
   }
 
   updateAddress = (event,address,index) => {
-    console.log(address)
     authPost(`/api/user/address/update`,address)
       .then(response => {
         store.dispatch(addressActions.updateAddressSuccess(address,index))

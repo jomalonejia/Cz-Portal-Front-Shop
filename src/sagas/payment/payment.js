@@ -10,7 +10,6 @@ import history from '../../history'
 
 export function * pay() {
   const payAction = yield take(paymentActions.PAY)
-  console.log(payAction.payload)
 }
 
 

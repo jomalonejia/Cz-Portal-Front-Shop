@@ -27,6 +27,19 @@ export function* getAddress(){
   }
 }
 
+export function* getOrders(){
+  while (true){
+    yield take(accountActions.GET_ORDERS)
+    try {
+      const username = yield select(state => state.user.username)
+      const response = yield authGet(`/api/item/order/get/${username}`)
+      yield put(accountActions.getOrdersSuccess(response.data))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 function * getAddAddress () {
   yield takeLatest(accountActions.ADD_ADDRESS, addAddress)
 }
@@ -35,4 +48,5 @@ function * getAddAddress () {
 export const accountSagas = [
   fork(getAddAddress),
   fork(getAddress),
+  fork(getOrders)
 ]

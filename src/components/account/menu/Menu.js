@@ -10,7 +10,8 @@ class Menu extends Component {
 
   }
 
-  changeMenu = url => {}/*this.props.history.push(url)*/
+  changeMenu = url => {}
+  /*this.props.history.push(url)*/
 
   render () {
 
@@ -36,11 +37,11 @@ class Menu extends Component {
                   {
                     menus.map((menu, index) => (
                       <div key={index}>
-                        <li className={menu.name === this.props.match.params.menu ? style.active : null}>
-                          <Link to={menu.url}>
-                          {menu.describe}
-                          </Link>
-                        </li>
+                        <Link to={menu.url}>
+                          <li className={menu.name === this.props.match.params.menu ? style.active : null}>
+                            {menu.describe}
+                          </li>
+                        </Link>
                       </div>
                     ))
                   }

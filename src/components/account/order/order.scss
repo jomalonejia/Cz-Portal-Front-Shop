@@ -55,27 +55,27 @@
         color: #333;
       }
     }
-    .emptyBtn:hover{
-      background: linear-gradient(#f2f2f2,#e1e1e1);
+    .emptyBtn:hover {
+      background: linear-gradient(#f2f2f2, #e1e1e1);
       box-shadow: none;
     }
   }
 }
 
-.innerOrder{
+.innerOrder {
   color: rgb(102, 102, 102);
 }
 
 .orderTitleTable {
-  td{
+  td {
     text-align: center;
     line-height: 40px;
     background: #ededed;
   }
 }
 
-.orderDetailTable{
-  tbody{
+.orderDetailTable {
+  tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
@@ -85,7 +85,7 @@
       border-color: inherit;
       td {
         text-align: center;
-       /* line-height: 56px;*/
+        /* line-height: 56px;*/
         height: 112px;
         background: white;
         border-bottom: 1px solid #ededed;
@@ -94,25 +94,40 @@
   }
 }
 
-.orderTd1{
+.orderTd1 {
   width: 146px;
+  img {
+    width: 80px;
+  }
 }
-.orderTd2{
+
+.orderTd2 {
   width: 296px;
 }
-.orderTd3{
+
+.orderTd3 {
   width: 190px;
+  .prePrice{
+    text-decoration:line-through;
+  }
+  .nowPrice{
+    color: #d44d44;
+  }
 }
-.orderTd4{
+
+.orderTd4 {
   width: 90px;
 }
-.orderTd5{
+
+.orderTd5 {
   width: 122px;
 }
-.orderTd6{
+
+.orderTd6 {
   width: 136px;
 }
-.orderTd7{
+
+.orderTd7 {
   width: 136px;
 }
 

@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import store from './store'
 import './index.css'
+import * as sementic from './styles/semantic'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 

@@ -135,7 +135,7 @@ class Item extends Component {
                   )
                 }
                 <div className={style.paramArea}>
-                  <span className={style.paramName}>数量</span>
+                  <span className={style.paramName}>Count</span>
                   <ItemCount count={this.state.count} changeCount={this.changeCount}/>
                 </div>
               </div>
@@ -148,7 +148,8 @@ class Item extends Component {
                             params: this.state.params,
                             count: this.state.count,
                             itemId: item.id,
-                            username: username
+                            username: username,
+                            postFee: item.postFee
                           }))}>
                       加入购物车
                     </span>
