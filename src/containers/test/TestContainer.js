@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Item from '../../components/components/itemCard'
+import Pagination from '../../components/components/pagination'
 
 class TestContainer extends Component {
 
+  handlerChange = (event) => console.log(event)
+
   render () {
-
-
-
     return (
       <div>
-
+        <Pagination handlerChange={this.handlerChange}/>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import update from 'immutability-helper'
+import Pagination from '../../components/pagination'
 import { Button, Header, Icon, Modal, Step } from 'semantic-ui-react'
 import style from './order.scss'
 
@@ -12,6 +12,8 @@ class Order extends Component {
       modalOpenState: {}
     }
   }
+
+  handlerChange = (pageNum) => console.log(pageNum)
 
   open = orderId => {
     let modalOpenState = this.state.modalOpenState
@@ -26,7 +28,7 @@ class Order extends Component {
 
   render () {
 
-    const {orders = []} = this.props
+    const {orders = {},getOrders} = this.props
 
 
     return (
@@ -36,11 +38,11 @@ class Order extends Component {
             <h2>My Orders</h2>
           </div>
           {
-            orders.length > 0
+            orders.size > 0
               ? <div className={style.innerOrder}>
               <ul>
                 {
-                  orders.map((order, index) =>
+                  orders.list.map((order, index) =>
                     <li key={order.id}>
                       <div className={style.order}>
                         <div className={style.orderTitle}>
@@ -77,16 +79,17 @@ class Order extends Component {
                                     {order.itemName}
                                   </Link>
                                 </td>
-                                <td className={style.orderTd3}><span
-                                  className={style.prePrice}>￥{order.price}</span>&nbsp;<span
-                                  className={style.nowPrice}>￥{Number(order.price * order.discount).toFixed(2)}</span>
+                                <td className={style.orderTd3}>
+                                  <span className={style.prePrice}><Icon name="dollar" />{order.price}</span>
+                                  &nbsp;
+                                  <span className={style.nowPrice}><Icon name="dollar" />{Number(order.price * order.discount).toFixed(2)}</span>
                                 </td>
                                 <td className={style.orderTd4}>{order.count}</td>
-                                <td className={style.orderTd5}>￥{order.totalPrice}</td>
+                                <td className={style.orderTd5}><Icon name="dollar" />{order.totalPrice}</td>
                                 <td className={style.orderTd6}>
                                   {
                                     order.status == 'AWAITING_EXCHANGE'
-                                      ? <Button basic color="orange">Pay <Icon name='right chevron'/></Button>
+                                      ? <Button basic color="orange">Pay <Icon name="right chevron"/></Button>
                                       : <Modal
                                       dimmer={false}
                                       open={this.state.modalOpenState[order.id]}
@@ -95,32 +98,44 @@ class Order extends Component {
                                       size="large"
                                       trigger={<Button basic color='teal'>Track<Icon
                                         name='right chevron'/></Button>}>
-                                      <Modal.Header>Modal #2{index}</Modal.Header>
+                                      <Modal.Header>Track</Modal.Header>
                                       <Modal.Content>
-                                        <Step.Group ordered>
+                                        <Step.Group>
                                           <Step completed>
+                                            <Icon name="plane" />
+                                            <Step.Content>
+                                              <Step.Title>Packing</Step.Title>
+                                              <Step.Description>Your orders has been packed</Step.Description>
+                                            </Step.Content>
+                                          </Step>
+                                          <Step completed>
+                                            <Icon name="plane" />
+                                            <Step.Content>
+                                              <Step.Title>Airline</Step.Title>
+                                              <Step.Description>Your orders on plane</Step.Description>
+                                            </Step.Content>
+                                          </Step>
+                                          <Step active >
+                                            <Icon name="truck" />
                                             <Step.Content>
                                               <Step.Title>Shipping</Step.Title>
-                                              <Step.Description>Choose your shipping options</Step.Description>
+                                              <Step.Description>Delivering your order</Step.Description>
                                             </Step.Content>
                                           </Step>
-
-                                          <Step completed>
+                                          <Step disabled>
+                                            <Icon name="info circle" />
                                             <Step.Content>
-                                              <Step.Title>Billing</Step.Title>
-                                              <Step.Description>Enter billing information</Step.Description>
-                                            </Step.Content>
-                                          </Step>
-
-                                          <Step active>
-                                            <Step.Content>
-                                              <Step.Title>Confirm Order</Step.Title>
+                                              <Step.Title>Delivered</Step.Title>
+                                              <Step.Description>Your orders has been delivered</Step.Description>
                                             </Step.Content>
                                           </Step>
                                         </Step.Group>
                                       </Modal.Content>
+                                      <Modal.Content>
+                                        hehehe
+                                      </Modal.Content>
                                       <Modal.Actions>
-                                        <Button icon='check' content='All Done' onClick={this.close}/>
+                                        <Button icon="check" content='Close' onClick={this.close}/>
                                       </Modal.Actions>
                                     </Modal>
                                   }
@@ -135,6 +150,9 @@ class Order extends Component {
                   )
                 }
               </ul>
+              <div>
+                <Pagination handlerChange={getOrders} data={orders}/>
+              </div>
             </div>
               : <div className={style.innerEmpty}>
               <div className={style.orderEmpty}>

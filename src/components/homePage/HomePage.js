@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import {Icon} from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import style from './homePage.scss'
 import ItemCard from '../components/itemCard'
@@ -182,7 +183,7 @@ class HomePage extends Component {
                         <div><span></span></div>
                       </li>
                     </ul>
-                    <p className={style.price}>￥ {item.price}</p>
+                    <p className={style.price}><Icon name="dollar" /> {item.price}</p>
                     <div className={style.operation}>
                       <Link to="/item/123">查看详情</Link>
                       <Link to="/item/123">加入购物车</Link>

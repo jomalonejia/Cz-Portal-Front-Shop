@@ -18,7 +18,6 @@ export default class AddressContainer extends Component {
     store.dispatch(addressActions.getAddress())
   }
 
-
   render () {
     return (
      <Address {...this.props}/>

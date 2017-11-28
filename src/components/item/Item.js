@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import update from 'immutability-helper'
+import {Icon} from 'semantic-ui-react'
 import ItemCount from '../components/itemCount'
 import style from './item.scss'
 
@@ -94,7 +95,7 @@ class Item extends Component {
               <div className={style.titleText}>
                 <div className={style.price}>
                  <span className={style.priceSpan}>
-                 <em>￥</em>&nbsp;{item.price}
+                 <em><Icon name="dollar" /></em>&nbsp;{item.price}
                  </span>
                 </div>
                 <div className={style.itemsInfo}>

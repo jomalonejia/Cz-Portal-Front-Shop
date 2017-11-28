@@ -1,8 +1,7 @@
 .main {
   width: 990px;
-  float: left;
+  min-height: 880px;
   margin-left: 30px;
-
   .wrapper {
     margin-top: 0;
     margin-bottom: 20px;
@@ -107,10 +106,10 @@
 
 .orderTd3 {
   width: 190px;
-  .prePrice{
-    text-decoration:line-through;
+  .prePrice {
+    text-decoration: line-through;
   }
-  .nowPrice{
+  .nowPrice {
     color: #d44d44;
   }
 }

@@ -29,10 +29,10 @@ export function* getAddress(){
 
 export function* getOrders(){
   while (true){
-    yield take(accountActions.GET_ORDERS)
+    const action = yield take(accountActions.GET_ORDERS)
     try {
       const username = yield select(state => state.user.username)
-      const response = yield authGet(`/api/item/order/get/${username}`)
+      const response = yield authGet(`/api/item/order/get/${username}`,{params:{pageNum:action.payload,pageSize:1}})
       yield put(accountActions.getOrdersSuccess(response.data))
     } catch (err) {
       console.log(err)

@@ -9,15 +9,14 @@ import bindActionCreators from 'redux/es/bindActionCreators'
 @connect(
   state => ordersSelector,
   dispatch => bindActionCreators({...orderActions}, dispatch))
-export default class AddressContainer extends Component {
+export default class OrderContainer extends Component {
   constructor (props) {
     super(props)
   }
 
   componentWillMount(){
-    store.dispatch(orderActions.getOrders())
+    store.dispatch(orderActions.getOrders(1))
   }
-
 
   render () {
     return (

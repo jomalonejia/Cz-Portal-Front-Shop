@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Checkbox } from 'semantic-ui-react'
+import { Checkbox,Icon} from 'semantic-ui-react'
 import BlueBtn from '../components/blueBtn'
 import ItemCount from '../components/itemCount'
 import store from '../../store'
@@ -75,7 +75,7 @@ class Cart extends Component {
                           {cart.discount * 100}%
                         </div>
                         <div className={style.itemPrice}>
-                          ￥&nbsp;{cart.price}
+                          <Icon name="dollar" />&nbsp;{cart.price}
                         </div>
                         <div className={style.itemNumber}>
                           <div className={style.itemNumberWrapper}>
@@ -85,7 +85,7 @@ class Cart extends Component {
                           </div>
                         </div>
                         <div className={style.itemSubtotal}>
-                          ￥&nbsp;{(cart.price * cart.discount).toFixed(2)}
+                          <Icon name="dollar" />&nbsp;{(cart.price * cart.discount).toFixed(2)}
                         </div>
                         <div className={style.itemOperation}>
                           <span onClick={() => deleteCart(cart.id)}></span>
@@ -112,10 +112,10 @@ class Cart extends Component {
                     </div>
                     <div className={style.checkoutPrice}>
                       <h4>
-                        应付总额：<span>￥</span><i>{Number(carts.filter(cart => cart.chosen).reduce((sum, cart) => sum + cart.count * cart.price * cart.discount, 0)).toFixed(2)}</i>
+                        应付总额：<span><Icon name="dollar" /></span><i>{Number(carts.filter(cart => cart.chosen).reduce((sum, cart) => sum + cart.count * cart.price * cart.discount, 0)).toFixed(2)}</i>
                       </h4>
                       <h5>
-                        总额节省：<span>￥</span><i>{Number(carts.filter(cart => cart.chosen).reduce((sum, cart) => sum + cart.count * cart.price * (1 - cart.discount), 0)).toFixed(2)}</i>
+                        总额节省：<span><Icon name="dollar" /></span><i>{Number(carts.filter(cart => cart.chosen).reduce((sum, cart) => sum + cart.count * cart.price * (1 - cart.discount), 0)).toFixed(2)}</i>
                       </h5>
                     </div>
                   </div>

@@ -40,7 +40,7 @@ export default class AccountContainer extends Component {
     let currentMenu = match.params.menu
 
     return (
-      <div>
+      <div className="accountContent">
         <Menu {...this.props}/>
         {this.getDynamicComponent(currentMenu)}
       </div>

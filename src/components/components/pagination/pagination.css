@@ -1,0 +1,35 @@
+.czPagination {
+  margin: 0;
+  vertical-align: middle;
+  display: flex;
+}
+.czPagination li{
+  background-color: #fff;
+  border-radius: .28571429rem 0 0 .28571429rem;
+  border: 1px solid rgba(34,36,38,.15);
+}
+.czPagination li:hover{
+  cursor: pointer;
+  background-color: #EEEEE0;
+}
+.czPagination .active{
+  background-color: rgba(0,0,0,.05);
+}
+.czPagination li span{
+  min-width: 3em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  flex: 0 0 auto;
+  user-select: none;
+  background: 0 0;
+  padding: .92857143em 1.14285714em;
+  text-transform: none;
+  color: rgba(0, 0, 0, .87);
+  font-weight: 400;
+  transition: background .1s ease, box-shadow .1s ease, color .1s ease;
+}

@@ -2,8 +2,9 @@ export const GET_ORDERS = '[Account][Order] Get_Orders'
 export const GET_ORDERS_SUCCESS = '[Account][Order] Get_Orders_Success'
 
 
-export const getOrders = () => ({
+export const getOrders = pageNum => ({
   type: GET_ORDERS,
+  payload: pageNum
 })
 
 export const getOrdersSuccess = orders => ({

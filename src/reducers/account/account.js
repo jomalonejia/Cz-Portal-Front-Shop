@@ -6,7 +6,7 @@ export const accountState = ({
   currentAccountMenu: 'order',
   addresses: [],
   addressId: '',
-  orders: []
+  orders: {}
 })
 
 export function accountReducers (state = accountState, action) {

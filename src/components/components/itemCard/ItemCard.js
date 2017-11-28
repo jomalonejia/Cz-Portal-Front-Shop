@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Checkbox } from 'semantic-ui-react'
+import { Checkbox,Icon} from 'semantic-ui-react'
 import style from './itemCard.scss'
 
 const ItemCard = ({item = []}) => (
@@ -17,7 +17,7 @@ const ItemCard = ({item = []}) => (
     <ul className={style.dotList}>
       <Checkbox checked={true} radio/>
     </ul>
-    <p className={style.price}>￥ {item.price}</p>
+    <p className={style.price}><Icon name="dollar" /> {item.price}</p>
     <div className={style.operation}>
       <Link to={`/item/${item.id}`}>查看详情</Link>
       <Link to={`/item/${item.id}`}>加入购物车</Link>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import {Icon} from 'semantic-ui-react'
 import style from './checkout.scss'
 import BlueBtn from '../components/blueBtn'
 
@@ -81,7 +82,7 @@ class Checkout extends Component {
                         </div>
                       </div>
                       <div className={style.num}>{cart.count}</div>
-                      <div className={style.price}>￥&nbsp;{cart.price}</div>
+                      <div className={style.price}><Icon name="dollar" />&nbsp;{cart.price}</div>
                       <div className={style.discount}>{cart.discount * 100}%</div>
                     </div>
                   )}
@@ -91,15 +92,15 @@ class Checkout extends Component {
           <div className={style.orderDiscount}>
             <p>
               商品总计：
-              <span><strong>￥&nbsp;{carts.reduce((sum, cart) => sum + cart.price * cart.count, 0)}</strong></span>
+              <span><strong><Icon name="dollar" />&nbsp;{carts.reduce((sum, cart) => sum + cart.price * cart.count, 0)}</strong></span>
             </p>
             <p>
               运费：
-              <span><strong>￥&nbsp;{carts.reduce((sum, cart) => sum + cart.postFee, 0)}</strong></span>
+              <span><strong><Icon name="dollar" />&nbsp;{carts.reduce((sum, cart) => sum + cart.postFee, 0)}</strong></span>
             </p>
             <p>
               优惠：
-              <span><strong>￥&nbsp;{Number(carts.reduce((sum, cart) => sum + cart.price * cart.count * (1 - cart.discount), 0)).toFixed(2)}</strong></span>
+              <span><strong><Icon name="dollar" />&nbsp;{Number(carts.reduce((sum, cart) => sum + cart.price * cart.count * (1 - cart.discount), 0)).toFixed(2)}</strong></span>
             </p>
           </div>
           <div>
@@ -107,7 +108,7 @@ class Checkout extends Component {
               <BlueBtn text="提交订单" callback={() => goToPay(carts)}/>
               <div className={style.price}>
                 应付金额:
-                <em>￥&nbsp;{Number(carts.reduce((sum, cart) => sum + cart.price * cart.count * cart.discount, 0)).toFixed(2)}</em>
+                <em><Icon name="dollar" />&nbsp;{Number(carts.reduce((sum, cart) => sum + cart.price * cart.count * cart.discount, 0)).toFixed(2)}</em>
               </div>
             </div>
           </div>

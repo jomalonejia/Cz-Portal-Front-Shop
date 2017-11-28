@@ -4,9 +4,6 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter } from 'react-router-redux'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ScrollToTop from './middleware/scrollToTop'
-import Header from './components/header'
-import Nav from './components/nav'
-import Footer from './components/footer'
 
 import history from './history'
 
@@ -20,6 +17,9 @@ import RegisterContainer from './containers/register'
 import PaymentContainer from './containers/payment'
 import TestContainer from './containers/test'
 
+import Layout from './components/layout'
+
+
 @connect(
   state => state,
   null
@@ -30,34 +30,22 @@ class App extends Component {
     return (
       <ConnectedRouter history={history}>
         <div>
-          <Header/>
-          <Nav/>
-          {/*<Route  exact path="/" component={HomePageContainer}/>
-           <Route  path="/item/:id" component={ItemContainer}/>
-           <Route  path="/account" component={AccountContainer}/>
-           <Route  path="/cart" component={CartContainer}/>
-           <Route  path="/checkout" component={CheckoutContainer}/>
-           <Route  path="/test" component={TestContainer}/>*/}
           <ScrollToTop>
-            <Route render={({location}) => (
-              <ReactCSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={300}
-                transitionLeaveTimeout={300}>
-                <div key={location.pathname} className="body">
-                  <Route location={location} exact path="/" component={HomePageContainer}/>
-                  <Route location={location} path="/item/:id" component={ItemContainer}/>
-                  <Route location={location} path="/account/:menu" component={AccountContainer}/>
-                  <Route location={location} path="/cart" component={CartContainer}/>
-                  <Route location={location} path="/checkout" component={CheckoutContainer}/>
-                  <Route location={location} path="/login" component={LoginContainer}/>
-                  <Route location={location} path="/register" component={RegisterContainer}/>
-                  <Route location={location} path="/payment" component={PaymentContainer}/>
-                  <Route location={location} path="/test" component={TestContainer}/>
-                </div>
-              </ReactCSSTransitionGroup>)}/>
+            <ReactCSSTransitionGroup
+              transitionName="fade"
+              transitionEnterTimeout={300}
+              transitionLeaveTimeout={300}>
+              <Layout exact path="/" component={HomePageContainer}/>
+              <Layout path="/item/:id" component={ItemContainer}/>
+              <Layout path="/account/:menu" component={AccountContainer}/>
+              <Layout path="/cart" component={CartContainer}/>
+              <Layout path="/checkout" component={CheckoutContainer}/>
+              <Layout path="/payment" component={PaymentContainer}/>
+              <Layout path="/test" component={TestContainer}/>
+              <Route path="/login" component={LoginContainer}/>
+              <Route path="/register" component={RegisterContainer}/>
+            </ReactCSSTransitionGroup>
           </ScrollToTop>
-          <Footer/>
         </div>
       </ConnectedRouter>
     )
