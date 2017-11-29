@@ -1,3 +1,5 @@
+@import "../../../styles/common";
+
 .main {
   width: 990px;
   min-height: 880px;
@@ -128,5 +130,9 @@
 
 .orderTd7 {
   width: 136px;
+}
+
+.paginationArea{
+  @include cz-pagination
 }
 

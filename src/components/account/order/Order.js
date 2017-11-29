@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Pagination from '../../components/pagination'
-import { Button, Header, Icon, Modal, Step } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal, Step, Message } from 'semantic-ui-react'
 import style from './order.scss'
 
 class Order extends Component {
@@ -13,23 +13,20 @@ class Order extends Component {
     }
   }
 
-  handlerChange = (pageNum) => console.log(pageNum)
-
   open = orderId => {
     let modalOpenState = this.state.modalOpenState
     modalOpenState[orderId] = true
-    this.setState({modalOpenState: modalOpenState}, () => console.log(this.state))
+    this.setState({modalOpenState: modalOpenState})
   }
   close = () => {
-    this.setState({modalOpenState:{}})
+    this.setState({modalOpenState: {}})
   }
 
   goToPay = () => console.log('aa')
 
   render () {
 
-    const {orders = {},getOrders} = this.props
-
+    const {orders = {}, getOrders} = this.props
 
     return (
       <div className={style.main}>
@@ -80,12 +77,13 @@ class Order extends Component {
                                   </Link>
                                 </td>
                                 <td className={style.orderTd3}>
-                                  <span className={style.prePrice}><Icon name="dollar" />{order.price}</span>
+                                  <span className={style.prePrice}><Icon name="dollar"/>{order.price}</span>
                                   &nbsp;
-                                  <span className={style.nowPrice}><Icon name="dollar" />{Number(order.price * order.discount).toFixed(2)}</span>
+                                  <span className={style.nowPrice}><Icon
+                                    name="dollar"/>{Number(order.price * order.discount).toFixed(2)}</span>
                                 </td>
                                 <td className={style.orderTd4}>{order.count}</td>
-                                <td className={style.orderTd5}><Icon name="dollar" />{order.totalPrice}</td>
+                                <td className={style.orderTd5}><Icon name="dollar"/>{order.totalPrice}</td>
                                 <td className={style.orderTd6}>
                                   {
                                     order.status == 'AWAITING_EXCHANGE'
@@ -101,29 +99,36 @@ class Order extends Component {
                                       <Modal.Header>Track</Modal.Header>
                                       <Modal.Content>
                                         <Step.Group>
-                                          <Step completed>
-                                            <Icon name="plane" />
+                                          <Step active={order.status == 'AWAITING_SHIPPING'}
+                                                completed={order.status != 'AWAITING_SHIPPING' && order.orderTracks.findIndex(track => track.status == 'AWAITING_SHIPPING') != -1}
+                                                disabled={!order.orderTracks.find(track => track.status == 'AWAITING_SHIPPING')}>
+                                            <Icon name="gift"/>
                                             <Step.Content>
                                               <Step.Title>Packing</Step.Title>
                                               <Step.Description>Your orders has been packed</Step.Description>
                                             </Step.Content>
                                           </Step>
-                                          <Step completed>
-                                            <Icon name="plane" />
+                                          <Step active={order.status == 'SHIPPING'}
+                                                completed={order.status != 'SHIPPING' && order.orderTracks.findIndex(track => track.status == 'SHIPPING') != -1}
+                                                disabled={!order.orderTracks.find(track => track.status == 'SHIPPING')}>
+                                            <Icon name="plane"/>
                                             <Step.Content>
                                               <Step.Title>Airline</Step.Title>
                                               <Step.Description>Your orders on plane</Step.Description>
                                             </Step.Content>
                                           </Step>
-                                          <Step active >
-                                            <Icon name="truck" />
+                                          <Step active={order.status == 'DELIVERING'}
+                                                completed={order.status != 'DELIVERING' && order.orderTracks.findIndex(track => track.status == 'DELIVERING') != -1}
+                                                disabled={!order.orderTracks.find(track => track.status == 'DELIVERING')}>
+                                            <Icon name="truck"/>
                                             <Step.Content>
                                               <Step.Title>Shipping</Step.Title>
                                               <Step.Description>Delivering your order</Step.Description>
                                             </Step.Content>
                                           </Step>
-                                          <Step disabled>
-                                            <Icon name="info circle" />
+                                          <Step completed={order.status == 'COMPLETED'}
+                                                disabled={order.status != 'COMPLETED'}>
+                                            <Icon name="info circle"/>
                                             <Step.Content>
                                               <Step.Title>Delivered</Step.Title>
                                               <Step.Description>Your orders has been delivered</Step.Description>
@@ -132,7 +137,19 @@ class Order extends Component {
                                         </Step.Group>
                                       </Modal.Content>
                                       <Modal.Content>
-                                        hehehe
+                                        {
+                                          order.orderTracks.map((track, index) => (
+                                            <div key={track.id}>
+                                              <Message>
+                                                <Message.Header>Tracking Status</Message.Header>
+                                                <Message.List>
+                                                  <Message.Item>{new Date(track.trackTime).toString()}</Message.Item>
+                                                  <Message.Item>{track.trackInformation}</Message.Item>
+                                                </Message.List>
+                                              </Message>
+                                            </div>
+                                          ))
+                                        }
                                       </Modal.Content>
                                       <Modal.Actions>
                                         <Button icon="check" content='Close' onClick={this.close}/>
@@ -150,7 +167,7 @@ class Order extends Component {
                   )
                 }
               </ul>
-              <div>
+              <div className={style.paginationArea}>
                 <Pagination handlerChange={getOrders} data={orders}/>
               </div>
             </div>

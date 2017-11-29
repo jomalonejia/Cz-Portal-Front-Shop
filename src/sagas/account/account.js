@@ -1,5 +1,6 @@
 import { call, fork, select, put, take, takeLatest } from 'redux-saga/effects'
 import {authGet,authPost} from '../../services/authHttp'
+import {authChangePage} from '../../services/pageService'
 import * as accountActions from '../../actions/account'
 
 export function* addAddress (action){
@@ -32,7 +33,7 @@ export function* getOrders(){
     const action = yield take(accountActions.GET_ORDERS)
     try {
       const username = yield select(state => state.user.username)
-      const response = yield authGet(`/api/item/order/get/${username}`,{params:{pageNum:action.payload,pageSize:1}})
+      const response = yield authChangePage(`/api/item/order/get/${username}`,action.payload)
       yield put(accountActions.getOrdersSuccess(response.data))
     } catch (err) {
       console.log(err)

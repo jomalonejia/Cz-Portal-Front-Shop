@@ -6,3 +6,10 @@
   padding: 0 0 25px;
   margin: 0 auto;
 }
+
+@mixin cz-pagination{
+  display: inline-block;
+  margin-left: 25%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

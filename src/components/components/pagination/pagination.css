@@ -1,9 +1,10 @@
 .czPagination {
   margin: 0;
   vertical-align: middle;
-  display: flex;
+  display: inline-block;
 }
 .czPagination li{
+  float: left;
   background-color: #fff;
   border-radius: .28571429rem 0 0 .28571429rem;
   border: 1px solid rgba(34,36,38,.15);
