@@ -23,10 +23,11 @@
     margin-bottom: 20px;
   }
 
-  .itemInfo{
+  .itemInfo {
     min-height: 600px;
   }
-  .itemComment{
+  .itemComment {
+    margin-top: 2em;
     min-height: 800px;
   }
 
@@ -385,6 +386,11 @@
   }
 }
 
-.commentTextArea{
+.commentUsername {
+  font-weight: 700;
+}
 
+.paginationArea{
+  display: inline-block;
+  margin: 3%;
 }
