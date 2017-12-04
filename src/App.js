@@ -7,15 +7,15 @@ import ScrollToTop from './middleware/scrollToTop'
 
 import history from './history'
 
-import HomePageContainer from './containers/homepage'
-import ItemContainer from './containers/item'
-import AccountContainer from './containers/account'
-import CartContainer from './containers/cart'
-import CheckoutContainer from './containers/checkout'
-import LoginContainer from './containers/login'
-import RegisterContainer from './containers/register'
-import PaymentContainer from './containers/payment'
-import TestContainer from './containers/test'
+import HomePage from './pages/homepage'
+import Item from './pages/item'
+import Account from './pages/account'
+import Cart from './pages/cart'
+import Comment from './pages/comment'
+import Checkout from './pages/checkout'
+import Login from './pages/login'
+import Register from './pages/register'
+import Payment from './pages/payment'
 
 import Layout from './components/layout'
 
@@ -35,15 +35,15 @@ class App extends Component {
               transitionName="fade"
               transitionEnterTimeout={300}
               transitionLeaveTimeout={300}>
-              <Layout exact path="/" component={HomePageContainer}/>
-              <Layout path="/item/:id" component={ItemContainer}/>
-              <Layout path="/account/:menu" component={AccountContainer}/>
-              <Layout path="/cart" component={CartContainer}/>
-              <Layout path="/checkout" component={CheckoutContainer}/>
-              <Layout path="/payment" component={PaymentContainer}/>
-              <Layout path="/test" component={TestContainer}/>
-              <Route path="/login" component={LoginContainer}/>
-              <Route path="/register" component={RegisterContainer}/>
+              <Layout exact path="/" component={HomePage}/>
+              <Layout path="/item/:id" component={Item}/>
+              <Layout path="/account/:menu" component={Account}/>
+              <Layout path="/cart" component={Cart}/>
+              <Layout path="/comment/:orderId" component={Comment}/>
+              <Layout path="/checkout" component={Checkout}/>
+              <Layout path="/payment" component={Payment}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/register" component={Register}/>
             </ReactCSSTransitionGroup>
           </ScrollToTop>
         </div>

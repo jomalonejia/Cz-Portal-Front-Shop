@@ -19,6 +19,11 @@ module.exports = {
     path: `${__dirname}/dist`,
     filename: 'index_bundle.js',
   },
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, "src"),
+    }
+  },
   module: {
     loaders: [
       {

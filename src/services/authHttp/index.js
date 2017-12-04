@@ -1,7 +1,6 @@
 import axios from 'axios'
-import store from '../../store'
-import promise from 'promise'
-import history from '../../history'
+import store from 'src/store'
+import history from 'src/history'
 
 const getAccessToken = (state) => state.user.access_token;
 

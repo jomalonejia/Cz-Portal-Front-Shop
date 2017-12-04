@@ -1,4 +1,4 @@
-import { fetchObject } from '../../utils/fetchUtil'
+import { fetchObject } from 'src/utils/fetchUtil'
 
 export const login = (username, password) =>
   fetch('/api/security/oauth/token', {

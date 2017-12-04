@@ -1,0 +1,399 @@
+@mixin item-border {
+  background-color: #fff;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom: 1px solid;
+  border-color: #E0E0E0;
+}
+
+.main {
+  width: 1220px;
+  background-color: #EDEDED;
+  margin: 0 auto;
+
+  /*--商品头部div--*/
+  .grayBox {
+    @include item-border;
+    width: 1220px;
+    margin-bottom: 20px;
+  }
+
+  .itemInfo {
+    min-height: 600px;
+  }
+  .itemComment {
+    margin-top: 2em;
+    min-height: 800px;
+  }
+
+  .pm {
+    @include item-border;
+    border-color: #E0E0E0;
+    .pmTitle {
+      z-index: 10;
+      height: 60px;
+      padding: 0 10px 0 24px;
+      border-bottom: 1px solid #d4d4d4;
+      border-radius: 8px 8px 0 0;
+      box-shadow: rgba(0, 0, 0, .06) 0 1px 7px;
+      background: #f3f3f3;
+      background: -webkit-linear-gradient(#fbfbfb, #ececec);
+      background: linear-gradient(#fbfbfb, #ececec);
+      line-height: 60px;
+      font-size: 18px;
+      color: #333;
+
+      h2 {
+        font-weight: normal;
+        display: block;
+        font-size: 18px;
+      }
+    }
+
+    .allPic {
+      .itemContentContainer{
+        width: 100%;
+        img {
+          opacity: 1;
+          transition: opacity 0.5s;
+          display: block;
+          width: 1220px;
+          max-width: inherit;
+          margin-left: -1px;
+        }
+      }
+    }
+  }
+
+  /*<!--侧面描述区-->*/
+}
+
+.colorLi {
+  display: block;
+  float: left;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #E5E5E5;
+  padding: 3px;
+  text-align: center;
+  color: #757575;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+/*<!--商品细节图片-->*/
+.wrapper {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 648px;
+  height: 440px;
+  background-color: #fff;
+  float: left;
+
+  /*<!--左侧图片区-->*/
+  .gallery {
+    width: 540px;
+    height: 440px;
+    float: left;
+    display: table-cell;
+    padding-left: 60px;
+    margin-top: 60px;
+
+    /*<!--左侧一列图片区-->*/
+    .thumbNail {
+      width: 80px;
+      height: 440px;
+      float: left;
+      background-color: #fff;
+      ul {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        img {
+          padding: 10px;
+          /*border: 3px solid #ccc;*/
+          border: 1px solid rgba(0, 0, 0, .06);
+          width: 54px;
+          height: 54px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+        img:hover {
+          box-shadow: inset 0 0 0 2px #B2B2B2;
+        }
+        .imageShow {
+          box-shadow: inset 0 0 0 2px #B2B2B2;
+        }
+      }
+
+    }
+
+    /*<!--右侧图片区-->*/
+    .thumb {
+      float: left;
+      width: 400px;
+      height: 400px;
+      background-color: #fff;
+      overflow: hidden;
+      img {
+        width: 440px;
+        height: 440px;
+      }
+      .thumbShow {
+        display: block;
+      }
+    }
+  }
+}
+
+.banner {
+  width: 450px;
+  height: 440px;
+  float: left;
+  background-color: #fff;
+  vertical-align: middle;
+  margin-left: 50px;
+
+  .titleText {
+    width: 450px;
+    height: 110px;
+    overflow: hidden;
+    margin-top: 50px;
+    padding: 8px 8px 0px 10px;
+    position: relative;
+    border-bottom: 1px solid #bdbdbd;
+
+  }
+
+  .price {
+    float: right;
+    margin-top: 40px;
+
+    .priceSpan {
+      padding-left: 2px;
+      font-size: 24px;
+      color: #de4037;
+      font-weight: 700;
+      line-height: 20px;
+      text-align: right;
+
+      .priceSpan em {
+        font-style: normal;
+        color: #de4037;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: right;
+      }
+
+    }
+
+  }
+
+  .itemsInfo {
+    width: 360px;
+    height: 64px;
+
+    .textName h4 {
+      font-family: sans-serif;
+      width: 360px;
+      height: 30px;
+      float: right;
+      font-size: 24px;
+      line-height: 1.25;
+      color: #000;
+      margin-bottom: 13px;
+      display: block;
+      font-weight: normal;
+    }
+
+    .textName h5 {
+      width: 360px;
+      height: 20px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #bdbdbd;
+      font-weight: 400;
+      display: block;
+    }
+  }
+
+}
+
+.param {
+  padding: 20px;
+  min-height: 120px;
+  overflow: hidden;
+  border-bottom: 1px solid;
+  border-color: #E0E0E0;
+
+  .paramArea {
+    float: left;
+    padding-right: 20px;
+    font-size: 14px;
+    color: #8d8d8d;
+    line-height: 36px;
+    margin-top: 20px;
+
+    .paramName {
+      float: left;
+      padding-right: 20px;
+      font-size: 14px;
+      color: #8d8d8d;
+      line-height: 36px;
+    }
+
+    .paramValues {
+      float: left;
+      line-height: 36px;
+      margin: -10px 0 0 -10px;
+      width: 350px;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+
+      .paramValue {
+        display: block;
+        color: #757575;
+        font-size: 13px;
+        width: 60px;
+        height: 36px;
+        margin-top: 10px;
+        margin-left: 30px;
+        border: 0 solid #bdbdbd;
+        text-align: center;
+        box-shadow: inset 0 0 0 1px #dbdbdb;
+        border-radius: 8%;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          border: 0 solid rgba(226, 226, 226, 1);
+          box-shadow: inset 0 0 0 2px #B2B2B2;
+        }
+      }
+      .paramColor {
+        display: block;
+        width: 36px;
+        height: 36px;
+        border: 4px solid #E5E5E5;
+        padding: 3px;
+        text-align: center;
+        color: #757575;
+        border-radius: 50%;
+        margin-left: 37px;
+        cursor: pointer;
+        &:hover {
+          border: 4px solid #B2B2B2;
+        }
+        span {
+          height: 100%;
+          display: block;
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+      .paramColorActivate {
+        border: 4px solid #B2B2B2;
+      }
+      .paramActivate {
+        border: 0 solid rgba(226, 226, 226, 1);
+        box-shadow: inset 0 0 0 2px #B2B2B2;
+        &:hover {
+          border: 0 solid rgba(226, 226, 226, 1);
+          box-shadow: inset 0 0 0 2px #B2B2B2;
+        }
+      }
+    }
+  }
+}
+
+.buyNow {
+  width: 150px;
+  height: 190px;
+
+  .buttonText {
+    position: relative;
+    border-top: 1px solid #ebebeb;
+    padding: 30px 0 0 10px;
+    position: relative;
+  }
+
+  .buttonBar {
+    width: 450px;
+    height: 129px;
+    .blueBtn {
+      float: left;
+      display: inline-block;
+      width: 143px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 7px;
+      background-color: #5c85e5;
+      background-image: -webkit-linear-gradient(#779ae9, #5078df);
+      background-image: linear-gradient(#779ae9, #5078df);
+      color: #fff;
+      cursor: pointer;
+    }
+    .blueBtn:hover {
+      transition: all .15s ease-out;
+      box-shadow: inset 0 1px 1px #7696DE, inset 0 0 2px #627DCA, inset 0 -2px 3px #5A77C7, inset 0 0 100px rgba(48, 77, 147, .4);
+    }
+
+    .grayBtn {
+      display: inline-block;
+      width: 143px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 7px;
+      color: #8c8c8c;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .grayBtn:hover {
+      transition: all 0.15s ease-out;
+      background: linear-gradient(rgb(246, 246, 246), rgb(237, 237, 237));
+    }
+
+    .warning p {
+      display: block;
+      color: #999;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.commentsArea {
+  padding: 3em;
+  .commentsGroup {
+    max-width: 720px;
+    .comments {
+      margin: 2.5em !important;
+    }
+  }
+}
+
+.commentUsername {
+  font-weight: 700;
+}
+
+.paginationArea{
+  display: inline-block;
+  margin: 3%;
+}

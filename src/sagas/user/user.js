@@ -1,10 +1,10 @@
 import { call, fork, select, put, take, takeLatest } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
 import axios from 'axios'
-import * as userActions from '../../actions/user'
-import { login } from '../../services/authFetch'
+import * as userActions from 'src/actions/user'
+import { login } from 'src/services/authFetch'
 
-import history from '../../history'
+import history from 'src/history'
 
 export function * registerFlow (action) {
   try {
