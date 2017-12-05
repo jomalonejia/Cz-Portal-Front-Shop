@@ -28,7 +28,6 @@
   }
   .itemComment {
     margin-top: 2em;
-    min-height: 800px;
   }
 
   .pm {
@@ -396,4 +395,9 @@
 .paginationArea{
   display: inline-block;
   margin: 3%;
+}
+
+.noComment{
+  font-size: 40px;
+  color: #666;
 }

@@ -17,8 +17,7 @@ class ItemComponent extends Component {
       count: 1,
       params: [],
       commentsInfo: {},
-      comment: '',
-      rating:0,
+
     }
   }
 
@@ -71,14 +70,6 @@ class ItemComponent extends Component {
         this.setState({commentsInfo: res.data})
       })
       .catch(err => {})
-  }
-
-  changeComment = event => {
-    this.setState({comment:event.target.value})
-  }
-
-  changeRating = (event, data) => {
-    this.setState({rating:data.rating})
   }
 
   render () {
@@ -207,7 +198,11 @@ class ItemComponent extends Component {
             <div className={style.commentsArea}>
               <SemanticItem.Group className={style.commentsGroup}>
                 {
-                  this.state.commentsInfo.list &&
+                  (this.state.commentsInfo
+                    && this.state.commentsInfo.list
+                    && this.state.commentsInfo.list.length > 0
+                )
+                  ?
                   this.state.commentsInfo.list.map((comment, index) => (
                     <SemanticItem key={comment.id} className={style.comments}>
                       <SemanticItem.Image size="tiny" src={comment.profile}/>
@@ -226,6 +221,7 @@ class ItemComponent extends Component {
                       </SemanticItem.Content>
                     </SemanticItem>
                   ))
+                    : <div className={style.noComment}>No comments ...</div>
                 }
               </SemanticItem.Group>
               <div className={style.paginationArea}>

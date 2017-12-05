@@ -1,6 +1,35 @@
 @import "../../../styles/common";
 
-
-
+.commentArea {
+  display: flex;
+  flex-direction: column;
+  .commentInfo {
+    display: flex;
+    .imageArea {
+      padding: 20px;
+    }
+    .infoArea {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      .infoLine {
+        display: inline-flex;
+        margin: 30px;
+        h3 {
+          font-size: 25px;
+          color: #666;
+        }
+        span {
+          font-size: 19px;
+          color: #C34930;;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  .commentForm {
+    padding: 30px;
+  }
+}
 
 

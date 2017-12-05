@@ -92,7 +92,11 @@ class OrderComponent extends Component {
                                         case "AWAITING_EXCHANGE":
                                           return <Button basic color="orange">Pay<Icon name="right chevron"/></Button>
                                         case "AWAITING_COMMENT":
-                                          return <Link to={`/comment/${order.id}`} ><Button basic color="orange">Comment<Icon name="right chevron"/></Button></Link>
+                                          return <Link to={`/comment/${order.id}`} ><Button basic color="purple">Comment<Icon name="right chevron"/></Button></Link>
+                                        case "COMPLETED":
+                                          return <span>completed</span>
+                                        case "CANCELED":
+                                          return <span>canceled</span>
                                         default:
                                           return (
                                           <Modal

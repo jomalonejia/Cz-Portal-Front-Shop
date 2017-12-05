@@ -35,11 +35,17 @@
 ## Seceenshots
 
 
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/1.PNG)<br />
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/2.PNG)<br />
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/3.PNG)<br />
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/4.PNG)<br />
-![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/login.PNG)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/1.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/item2.PNG)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/detail1.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/detail2.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/detail3.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/address.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/cart.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/checkout.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/order.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/track.png)<br />
+![image](https://github.com/jomalonejia/Cz-Portal-Front-Shop/blob/master/screenshots/login.png)<br />
 
 
 ## Authors

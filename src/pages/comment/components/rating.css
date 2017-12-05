@@ -1,0 +1,7 @@
+.ui.star.rating .icon:before{
+    font-size: 30px !important;
+}
+
+.ui.star.rating .icon{
+    width: 2.25em !important;
+}

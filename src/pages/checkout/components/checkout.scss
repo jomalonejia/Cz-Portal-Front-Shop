@@ -154,6 +154,13 @@
       text-align: right;
       float: right;
     }
+    .discount{
+      width: 100px;
+      font-weight: 700;
+      padding-right: 29px;
+      text-align: right;
+      float: right;
+    }
   }
 }
 
@@ -224,6 +231,16 @@
   }
   .price {
     width: 120px;
+    font-weight: 700;
+    overflow: hidden;
+    float: right;
+    padding-right: 29px;
+    line-height: 110px;
+    text-align: right;
+    color: #333;
+  }
+  .discount {
+    width: 100px;
     font-weight: 700;
     overflow: hidden;
     float: right;
