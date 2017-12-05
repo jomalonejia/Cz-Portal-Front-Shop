@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 
 
 export const usernameState = state => state.user.username
+export const profileState = state => state.user.profile
 
 export const userLoginErrorSelector = createSelector(
   state => state.user.loginError,
@@ -11,5 +12,10 @@ export const userLoginErrorSelector = createSelector(
 export const usernameSelector = createSelector(
   usernameState,
   (username) => ({username})
+)
+
+export const profileSelector = createSelector(
+  profileState,
+  (profile) => ({profile})
 )
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {profileSelector} from 'src/selectors/user'
 import MenuComponent from './components/menu'
 import Address from './Address'
 import Order from './Order'
@@ -7,7 +8,7 @@ import Support from './Support'
 import Info from './Info'
 
 @connect(
-  null,
+  state => profileSelector,
   null)
 export default class Account extends Component {
   constructor (props) {

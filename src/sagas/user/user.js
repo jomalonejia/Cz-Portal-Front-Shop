@@ -1,8 +1,7 @@
 import { call, fork, select, put, take, takeLatest } from 'redux-saga/effects'
-import { push } from 'react-router-redux'
 import axios from 'axios'
 import * as userActions from 'src/actions/user'
-import { login } from 'src/services/authFetch'
+import { login, getUserInfo } from 'src/services/authFetch'
 
 import history from 'src/history'
 
@@ -18,14 +17,26 @@ export function * registerFlow (action) {
 
 export function * loginFlow (action) {
   try {
-    const response = yield call(login,action.payload.username, action.payload.password)
-    yield put(userActions.loginSuccess(Object.assign({},response,{username:action.payload.username})))
+    const response = yield call(login, action.payload.username, action.payload.password)
+
+    const userInfoResponse =
+      yield axios.get(`/api/user/user/getUserInfo`,
+        {
+          params: {
+            username: action.payload.username
+          },
+          headers: {
+            Authorization: `Bearer ${response.access_token}`
+          }
+        }
+      )
+    yield put(userActions.loginSuccess(Object.assign({}, response, userInfoResponse.data)))
     const redirectUrl = new URLSearchParams(window.location.search).get('redirectUrl')
-    if(redirectUrl){
+    if (redirectUrl) {
       const re = /https?:\/\/.*?:\d+(.*?)/g
-      const router = redirectUrl.replace(re,'')
+      const router = redirectUrl.replace(re, '')
       yield history.push(router)
-    }else{
+    } else {
       yield history.push('/')
     }
   } catch (error) {

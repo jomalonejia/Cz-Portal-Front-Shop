@@ -15,7 +15,7 @@ class MenuComponent extends Component {
 
   render () {
 
-    const {currentMenu} = this.props
+    const {currentMenu,profile} = this.props
 
     const menus = [
       {name: 'order', describe: 'Order', url: '/account/order'},
@@ -30,7 +30,7 @@ class MenuComponent extends Component {
           <div className={style.sidebar}>
             <div className={style.avatar}>
               <div className={style.profile}>
-                <img src='/src/images/profile.jpg'/>
+                <img src={profile}/>
               </div>
               <div className={style.inner}>
                 <ul>
