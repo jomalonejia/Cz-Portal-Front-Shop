@@ -5,7 +5,7 @@ export const userState = new Record({
   loginState:false,
   loginError:false,
   username:'',
-  profile:'',
+  profile:`/src/images/profiles/zues.png`,
   access_token:'',
   refresh_token:''
 })

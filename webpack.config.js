@@ -85,19 +85,19 @@ module.exports = {
     port: 4201,
     proxy: {
       '/api/security': {
-        target: 'http://localhost:8765/cz-portal-security',
+        target: 'http://localhost:8080/cz-portal-security',
         pathRewrite: {
           '/api/security' : ''
         }
       },
       '/api/item': {
-        target: 'http://localhost:8765/cz-portal-service-item',
+        target: 'http://localhost:8080/cz-portal-service-item',
         pathRewrite: {
           '/api/item' : ''
         }
       },
       '/api/user': {
-        target: 'http://localhost:8765/cz-portal-service-user',
+        target: 'http://localhost:8080/cz-portal-service-user',
         pathRewrite: {
           '/api/user' : ''
         }

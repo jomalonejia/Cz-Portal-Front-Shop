@@ -6,6 +6,7 @@ import { Icon, Item as SemanticItem, Rating, Form, Button } from 'semantic-ui-re
 import {changePage} from 'src/services/pageService'
 import Count from 'src/components/components/count'
 import style from './item.scss'
+import {itemComments} from 'src/mockData/item'
 
 class ItemComponent extends Component {
 
@@ -65,11 +66,8 @@ class ItemComponent extends Component {
   }
 
   onChangePage = pageNum => {
-    changePage(`/api/item/item/comment/${this.props.match.params.id}/`,pageNum)
-      .then(res => {
-        this.setState({commentsInfo: res.data})
-      })
-      .catch(err => {})
+    const comment = itemComments.find(comment => comment.pageNum == pageNum)
+    this.setState({commentsInfo: comment})
   }
 
   render () {

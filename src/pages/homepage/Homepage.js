@@ -4,6 +4,7 @@ import { createSelector } from 'reselect'
 import axios from 'axios'
 import {userSelector} from 'src/selectors/user'
 import HomePageComponent from './components/homePage'
+import {hotItems} from 'src/mockData/item'
 
 class HomePage extends Component {
 
@@ -15,15 +16,7 @@ class HomePage extends Component {
   }
 
   componentWillMount () {
-    axios.get(
-      '/api/item/item/listHotItems'
-    )
-      .then(res => {
-        this.setState({hotItems: res.data})
-      })
-      .catch(err => {
-        console.log(err)
-      })
+        this.setState({hotItems: hotItems})
   }
 
   render () {

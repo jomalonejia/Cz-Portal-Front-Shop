@@ -17,8 +17,6 @@ export default class Account extends Component {
 
   getDynamicComponent (currentMenu, props) {
     switch (currentMenu) {
-      case 'order':
-        return <Order/>
       case 'support':
         return <Support/>
       case 'info':
@@ -26,7 +24,7 @@ export default class Account extends Component {
       case 'address':
         return <Address/>
       default:
-        return null
+        return <Order/>
     }
   }
 

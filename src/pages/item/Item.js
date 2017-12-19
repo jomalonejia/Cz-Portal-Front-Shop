@@ -6,6 +6,7 @@ import ItemComponent from './components'
 import {usernameSelector} from 'src/selectors/user'
 import * as itemActions from './actions'
 import {addToCart} from 'src/pages/cart/actions'
+import {items} from 'src/mockData/item'
 
 @connect(
   state => usernameSelector,
@@ -23,15 +24,8 @@ class Item extends Component {
   componentWillMount () {
     const {match} = this.props
     let itemId = match.params.id
-    axios.get(
-      `/api/item/item/get/${itemId}`
-    )
-      .then(res => {
-        this.setState({item: res.data})
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    const item  = items.find(item => item.id === itemId)
+    this.setState({item: item})
   }
 
   render () {

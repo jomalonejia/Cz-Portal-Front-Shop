@@ -1,4 +1,5 @@
 # Cz-Portal-Front-Shop
+## PS.this is the static branch with no http interaction, all the resource is static
 
 ## Introduction
 
